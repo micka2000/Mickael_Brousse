@@ -63,8 +63,12 @@ const I18N = {
     'edu.lic_d': 'Dual training in economics and organizational management, with a quantitative and analytical approach.',
     'contact.tag': '05 / Contact', 'contact.title': "Let's Work Together",
     'contact.intro': "Available for opportunities in Canada and internationally.<br />Let's talk about your next data project.",
-    'contact.cta': 'Send a message',
-    'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Your message...',
+    'contact.eyebrow': 'Get in touch',
+    'contact.headline': 'Let\'s talk<span class="ch-accent">?</span>',
+    'contact.cta': 'Send a message', 'contact.cta_short': 'Send',
+    'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
+    'contact.f_name_ph': 'Jane Smith', 'contact.f_email_ph': 'you@company.com',
+    'contact.f_message_ph': 'Tell me about your project…',
     'contact.success': '✓ Message ready — your mail client just opened with everything prefilled.',
     'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
   },
@@ -127,8 +131,12 @@ const I18N = {
     'edu.lic_d': 'Double formation en sciences économiques et management des organisations, avec une approche quantitative et analytique.',
     'contact.tag': '05 / Contact', 'contact.title': 'Travaillons Ensemble',
     'contact.intro': "Disponible pour des opportunités au Canada et à l'international.<br />Parlons de votre prochain projet data.",
-    'contact.cta': 'Envoyer un message',
-    'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Votre message...',
+    'contact.eyebrow': 'Contact',
+    'contact.headline': 'On parle<span class="ch-accent">?</span>',
+    'contact.cta': 'Envoyer un message', 'contact.cta_short': 'Envoyer',
+    'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
+    'contact.f_name_ph': 'Jeanne Dupont', 'contact.f_email_ph': 'vous@entreprise.com',
+    'contact.f_message_ph': 'Parlez-moi de votre projet…',
     'contact.success': '✓ Message prêt — votre client mail vient de s\'ouvrir avec tout pré-rempli.',
     'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
   },
@@ -351,10 +359,11 @@ inView('.edu-grid', ({ target }) => {
 }, { amount: 0.15 });
 
 // ---- Contact ----
-document.querySelectorAll('.contact-cta-block, .contact-card').forEach(el => { el.style.opacity = '0'; });
-inView('.contact-cta-block', ({ target }) => {
-  animate(target, { opacity: [0, 1], y: [24, 0] }, { duration: 0.7, ease: expo });
-}, { amount: 0.25 });
+document.querySelectorAll('.contact-pitch, .contact-form, .contact-card').forEach(el => { el.style.opacity = '0'; });
+inView('.contact-layout', ({ target }) => {
+  animate(target.querySelector('.contact-pitch'), { opacity: [0, 1], x: [-24, 0] }, { duration: 0.7, ease: expo });
+  animate(target.querySelector('.contact-form'),  { opacity: [0, 1], x: [24, 0]  }, { duration: 0.7, delay: 0.1, ease: expo });
+}, { amount: 0.2 });
 
 inView('.contact-grid', () => {
   animate('.contact-card',
