@@ -198,6 +198,12 @@ section { padding: 6rem 0; position: relative; }
 }
 .nav-links a:hover::after { width: 100%; }
 
+.nav-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
 .nav-badge {
   display: inline-flex;
   align-items: center;
@@ -214,6 +220,32 @@ section { padding: 6rem 0; position: relative; }
   transition: transform var(--duration-fast), box-shadow var(--duration-fast);
 }
 .nav-badge:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+
+/* Language toggle — design system styled */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  padding: 0.4rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: box-shadow var(--duration-fast), transform var(--duration-fast);
+}
+.lang-toggle:hover { transform: translateY(-1px); box-shadow: var(--shadow-sm); }
+.lang-opt {
+  color: var(--fg-3);
+  padding: 0 0.15rem;
+  transition: color var(--duration-fast);
+}
+.lang-opt:hover { color: var(--fg-1); }
+.lang-opt.active { color: var(--color-blue); }
+.lang-sep { color: var(--border-default); }
 
 .status-dot, .badge-dot {
   width: 8px; height: 8px;
@@ -1072,7 +1104,7 @@ footer p {
   .edu-grid      { grid-template-columns: 1fr; }
   .contact-grid  { grid-template-columns: 1fr 1fr; }
   .nav-links     { display: none !important; }
-  .nav-badge     { display: none !important; }
+  .nav-actions   { display: none !important; }
   .mobile-menu-btn { display: flex !important; }
 }
 

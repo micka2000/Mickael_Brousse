@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mickaël Brousse — Data Governance Analyst</title>
+  <title data-i18n="meta.title">Mickaël Brousse — Data Governance Analyst</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -16,16 +16,23 @@
     <div class="nav-container">
       <span class="nav-logo">MB<span class="dot">.</span></span>
       <ul class="nav-links">
-        <li><a href="#about">Profil</a></li>
-        <li><a href="#experience">Expérience</a></li>
-        <li><a href="#skills">Compétences</a></li>
-        <li><a href="#education">Formation</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-i18n="nav.about">Profile</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#education" data-i18n="nav.education">Education</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
-      <button class="nav-badge" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-        <span class="status-dot"></span>
-        Disponible
-      </button>
+      <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+          <span class="lang-opt" data-lang="en">EN</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-opt" data-lang="fr">FR</span>
+        </button>
+        <button class="nav-badge" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <span class="status-dot"></span>
+          <span data-i18n="nav.available">Available</span>
+        </button>
+      </div>
       <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -34,11 +41,11 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <ul>
-      <li><a href="#about">Profil</a></li>
-      <li><a href="#experience">Expérience</a></li>
-      <li><a href="#skills">Compétences</a></li>
-      <li><a href="#education">Formation</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#about" data-i18n="nav.about">Profile</a></li>
+      <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+      <li><a href="#education" data-i18n="nav.education">Education</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
   </div>
 
@@ -54,7 +61,7 @@
     <div class="hero-content">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Disponible · Toronto, Canada
+        <span data-i18n="hero.badge">Available · Toronto, Canada</span>
       </div>
       <h1 class="hero-name">
         <span class="name-word">Mickaël</span>
@@ -63,22 +70,22 @@
       <p class="hero-title">
         <span id="typed-title"></span><span class="cursor">|</span>
       </p>
-      <p class="hero-subtitle">
-        3 ans d'expérience dans les secteurs <strong>bancaire</strong> &amp; <strong>manufacturier</strong><br />
-        Expert <strong>RGPD</strong>, <strong>qualité des données</strong> &amp; <strong>transformation digitale</strong>
+      <p class="hero-subtitle" data-i18n-html="hero.subtitle">
+        3 years of experience in <strong>banking</strong> &amp; <strong>manufacturing</strong> sectors<br />
+        Expert in <strong>GDPR</strong>, <strong>data quality</strong> &amp; <strong>digital transformation</strong>
       </p>
       <div class="hero-cta">
         <a href="#experience" class="btn btn-primary magnetic">
-          Voir mon parcours
+          <span data-i18n="hero.cta_primary">View my journey</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="mailto:mickabrousse@gmail.com" class="btn btn-outline magnetic">Me contacter</a>
+        <a href="mailto:mickabrousse@gmail.com" class="btn btn-outline magnetic" data-i18n="hero.cta_secondary">Contact me</a>
       </div>
       <div class="hero-social">
         <a href="mailto:mickabrousse@gmail.com" class="social-link" aria-label="Email">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </a>
-        <a href="tel:+14374353500" class="social-link" aria-label="Téléphone Canada">
+        <a href="tel:+14374353500" class="social-link" aria-label="Phone Canada">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.13 9.69 19.79 19.79 0 01.06 1.05 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
@@ -88,22 +95,22 @@
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-value"><span class="stat-number" data-count="3">0</span><span class="stat-plus">+</span></div>
-          <span class="stat-label">Ans d'expérience</span>
+          <span class="stat-label" data-i18n="hero.stat_years">Years of experience</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <div class="stat-value"><span class="stat-number" data-count="2">0</span></div>
-          <span class="stat-label">Secteurs couverts</span>
+          <span class="stat-label" data-i18n="hero.stat_sectors">Sectors covered</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <div class="stat-value"><span class="stat-number" data-count="5">0</span></div>
-          <span class="stat-label">Pays d'activité</span>
+          <span class="stat-label" data-i18n="hero.stat_countries">Countries of activity</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <div class="stat-value"><span class="stat-number" data-count="100">0</span><span class="stat-plus">%</span></div>
-          <span class="stat-label">Conformité RGPD</span>
+          <span class="stat-label" data-i18n="hero.stat_compliance">GDPR compliance</span>
         </div>
       </div>
     </div>
@@ -122,39 +129,39 @@
   <section id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">01 / Profil</span>
-        <h2>À propos de moi</h2>
+        <span class="section-tag" data-i18n="about.tag">01 / Profile</span>
+        <h2 data-i18n="about.title">About me</h2>
       </div>
       <div class="about-grid">
         <div class="about-text">
-          <p>
-            Data Governance Analyst avec plus de <strong>3 ans d'expérience</strong> dans les secteurs
-            <strong>bancaire</strong> (BNP Paribas Luxembourg) et <strong>manufacturier</strong> (Michelin).
-            Spécialisé dans la construction de frameworks fiables et conformes au
-            <strong>RGPD</strong>, ainsi que dans l'optimisation des processus pour maximiser la valeur des données.
+          <p data-i18n-html="about.p1">
+            Data Governance Analyst with over <strong>3 years of experience</strong> in
+            <strong>banking</strong> (BNP Paribas Luxembourg) and <strong>manufacturing</strong> (Michelin).
+            Specialized in building reliable, GDPR-compliant frameworks and optimizing
+            processes to maximize the value of data.
           </p>
-          <p>
-            Mon expérience couvre l'intersection de la <strong>gouvernance des données</strong>,
-            de la <strong>qualité</strong> et de la <strong>conformité réglementaire</strong>, avec une portée
-            internationale couvrant l'Europe et désormais le marché <strong>canadien</strong>.
+          <p data-i18n-html="about.p2">
+            My expertise sits at the intersection of <strong>data governance</strong>,
+            <strong>quality</strong>, and <strong>regulatory compliance</strong>, with an
+            international scope covering Europe and now the <strong>Canadian</strong> market.
           </p>
-          <p>
-            Passionné par la <strong>transformation digitale</strong> et l'<strong>intelligence artificielle</strong>
-            appliquée aux données d'entreprise, je cherche à apporter une expertise rigoureuse en gouvernance
-            tout en développant des compétences en data engineering et IA responsable.
+          <p data-i18n-html="about.p3">
+            Passionate about <strong>digital transformation</strong> and <strong>artificial intelligence</strong>
+            applied to enterprise data, I aim to bring rigorous governance expertise
+            while expanding into data engineering and responsible AI.
           </p>
           <div class="about-highlights">
             <div class="highlight-item">
               <span class="hi-icon">🌍</span>
-              <span>Mobilité internationale — Europe &amp; Canada</span>
+              <span data-i18n="about.hi_mobility">International mobility — Europe &amp; Canada</span>
             </div>
             <div class="highlight-item">
               <span class="hi-icon">🗣️</span>
-              <span>Français natif · Anglais professionnel</span>
+              <span data-i18n="about.hi_lang">Native French · Professional English</span>
             </div>
             <div class="highlight-item">
               <span class="hi-icon">✅</span>
-              <span>Ouvert aux opportunités — Disponible immédiatement</span>
+              <span data-i18n="about.hi_avail">Open to opportunities — Available immediately</span>
             </div>
           </div>
         </div>
@@ -162,29 +169,29 @@
           <div class="info-card">
             <span class="card-icon">🎓</span>
             <div>
-              <strong>Master</strong>
-              <p>Strategic Management &amp; Digital Transformation</p>
+              <strong data-i18n="about.card_master_t">Master</strong>
+              <p data-i18n="about.card_master_d">Strategic Management &amp; Digital Transformation</p>
             </div>
           </div>
           <div class="info-card">
             <span class="card-icon">🏦</span>
             <div>
               <strong>BGL-BNP Paribas</strong>
-              <p>Data Governance Analyst — Luxembourg</p>
+              <p data-i18n="about.card_bnp_d">Data Governance Analyst — Luxembourg</p>
             </div>
           </div>
           <div class="info-card">
             <span class="card-icon">🏭</span>
             <div>
               <strong>Michelin</strong>
-              <p>Business Analyst / Data Owner — France</p>
+              <p data-i18n="about.card_michelin_d">Business Analyst / Data Owner — France</p>
             </div>
           </div>
           <div class="info-card">
             <span class="card-icon">📍</span>
             <div>
-              <strong>Toronto, Canada</strong>
-              <p>Disponible immédiatement</p>
+              <strong data-i18n="about.card_loc_t">Toronto, Canada</strong>
+              <p data-i18n="about.card_loc_d">Available immediately</p>
             </div>
           </div>
         </div>
@@ -196,8 +203,8 @@
   <section id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">02 / Expérience</span>
-        <h2>Parcours Professionnel</h2>
+        <span class="section-tag" data-i18n="exp.tag">02 / Experience</span>
+        <h2 data-i18n="exp.title">Professional Journey</h2>
       </div>
       <div class="timeline">
 
@@ -205,19 +212,19 @@
           <div class="timeline-dot"><div class="dot-pulse"></div></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <span class="timeline-period">Mai 2024 — Nov 2025</span>
-              <span class="timeline-badge badge-banking">Banque</span>
+              <span class="timeline-period" data-i18n="exp.bnp_period">May 2024 — Nov 2025</span>
+              <span class="timeline-badge badge-banking" data-i18n="exp.badge_banking">Banking</span>
             </div>
             <h3>Data Governance Analyst <span class="role-type">VIE</span></h3>
             <p class="timeline-company">BGL-BNP Paribas · Luxembourg</p>
             <ul class="timeline-list">
-              <li>Pilotage de la mise à jour du <strong>Registre des Traitements de Données Personnelles</strong> pour assurer la conformité RGPD, en coordination avec les équipes Juridique et DPO.</li>
-              <li>Développement d'un <strong>dashboard Power BI</strong> pour comparer les données du registre avec les évaluations des risques, en suivant la vélocité de livraison et la cohérence.</li>
-              <li>Gestion du <strong>Dictionnaire de Données SAS-BDN</strong> : définition des règles, résolution des incohérences sémantiques et investigation via SQL (Oracle).</li>
-              <li>Présentation des règles de qualité des données et recommandations stratégiques au <strong>CDO</strong> lors des réunions trimestrielles de gouvernance.</li>
+              <li data-i18n-html="exp.bnp_li1">Led the update of the <strong>Personal Data Processing Register</strong> to ensure GDPR compliance, in coordination with Legal and DPO teams.</li>
+              <li data-i18n-html="exp.bnp_li2">Built a <strong>Power BI dashboard</strong> to compare register data against risk assessments, tracking delivery velocity and consistency.</li>
+              <li data-i18n-html="exp.bnp_li3">Managed the <strong>SAS-BDN Data Dictionary</strong>: rule definition, semantic inconsistency resolution, and SQL investigation (Oracle).</li>
+              <li data-i18n-html="exp.bnp_li4">Presented data quality rules and strategic recommendations to the <strong>CDO</strong> in quarterly governance meetings.</li>
             </ul>
             <div class="timeline-tags">
-              <span>RGPD</span><span>Power BI</span><span>SQL Oracle</span><span>SAS BDN</span><span>DPO</span>
+              <span data-i18n="exp.tag_gdpr">GDPR</span><span>Power BI</span><span>SQL Oracle</span><span>SAS BDN</span><span>DPO</span>
             </div>
           </div>
         </div>
@@ -226,18 +233,18 @@
           <div class="timeline-dot"><div class="dot-pulse"></div></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <span class="timeline-period">Sept 2022 — Août 2023</span>
-              <span class="timeline-badge badge-industry">Industrie</span>
+              <span class="timeline-period" data-i18n="exp.mich1_period">Sept 2022 — Aug 2023</span>
+              <span class="timeline-badge badge-industry" data-i18n="exp.badge_industry">Industry</span>
             </div>
             <h3>Business Analyst / Data Owner</h3>
             <p class="timeline-company">Michelin · Clermont-Ferrand, France</p>
             <ul class="timeline-list">
-              <li>Structuration du <strong>framework de Définition des Données</strong> pour la division Manufacturing, établissant des standards clairs pour les usines Michelin dans le monde entier.</li>
-              <li>Gestion de la documentation des actifs de données dans <strong>Collibra</strong>, clarifiant les responsabilités entre Data Owners et Stewards pour améliorer la fiabilité des données.</li>
-              <li>Renforcement des <strong>workflows et processus</strong> pour soutenir les initiatives globales de gouvernance des données de l'organisation.</li>
+              <li data-i18n-html="exp.mich1_li1">Structured the <strong>Data Definition framework</strong> for the Manufacturing division, establishing clear standards for Michelin plants worldwide.</li>
+              <li data-i18n-html="exp.mich1_li2">Managed data asset documentation in <strong>Collibra</strong>, clarifying responsibilities between Data Owners and Stewards to improve data reliability.</li>
+              <li data-i18n-html="exp.mich1_li3">Strengthened <strong>workflows and processes</strong> to support the organization's global data governance initiatives.</li>
             </ul>
             <div class="timeline-tags">
-              <span>Collibra</span><span>Data Framework</span><span>Manufacturing</span><span>Gouvernance</span>
+              <span>Collibra</span><span>Data Framework</span><span>Manufacturing</span><span data-i18n="exp.tag_gov">Governance</span>
             </div>
           </div>
         </div>
@@ -246,18 +253,18 @@
           <div class="timeline-dot"><div class="dot-pulse"></div></div>
           <div class="timeline-card">
             <div class="timeline-meta">
-              <span class="timeline-period">Mars 2022 — Août 2022</span>
-              <span class="timeline-badge badge-internship">Stage</span>
+              <span class="timeline-period" data-i18n="exp.mich2_period">Mar 2022 — Aug 2022</span>
+              <span class="timeline-badge badge-internship" data-i18n="exp.badge_internship">Internship</span>
             </div>
-            <h3>Business Analyst <span class="role-type">Stage</span></h3>
+            <h3>Business Analyst <span class="role-type" data-i18n="exp.role_intern">Internship</span></h3>
             <p class="timeline-company">Michelin · Clermont-Ferrand, France</p>
             <ul class="timeline-list">
-              <li>Collaboration avec les équipes <strong>Engineering, R&amp;D et Supply Chain</strong> pour aligner la compréhension des données au sein de l'organisation.</li>
-              <li>Analyse des processus de données manufacturing pour identifier les <strong>incohérences</strong> et soutenir le déploiement des standards de gouvernance.</li>
-              <li>Acquisition d'une expertise fondamentale dans les environnements de données industriels complexes et la <strong>coordination inter-équipes</strong>.</li>
+              <li data-i18n-html="exp.mich2_li1">Collaborated with <strong>Engineering, R&amp;D and Supply Chain</strong> teams to align data understanding across the organization.</li>
+              <li data-i18n-html="exp.mich2_li2">Analyzed manufacturing data processes to identify <strong>inconsistencies</strong> and support the rollout of governance standards.</li>
+              <li data-i18n-html="exp.mich2_li3">Built foundational expertise in complex industrial data environments and <strong>cross-team coordination</strong>.</li>
             </ul>
             <div class="timeline-tags">
-              <span>Analyse de données</span><span>Supply Chain</span><span>R&amp;D</span><span>Cross-fonctionnel</span>
+              <span data-i18n="exp.tag_data_analysis">Data Analysis</span><span>Supply Chain</span><span>R&amp;D</span><span data-i18n="exp.tag_cross">Cross-functional</span>
             </div>
           </div>
         </div>
@@ -270,91 +277,91 @@
   <section id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">03 / Compétences</span>
-        <h2>Stack &amp; Expertises</h2>
+        <span class="section-tag" data-i18n="skills.tag">03 / Skills</span>
+        <h2 data-i18n="skills.title">Stack &amp; Expertise</h2>
       </div>
       <div class="skills-grid">
 
         <div class="skill-category">
-          <h3><span class="cat-icon">🗂️</span> Data Governance</h3>
+          <h3><span class="cat-icon">🗂️</span> <span data-i18n="skills.cat_gov">Data Governance</span></h3>
           <div class="skill-items">
             <div class="skill-bar">
-              <div class="skill-info"><span>Data Governance &amp; Quality</span><span class="skill-level expert">Expert</span></div>
+              <div class="skill-info"><span data-i18n="skills.gov_quality">Data Governance &amp; Quality</span><span class="skill-level expert" data-i18n="skills.lvl_expert">Expert</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="92%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>RGPD &amp; Conformité</span><span class="skill-level expert">Expert</span></div>
+              <div class="skill-info"><span data-i18n="skills.gov_gdpr">GDPR &amp; Compliance</span><span class="skill-level expert" data-i18n="skills.lvl_expert">Expert</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="90%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>Évaluation des Risques</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span data-i18n="skills.gov_risk">Risk Assessment</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>Gestion des Métadonnées</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span data-i18n="skills.gov_meta">Metadata Management</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
             </div>
           </div>
         </div>
 
         <div class="skill-category">
-          <h3><span class="cat-icon">🛠️</span> Outils &amp; Technologies</h3>
+          <h3><span class="cat-icon">🛠️</span> <span data-i18n="skills.cat_tools">Tools &amp; Technologies</span></h3>
           <div class="skill-items">
             <div class="skill-bar">
-              <div class="skill-info"><span>Power BI</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span>Power BI</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="88%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>SQL (Oracle)</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span>SQL (Oracle)</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="82%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>SAS (BDN, Enterprise Guide)</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span>SAS (BDN, Enterprise Guide)</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="80%"></div></div>
             </div>
             <div class="skill-bar">
-              <div class="skill-info"><span>Collibra</span><span class="skill-level advanced">Avancé</span></div>
+              <div class="skill-info"><span>Collibra</span><span class="skill-level advanced" data-i18n="skills.lvl_advanced">Advanced</span></div>
               <div class="bar-track"><div class="bar-fill" data-width="85%"></div></div>
             </div>
           </div>
         </div>
 
         <div class="skill-category">
-          <h3><span class="cat-icon">🧠</span> Soft Skills</h3>
+          <h3><span class="cat-icon">🧠</span> <span data-i18n="skills.cat_soft">Soft Skills</span></h3>
           <div class="soft-skills">
-            <span class="soft-tag">Gestion de Projet (PMO)</span>
-            <span class="soft-tag">Conduite du Changement</span>
-            <span class="soft-tag">Pensée Stratégique</span>
-            <span class="soft-tag">Gestion des Parties Prenantes</span>
-            <span class="soft-tag">Méthode ADEQUA</span>
-            <span class="soft-tag">Collaboration Transversale</span>
-            <span class="soft-tag">Résolution de Problèmes</span>
-            <span class="soft-tag">Gamification</span>
+            <span class="soft-tag" data-i18n="skills.soft_pm">Project Management (PMO)</span>
+            <span class="soft-tag" data-i18n="skills.soft_change">Change Management</span>
+            <span class="soft-tag" data-i18n="skills.soft_strategy">Strategic Thinking</span>
+            <span class="soft-tag" data-i18n="skills.soft_stake">Stakeholder Management</span>
+            <span class="soft-tag" data-i18n="skills.soft_adequa">ADEQUA Method</span>
+            <span class="soft-tag" data-i18n="skills.soft_collab">Cross-functional Collaboration</span>
+            <span class="soft-tag" data-i18n="skills.soft_problem">Problem Solving</span>
+            <span class="soft-tag" data-i18n="skills.soft_gam">Gamification</span>
           </div>
         </div>
 
         <div class="skill-category">
-          <h3><span class="cat-icon">🤖</span> Data &amp; IA</h3>
+          <h3><span class="cat-icon">🤖</span> <span data-i18n="skills.cat_ai">Data &amp; AI</span></h3>
           <div class="ai-cards">
             <div class="ai-card">
               <span class="ai-icon">📊</span>
               <strong>Data Quality</strong>
-              <p>Frameworks qualité, règles métier, SLA</p>
+              <p data-i18n="skills.ai_quality">Quality frameworks, business rules, SLA</p>
             </div>
             <div class="ai-card">
               <span class="ai-icon">🔒</span>
-              <strong>IA Responsable</strong>
-              <p>Gouvernance des modèles, conformité &amp; éthique</p>
+              <strong data-i18n="skills.ai_resp_t">Responsible AI</strong>
+              <p data-i18n="skills.ai_resp_d">Model governance, compliance &amp; ethics</p>
             </div>
             <div class="ai-card">
               <span class="ai-icon">🔄</span>
               <strong>Digital Transformation</strong>
-              <p>Stratégie &amp; innovation organisationnelle</p>
+              <p data-i18n="skills.ai_dt_d">Strategy &amp; organizational innovation</p>
             </div>
             <div class="ai-card">
               <span class="ai-icon">📈</span>
-              <strong>Data Visualisation</strong>
-              <p>Power BI, reporting CDO, KPIs data</p>
+              <strong data-i18n="skills.ai_viz_t">Data Visualization</strong>
+              <p data-i18n="skills.ai_viz_d">Power BI, CDO reporting, data KPIs</p>
             </div>
           </div>
         </div>
@@ -367,26 +374,26 @@
   <section id="education">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">04 / Formation</span>
-        <h2>Éducation</h2>
+        <span class="section-tag" data-i18n="edu.tag">04 / Education</span>
+        <h2 data-i18n="edu.title">Education</h2>
       </div>
       <div class="edu-grid">
         <div class="edu-card">
           <div class="edu-icon-wrap">🎓</div>
           <div class="edu-details">
             <span class="edu-period">2021 — 2023</span>
-            <h3>Master — Strategic Management &amp; Digital Transformation</h3>
+            <h3 data-i18n="edu.master_t">Master — Strategic Management &amp; Digital Transformation</h3>
             <p class="edu-school">Université Clermont Auvergne · France</p>
-            <p class="edu-desc">Spécialisation en stratégie numérique, management de l'innovation et transformation des organisations à l'ère digitale.</p>
+            <p class="edu-desc" data-i18n="edu.master_d">Specialization in digital strategy, innovation management, and organizational transformation in the digital era.</p>
           </div>
         </div>
         <div class="edu-card">
           <div class="edu-icon-wrap">📚</div>
           <div class="edu-details">
             <span class="edu-period">2018 — 2021</span>
-            <h3>Double Licence — Économie et Management</h3>
+            <h3 data-i18n="edu.lic_t">Double Bachelor — Economics and Management</h3>
             <p class="edu-school">Université Clermont Auvergne · France</p>
-            <p class="edu-desc">Double formation en sciences économiques et management des organisations, avec une approche quantitative et analytique.</p>
+            <p class="edu-desc" data-i18n="edu.lic_d">Dual training in economics and organizational management, with a quantitative and analytical approach.</p>
           </div>
         </div>
       </div>
@@ -397,16 +404,16 @@
   <section id="contact">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">05 / Contact</span>
-        <h2>Travaillons Ensemble</h2>
+        <span class="section-tag" data-i18n="contact.tag">05 / Contact</span>
+        <h2 data-i18n="contact.title">Let's Work Together</h2>
       </div>
       <div class="contact-cta-block">
-        <p class="contact-intro">
-          Disponible pour des opportunités au Canada et à l'international.<br />
-          Parlons de votre prochain projet data.
+        <p class="contact-intro" data-i18n-html="contact.intro">
+          Available for opportunities in Canada and internationally.<br />
+          Let's talk about your next data project.
         </p>
         <a href="mailto:mickabrousse@gmail.com" class="btn btn-primary btn-lg magnetic">
-          Envoyer un message
+          <span data-i18n="contact.cta">Send a message</span>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </a>
       </div>
@@ -439,7 +446,7 @@
     <div class="container">
       <div class="footer-inner">
         <span class="footer-logo">MB<span class="dot">.</span></span>
-        <p>© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁</p>
+        <p data-i18n="footer.copy">© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁</p>
         <div class="footer-links">
           <a href="mailto:mickabrousse@gmail.com" class="footer-link">Email</a>
           <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
