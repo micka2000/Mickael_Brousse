@@ -412,10 +412,20 @@
           Available for opportunities in Canada and internationally.<br />
           Let's talk about your next data project.
         </p>
-        <a href="mailto:mickabrousse@gmail.com" class="btn btn-primary btn-lg magnetic">
-          <span data-i18n="contact.cta">Send a message</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="cf-row">
+            <input type="text" name="name" required data-i18n-attr="placeholder:contact.f_name" placeholder="Your name" />
+            <input type="email" name="email" required data-i18n-attr="placeholder:contact.f_email" placeholder="Email" />
+          </div>
+          <textarea name="message" rows="4" required data-i18n-attr="placeholder:contact.f_message" placeholder="Your message..."></textarea>
+          <button type="submit" class="btn btn-primary btn-lg magnetic cf-submit">
+            <span data-i18n="contact.cta">Send a message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </button>
+          <div class="cf-success" id="cf-success" hidden>
+            <span data-i18n="contact.success">✓ Message ready — your mail client just opened with everything prefilled.</span>
+          </div>
+        </form>
       </div>
       <div class="contact-grid">
         <a class="contact-card" href="mailto:mickabrousse@gmail.com">

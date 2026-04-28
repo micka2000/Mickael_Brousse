@@ -64,6 +64,8 @@ const I18N = {
     'contact.tag': '05 / Contact', 'contact.title': "Let's Work Together",
     'contact.intro': "Available for opportunities in Canada and internationally.<br />Let's talk about your next data project.",
     'contact.cta': 'Send a message',
+    'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Your message...',
+    'contact.success': '✓ Message ready — your mail client just opened with everything prefilled.',
     'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
   },
   fr: {
@@ -126,6 +128,8 @@ const I18N = {
     'contact.tag': '05 / Contact', 'contact.title': 'Travaillons Ensemble',
     'contact.intro': "Disponible pour des opportunités au Canada et à l'international.<br />Parlons de votre prochain projet data.",
     'contact.cta': 'Envoyer un message',
+    'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Votre message...',
+    'contact.success': '✓ Message prêt — votre client mail vient de s\'ouvrir avec tout pré-rempli.',
     'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
   },
 };
@@ -145,6 +149,12 @@ function applyLang(lang) {
   document.querySelectorAll('[data-i18n-html]').forEach(el => {
     const key = el.getAttribute('data-i18n-html');
     if (dict[key] != null) el.innerHTML = dict[key];
+  });
+  document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+    el.getAttribute('data-i18n-attr').split(',').forEach(pair => {
+      const [attr, key] = pair.trim().split(':');
+      if (attr && key && dict[key] != null) el.setAttribute(attr, dict[key]);
+    });
   });
 
   document.querySelectorAll('.lang-opt').forEach(el => {
@@ -352,6 +362,42 @@ inView('.contact-grid', () => {
     { delay: stagger(0.09), duration: 0.6, ease: expo }
   );
 }, { amount: 0.2 });
+
+// ---- Contact form → mailto ----
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const data = new FormData(contactForm);
+    const name = (data.get('name') || '').toString().trim();
+    const email = (data.get('email') || '').toString().trim();
+    const message = (data.get('message') || '').toString().trim();
+    if (!name || !email || !message) {
+      contactForm.querySelectorAll('input, textarea').forEach(el => {
+        if (!el.value.trim()) {
+          el.style.borderColor = '#C0392B';
+          el.style.boxShadow = '0 0 0 4px rgba(192,57,43,0.2)';
+        }
+      });
+      return;
+    }
+    const subject = `[Portfolio] ${name}`;
+    const body = `${message}\n\n— ${name}\n${email}`;
+    const href = `mailto:mickabrousse@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+    const success = document.getElementById('cf-success');
+    if (success) success.hidden = false;
+    setTimeout(() => { contactForm.reset(); }, 100);
+  });
+  contactForm.querySelectorAll('input, textarea').forEach(el => {
+    el.addEventListener('input', () => {
+      el.style.borderColor = '';
+      el.style.boxShadow = '';
+      const success = document.getElementById('cf-success');
+      if (success) success.hidden = true;
+    });
+  });
+}
 
 // ---- Magnetic Buttons ----
 document.querySelectorAll('.magnetic').forEach(btn => {
