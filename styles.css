@@ -1222,13 +1222,22 @@ footer p {
   gap: 0.55rem;
 }
 .tool-logo {
-  width: 20px;
+  width: auto;
   height: 20px;
+  max-width: 64px;
   object-fit: contain;
   flex-shrink: 0;
   display: inline-block;
 }
-.tool-logo-wide { width: 32px; }
+.tool-logo.letter-mark {
+  width: 20px;
+  max-width: 20px;
+}
+.tool-logo-wide { max-width: 80px; }
+[data-theme="dark"] img.tool-logo[src$="sas.svg"],
+[data-theme="dark"] img.tool-logo[src$="oracle.svg"] {
+  filter: brightness(1.6) saturate(1.1);
+}
 .tool-logo.letter-mark {
   display: inline-flex;
   align-items: center;
