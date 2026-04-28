@@ -69,8 +69,8 @@ const I18N = {
     'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jane Smith', 'contact.f_email_ph': 'you@company.com',
     'contact.f_message_ph': 'Tell me about your project…',
-    'contact.success': '✓ Message ready — your mail client just opened with everything prefilled.',
-    'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
+    'contact.success': 'Message ready — your mail client just opened with everything prefilled.',
+    'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto',
   },
   fr: {
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
@@ -137,8 +137,8 @@ const I18N = {
     'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jeanne Dupont', 'contact.f_email_ph': 'vous@entreprise.com',
     'contact.f_message_ph': 'Parlez-moi de votre projet…',
-    'contact.success': '✓ Message prêt — votre client mail vient de s\'ouvrir avec tout pré-rempli.',
-    'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto 🍁',
+    'contact.success': 'Message prêt — votre client mail vient de s\'ouvrir avec tout pré-rempli.',
+    'footer.copy': '© 2026 Mickaël Brousse · Data Governance Analyst · Toronto',
   },
 };
 

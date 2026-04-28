@@ -1187,3 +1187,58 @@ footer p {
   .timeline-dot { left: -1.6rem; }
   .footer-inner { flex-direction: column; text-align: center; }
 }
+
+/* === Iconography (replaces emojis) === */
+.hi-icon,
+.card-icon,
+.cat-icon,
+.ai-icon,
+.contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue);
+  line-height: 1;
+}
+.hi-icon { width: 18px; height: 18px; flex-shrink: 0; }
+.card-icon { width: 36px; height: 36px;
+  background: var(--color-blue-tint);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+[data-theme="dark"] .card-icon { background: var(--bg-accent-subtle); }
+.info-card:nth-child(2) .card-icon { color: var(--color-olive-dark); }
+.info-card:nth-child(3) .card-icon { color: var(--color-sky-dark); }
+.cat-icon { width: 22px; height: 22px; }
+.ai-icon { width: 24px; height: 24px; }
+.contact-icon { width: 26px; height: 26px; margin-bottom: 0.35rem; }
+
+.edu-icon-wrap { color: var(--color-blue); }
+
+/* === Tool logos === */
+.skill-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.tool-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+}
+.tool-logo-wide { width: 32px; }
+.tool-logo.letter-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 11px;
+  color: #fff;
+  background: linear-gradient(135deg, #3CB371, #1F7A4D);
+  border-radius: 4px;
+  letter-spacing: 0;
+}
+
