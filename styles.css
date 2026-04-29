@@ -1191,6 +1191,7 @@ section { padding: 6rem 0; position: relative; }
 
 @media (max-width: 960px) {
   .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-layout > * { min-width: 0; }
   .contact-pitch { text-align: center; }
   .contact-intro { margin-left: auto; margin-right: auto; }
 }
