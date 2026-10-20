@@ -478,20 +478,18 @@ if (contactForm) {
   });
 }
 
-// ---- Magnetic Buttons ----
-if (!prefersReducedMotion()) {
-  document.querySelectorAll('.magnetic').forEach(btn => {
-    btn.addEventListener('mousemove', e => {
-      const rect = btn.getBoundingClientRect();
-      const x = (e.clientX - rect.left - rect.width / 2) * 0.3;
-      const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
-      animate(btn, { x, y }, { duration: 0.2, ease: 'easeOut' });
-    });
-    btn.addEventListener('mouseleave', () => {
-      animate(btn, { x: 0, y: 0 }, { duration: 0.6, ease: expo });
-    });
-  });
-}
+// ---- Button ripple (DS MBButton) ----
+document.addEventListener('pointerdown', e => {
+  const btn = e.target.closest('.btn');
+  if (!btn || prefersReducedMotion()) return;
+  const r = btn.getBoundingClientRect();
+  const dot = document.createElement('span');
+  dot.className = 'btn-ripple';
+  dot.style.left = `${e.clientX - r.left}px`;
+  dot.style.top = `${e.clientY - r.top}px`;
+  btn.appendChild(dot);
+  dot.addEventListener('animationend', () => dot.remove());
+});
 
 // ---- Soft tag stagger on skills section ----
 inView('.soft-skills', ({ target }) => {
@@ -634,7 +632,7 @@ function renderProjectFilters() {
     const label = ty === 'all' ? t('projects.all') : t(`projects.type_${ty}`);
     const count = ty === 'all' ? projects.length : projects.filter(p => p.type === ty).length;
     const on = ty === projectFilter;
-    return `<button type="button" class="project-filter${on ? ' is-active' : ''}" data-filter="${ty}" aria-pressed="${on}">${esc(label)}<span class="project-filter-count">${count}</span></button>`;
+    return `<button type="button" class="btn btn-outline btn-sm project-filter${on ? ' is-active' : ''}" data-filter="${ty}" aria-pressed="${on}">${esc(label)}<span class="project-filter-count">${count}</span></button>`;
   }).join('');
 }
 
@@ -645,8 +643,8 @@ function projectCard(p, i) {
     ? `<span class="project-private-note">${esc(t('projects.private_note'))}</span>`
     : [
         p.live && p.name !== 'Mickael_Brousse'
-          ? `<a class="project-link project-link--primary" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
-        `<a class="project-link" href="${esc(p.code)}" target="_blank" rel="noopener">${esc(t('projects.view_code'))} <span aria-hidden="true">↗</span></a>`,
+          ? `<a class="btn btn-tonal btn-sm" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
+        `<a class="btn btn-text btn-sm" href="${esc(p.code)}" target="_blank" rel="noopener">${esc(t('projects.view_code'))} <span aria-hidden="true">↗</span></a>`,
       ].join('');
   return `
     <article class="project-card${p.private ? ' is-private' : ''}">
