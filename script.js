@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=14';
-import { validate, sendContact } from './contact-send.js?v=14';
+import { mergeProjects } from './projects-data.js?v=15';
+import { validate, sendContact } from './contact-send.js?v=15';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -49,7 +49,8 @@ const I18N = {
     'exp.tag_master': "Master data",
     'hero.eyebrow': 'Data Governance Analyst · Toronto', 'hero.scroll': 'Scroll ↓',
     'theme.to_dark': 'Dark', 'theme.to_light': 'Light', 'a11y.theme_toggle': 'Switch theme',
-    'footer.tagline': 'Data governance, quality & compliance.', 'footer.eyebrow': 'Let\'s work together?',
+    'footer.site': 'Site', 'footer.elsewhere': 'Elsewhere', 'footer.data_t': 'Your data', 'footer.data_d': 'No cookies, no tracking. The contact form sends your name, email and message to my inbox, only so I can reply.', 'footer.privacy': 'Privacy notice', 'footer.place': 'Toronto, Canada', 'contact.privacy': 'Your name, email and message are only used to reply to you.',
+    'footer.tagline': 'Data governance, quality & compliance.',
     'nav.projects': 'Projects', 'projects.title': 'Projects',
     'projects.intro': 'Everything I build on the side, pulled live from my GitHub.',
     'projects.filter_label': 'Filter projects', 'projects.all': 'All',
@@ -140,7 +141,8 @@ const I18N = {
     'exp.tag_master': "Données de référence",
     'hero.eyebrow': 'Data Governance Analyst · Toronto', 'hero.scroll': 'Défiler ↓',
     'theme.to_dark': 'Sombre', 'theme.to_light': 'Clair', 'a11y.theme_toggle': 'Changer de thème',
-    'footer.tagline': 'Gouvernance, qualité et conformité des données.', 'footer.eyebrow': 'On travaille ensemble ?',
+    'footer.site': 'Site', 'footer.elsewhere': 'Ailleurs', 'footer.data_t': 'Vos données', 'footer.data_d': 'Ni cookies ni pistage. Le formulaire envoie votre nom, votre email et votre message dans ma boîte mail, uniquement pour vous répondre.', 'footer.privacy': 'Confidentialité', 'footer.place': 'Toronto, Canada', 'contact.privacy': 'Votre nom, votre email et votre message servent uniquement à vous répondre.',
+    'footer.tagline': 'Gouvernance, qualité et conformité des données.',
     'nav.projects': 'Projets', 'projects.title': 'Projets',
     'projects.intro': 'Tout ce que je construis à côté, en direct depuis mon GitHub.',
     'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',

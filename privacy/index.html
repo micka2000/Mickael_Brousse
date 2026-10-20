@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy notice — Mickaël Brousse</title>
+  <meta name="description" content="What this site collects, why, and who receives it. No cookies, no tracking." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="../assets/icons/favicon-48.png" />
+  <link rel="apple-touch-icon" href="../assets/icons/apple-touch-icon.png" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null, l = null;
+      try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      d.setAttribute('data-theme', t);
+      d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
+    })();
+  </script>
+  <link rel="stylesheet" href="../styles.css?v=15" />
+</head>
+<body class="project-page">
+  <nav id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="../">MB<span class="dot">.</span></a>
+      <a class="btn btn-text btn-sm pp-back" href="../"><span aria-hidden="true">←</span> <span data-l="en">Home</span><span data-l="fr">Accueil</span></a>
+      <div class="pp-nav-actions">
+        <button class="btn btn-outline btn-sm lang-toggle" type="button" aria-label="Switch language" data-aria-label-en="Switch language" data-aria-label-fr="Changer de langue">
+          <span class="lang-opt" data-lang="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="fr">FR</span>
+        </button>
+        <button class="btn btn-ink btn-sm theme-toggle" type="button" aria-label="Switch theme" data-aria-label-en="Switch theme" data-aria-label-fr="Changer de thème">
+          <span class="theme-toggle-icon" aria-hidden="true">◑</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="legal container">
+    <h1 class="pp-title"><span data-l="en">Privacy notice</span><span data-l="fr">Confidentialité</span><span class="pp-dot">.</span></h1>
+    <p class="pp-tagline">
+      <span data-l="en">No cookies, no analytics, no tracking. Here is everything this site does with your data.</span>
+      <span data-l="fr">Ni cookies, ni mesure d’audience, ni pistage. Voici tout ce que ce site fait de vos données.</span>
+    </p>
+    <p class="pp-meta"><span data-l="en">Last updated: 20 October 2026</span><span data-l="fr">Mise à jour le 20 octobre 2026</span></p>
+
+    <section>
+      <h2><span data-l="en">Who is responsible</span><span data-l="fr">Qui est responsable</span></h2>
+      <p>
+        <span data-l="en">Mickaël Brousse, Toronto, Canada. This is a personal site. To reach me, use the contact form or LinkedIn.</span>
+        <span data-l="fr">Mickaël Brousse, Toronto, Canada. C’est un site personnel. Pour me joindre, utilisez le formulaire de contact ou LinkedIn.</span>
+      </p>
+    </section>
+
+    <section>
+      <h2><span data-l="en">The contact form</span><span data-l="fr">Le formulaire de contact</span></h2>
+      <p>
+        <span data-l="en">It is the only place where you give me data, and only if you send it:</span>
+        <span data-l="fr">C’est le seul endroit où vous me confiez des données, et seulement si vous l’envoyez :</span>
+      </p>
+      <ul class="pp-list">
+        <li><span data-l="en"><strong>What</strong>: your name, your email address, your message, plus the page language and address.</span><span data-l="fr"><strong>Quoi</strong>&nbsp;: votre nom, votre adresse email, votre message, ainsi que la langue et l’adresse de la page.</span></li>
+        <li><span data-l="en"><strong>Why</strong>: to reply to you. Nothing else: no newsletter, no list, no resale.</span><span data-l="fr"><strong>Pourquoi</strong>&nbsp;: vous répondre. Rien d’autre&nbsp;: ni newsletter, ni liste, ni revente.</span></li>
+        <li><span data-l="en"><strong>Who receives it</strong>: <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, a form service, forwards it to my personal mailbox.</span><span data-l="fr"><strong>Qui la reçoit</strong>&nbsp;: <a href="https://formsubmit.co/" target="_blank" rel="noopener">FormSubmit</a>, un service de formulaires, la transmet à ma boîte mail personnelle.</span></li>
+        <li><span data-l="en"><strong>How long</strong>: in my mailbox for as long as our exchange needs it. Ask me and I delete it.</span><span data-l="fr"><strong>Combien de temps</strong>&nbsp;: dans ma boîte mail le temps de notre échange. Sur simple demande, je le supprime.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span data-l="en">Stored in your browser</span><span data-l="fr">Stocké dans votre navigateur</span></h2>
+      <p>
+        <span data-l="en">Two settings, kept in your browser’s local storage and never sent anywhere: <code>theme</code> (light or dark) and <code>lang</code> (English or French). Clearing your browser data removes them.</span>
+        <span data-l="fr">Deux réglages, gardés dans le stockage local de votre navigateur et jamais envoyés&nbsp;: <code>theme</code> (clair ou sombre) et <code>lang</code> (anglais ou français). Effacer les données du navigateur les supprime.</span>
+      </p>
+    </section>
+
+    <section>
+      <h2><span data-l="en">Services your browser contacts</span><span data-l="fr">Services contactés par votre navigateur</span></h2>
+      <p>
+        <span data-l="en">Like any web request, each of these receives your IP address and browser details:</span>
+        <span data-l="fr">Comme pour toute requête web, chacun reçoit votre adresse IP et des informations sur votre navigateur&nbsp;:</span>
+      </p>
+      <ul class="pp-list">
+        <li><span data-l="en"><strong>GitHub Pages</strong> hosts the site.</span><span data-l="fr"><strong>GitHub Pages</strong> héberge le site.</span></li>
+        <li><span data-l="en"><strong>GitHub API</strong> and <strong>raw.githubusercontent.com</strong> provide the list of projects.</span><span data-l="fr">L’<strong>API GitHub</strong> et <strong>raw.githubusercontent.com</strong> fournissent la liste des projets.</span></li>
+        <li><span data-l="en"><strong>Google Fonts</strong> serves the code font.</span><span data-l="fr"><strong>Google Fonts</strong> fournit la police du code.</span></li>
+        <li><span data-l="en"><strong>esm.sh</strong> serves the animation library.</span><span data-l="fr"><strong>esm.sh</strong> fournit la bibliothèque d’animation.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span data-l="en">Your rights</span><span data-l="fr">Vos droits</span></h2>
+      <p>
+        <span data-l="en">You can ask me to see, correct or delete what you sent through the form, under the GDPR or Canadian privacy law. Write to me through the form or on LinkedIn.</span>
+        <span data-l="fr">Vous pouvez me demander de consulter, corriger ou supprimer ce que vous avez envoyé par le formulaire, au titre du RGPD ou du droit canadien. Écrivez-moi par le formulaire ou sur LinkedIn.</span>
+      </p>
+    </section>
+
+    <div class="pp-next">
+      <a class="btn btn-text" href="../"><span aria-hidden="true">←</span> <span data-l="en">Home</span><span data-l="fr">Accueil</span></a>
+      <a class="btn btn-primary" href="../#contact"><span data-l="en">Contact me</span><span data-l="fr">Me contacter</span> <span aria-hidden="true">→</span></a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© 2026 Mickaël Brousse</p>
+        <p>Toronto, Canada</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../project-page.js?v=15" defer></script>
+</body>
+</html>

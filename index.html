@@ -31,7 +31,7 @@
       } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="styles.css?v=15" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -430,6 +430,7 @@
             <span class="cf-submit-label" data-i18n="contact.cta_short">Send</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
+          <p class="cf-privacy"><span data-i18n="contact.privacy">Your name, email and message are only used to reply to you.</span> <a href="privacy/" data-i18n="footer.privacy">Privacy notice</a></p>
           <div class="cf-sent" id="cf-sent" hidden role="status" aria-live="polite">
             <p class="cf-sent-title" data-i18n="contact.sent_t">Message sent.</p>
             <p data-i18n="contact.sent_d">Thanks. I will reply by email.</p>
@@ -456,27 +457,39 @@
 
   <footer>
     <div class="container">
-      <div class="footer-top">
+      <div class="footer-grid">
         <div class="footer-signature">
-          <p class="footer-name">Mickaël<br /><span>Brousse</span></p>
+          <p class="footer-name">Mickaël Brousse<span>.</span></p>
           <p class="footer-tagline" data-i18n="footer.tagline">Data governance, quality &amp; compliance.</p>
+          <a href="#contact" class="btn btn-primary btn-sm"><span data-i18n="footer.cta">Send me a message</span> <span aria-hidden="true">→</span></a>
         </div>
-        <div class="footer-cta">
-          <span class="footer-eyebrow" data-i18n="footer.eyebrow">Let's work together?</span>
-          <a href="#contact" class="btn btn-primary"><span data-i18n="footer.cta">Send me a message</span> <span aria-hidden="true">→</span></a>
-          <div class="footer-links">
-            <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-            <a href="https://github.com/micka2000" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-          </div>
+        <nav class="footer-col" aria-label="Site" data-i18n-attr="aria-label:footer.site">
+          <p class="footer-col-title" data-i18n="footer.site">Site</p>
+          <a href="#projects" data-i18n="nav.projects">Projects</a>
+          <a href="#about" data-i18n="nav.about">Profile</a>
+          <a href="#experience" data-i18n="nav.experience">Experience</a>
+          <a href="#skills" data-i18n="nav.skills">Skills</a>
+          <a href="#education" data-i18n="nav.education">Education</a>
+          <a href="#contact" data-i18n="nav.contact">Contact</a>
+        </nav>
+        <div class="footer-col">
+          <p class="footer-col-title" data-i18n="footer.elsewhere">Elsewhere</p>
+          <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/micka2000" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="footer-col footer-data">
+          <p class="footer-col-title" data-i18n="footer.data_t">Your data</p>
+          <p data-i18n="footer.data_d">No cookies, no tracking. The contact form sends your name, email and message to my inbox, only so I can reply.</p>
+          <a href="privacy/" data-i18n="footer.privacy">Privacy notice</a>
         </div>
       </div>
       <div class="footer-bottom">
         <p data-i18n-html="footer.copy">© <span id="footer-year">2026</span> Mickaël Brousse</p>
-        <p class="footer-place">TORONTO · CA</p>
+        <p data-i18n="footer.place">Toronto, Canada</p>
       </div>
     </div>
   </footer>
 
-  <script type="module" src="script.js?v=14"></script>
+  <script type="module" src="script.js?v=15"></script>
 </body>
 </html>

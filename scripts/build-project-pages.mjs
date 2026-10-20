@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 
 const root = new URL('..', import.meta.url);
 const SITE = 'https://micka2000.github.io/Mickael_Brousse/';
-const V = 14; // asset version, keep in step with index.html
+const V = 15; // asset version, keep in step with index.html
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // bilingual text; `rich` keeps the authored inline HTML (strong, code)
@@ -46,6 +46,7 @@ const UI = {
   ctaBtn: { en: 'Let’s talk', fr: 'En parler' },
   langLabel: { en: 'Switch language', fr: 'Changer de langue' },
   themeLabel: { en: 'Switch theme', fr: 'Changer de thème' },
+  privacy: { en: 'Privacy notice', fr: 'Confidentialité' },
 };
 
 // accessible text that follows the language (project-page.js swaps it)
@@ -190,7 +191,7 @@ ${body}
     <div class="container">
       <div class="footer-bottom">
         <p>© <span class="pp-year">${new Date().getFullYear()}</span> Mickaël Brousse</p>
-        <p class="footer-place">TORONTO · CA</p>
+        <p><a class="footer-privacy" href="../../privacy/">${L(UI.privacy)}</a> · Toronto, Canada</p>
       </div>
     </div>
   </footer>
