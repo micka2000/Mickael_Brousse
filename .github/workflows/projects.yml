@@ -1,0 +1,54 @@
+name: Refresh project catalog
+
+# Rebuilds data/projects.json so deleted or renamed repos leave the site on
+# their own. Runs every 6 hours, on demand, and when the catalog changes.
+on:
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - data/catalog.json
+      - projects-data.js
+      - tests/**
+      - scripts/build-projects.mjs
+      - .github/workflows/projects.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: project-catalog
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Test merge logic
+        run: node --test tests/*.test.mjs
+
+      - name: Build data/projects.json
+        run: node scripts/build-projects.mjs
+        env:
+          # Read-only token that can see private repos (optional).
+          CATALOG_TOKEN: ${{ secrets.CATALOG_TOKEN }}
+
+      - name: Commit if changed
+        run: |
+          if git diff --quiet -- data/projects.json; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/projects.json
+          git commit -m "Refresh project catalog"
+          git push
