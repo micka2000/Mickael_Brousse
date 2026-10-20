@@ -45,16 +45,30 @@ serves new HTML with an old script.
 
 `projects/<slug>/index.html` is generated, do not edit it by hand:
 
-1. Write `data/pages/<slug>.json` (tagline, why, what, flow, gallery,
-   highlight, status, EN and FR). "Why", "highlight" and "status" are the
-   owner's own words; the rest must be backed by the project's README or code.
+1. Write `data/pages/<slug>.json`. Required: `slug`, `title`, `tagline`,
+   `why`, `hero` (the build stops otherwise). Optional, in page order:
+   `what` (bullets), `flow` (steps), `evolution` (`v1` / `v2`, each with an
+   optional `title` and `points`), `gallery`, `highlight`, `status`, `og`,
+   `demoData`. A missing section is left out and the numbers follow.
+   "Why", "highlight", "status" and the evolution points are the owner's own
+   words; the rest must be backed by the project's README or code.
 2. Put screenshots in `assets/projects/<slug>/` as WebP (1280×800). Private
-   projects are shot with demo data only.
-3. Add `"page": "projects/<slug>/"` to the project in `data/catalog.json`.
-4. Run `node scripts/build-project-pages.mjs`.
+   projects are shot with demo data only. The hero image is not repeated in
+   the gallery, so plan at least three other screens. Every screen links to
+   its full-size file.
+3. Add `og.jpg` (1200×630, cropped from the hero) and point `og` at it:
+   LinkedIn does not reliably read WebP.
+4. Add `"page": "projects/<slug>/"` to the project in `data/catalog.json`.
+5. Run `node scripts/build-project-pages.mjs`.
 
-Both languages live in the page (`data-l="en|fr"`); `project-page.js` only
-switches language and theme.
+Both languages live in the page (`data-l="en|fr"`); `alt` and `aria-label`
+carry `data-*-en` / `data-*-fr` that `project-page.js` applies. Private
+projects end with a "Let's talk" button to the contact form.
+
+Evolution block: V1 card on `--bg-inset` (muted text), V2 card on
+`--bg-accent-subtle`, an arrow between them (turned down on mobile).
+Screenshots sit in a browser frame; while loading the frame shows
+`--bg-inset`, in dark mode they are dimmed to 90 %.
 
 ## Design system in use
 
@@ -85,6 +99,11 @@ dark mode). No gradients. The Profile section is the one full-bleed blue block.
 
 **Themes**: `data-theme="light|dark"` on `<html>`, set before paint from the
 saved choice or the system preference. Dark mode uses sky as the accent.
+Text selection is themed (sky in light, blue in dark).
+
+**Touch**: under 768px the 32px nav buttons get a 44px hit area (transparent
+border), the look does not change. The EN/FR button also switches with
+Enter or Space.
 
 ## Don't
 

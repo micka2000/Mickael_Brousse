@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=12';
-import { validate, sendContact } from './contact-send.js?v=12';
+import { mergeProjects } from './projects-data.js?v=13';
+import { validate, sendContact } from './contact-send.js?v=13';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -237,9 +237,13 @@ function applyLang(lang) {
   });
 }
 
+// A click on EN or FR picks that language; Enter or Space on the button
+// (target = the button itself) switches to the other one.
 document.addEventListener('click', e => {
+  const toggle = e.target.closest('.lang-toggle');
+  if (!toggle) return;
   const opt = e.target.closest('.lang-opt');
-  if (opt) applyLang(opt.dataset.lang);
+  applyLang(opt ? opt.dataset.lang : (currentLang === 'fr' ? 'en' : 'fr'));
 });
 
 applyLang(currentLang);
@@ -265,7 +269,7 @@ document.addEventListener('click', e => {
     try { localStorage.setItem('theme', next); } catch {}
     syncThemeToggle();
   }
-  if (e.target.closest('.lang-opt')) syncThemeToggle();
+  if (e.target.closest('.lang-toggle')) syncThemeToggle();
 });
 syncThemeToggle();
 
@@ -622,7 +626,7 @@ function renderProjects() {
 document.addEventListener('click', e => {
   const btn = e.target.closest('.project-filter');
   if (btn) { projectFilter = btn.dataset.filter; renderProjects(); return; }
-  if (e.target.closest('.lang-opt')) renderProjects();
+  if (e.target.closest('.lang-toggle')) renderProjects();
 });
 
 loadProjects();

@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=12');
-@import url('tokens/colors.css?v=12');
-@import url('tokens/typography.css?v=12');
-@import url('tokens/spacing.css?v=12');
+@import url('tokens/fonts.css?v=13');
+@import url('tokens/colors.css?v=13');
+@import url('tokens/typography.css?v=13');
+@import url('tokens/spacing.css?v=13');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -79,6 +79,9 @@ ul { list-style: none; }
     scroll-behavior: auto !important;
   }
 }
+
+::selection { background: var(--color-sky); color: var(--color-ink); }
+[data-theme="dark"] ::selection { background: var(--color-blue); color: var(--color-white); }
 
 ::-webkit-scrollbar { width: 6px; height: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg-inset); }
@@ -1514,8 +1517,14 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
   background: var(--color-blue);
   box-shadow: 14px 0 0 var(--color-olive), 28px 0 0 var(--color-sky);
 }
-.pp-frame img { display: block; width: 100%; height: auto; border-top: 1px solid var(--border-subtle); }
+.pp-zoom { display: block; background: var(--bg-inset); border-top: 1px solid var(--border-subtle); cursor: zoom-in; }
+.pp-frame img {
+  display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.pp-frame img.pp-loading { opacity: 0; }
 [data-theme="dark"] .pp-frame { border-radius: var(--radius-sm); }
+[data-theme="dark"] .pp-frame img { filter: brightness(0.9); }
 
 .pp-section { padding: 5rem 0; }
 .pp-section--inset { background: var(--bg-inset); }
@@ -1571,6 +1580,8 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
 
 .pp-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 .pp-shot { margin: 0; }
+/* odd count: the first screen spans the row, no orphan at the end */
+.pp-shot:first-child:nth-last-child(odd) { grid-column: 1 / -1; }
 .pp-shot figcaption { margin-top: 0.75rem; font-size: var(--text-sm); color: var(--fg-3); }
 .pp-footnote { margin-top: 1.5rem; font-size: var(--text-xs); color: var(--fg-3); }
 
@@ -1582,12 +1593,50 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
 [data-theme="dark"] .pp-card--olive { background: rgba(193,193,130,0.14); }
 .pp-card-label { font-size: var(--text-label); font-weight: var(--weight-semi); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-3); }
 
-.pp-next { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1rem; padding-bottom: 5rem; }
+/* Evolution: V1 -> V2, two cards and an arrow */
+.pp-evo { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 1.5rem; align-items: stretch; }
+.pp-evo-card { display: flex; flex-direction: column; gap: 0.75rem; border-radius: var(--radius-md); padding: 1.5rem; }
+.pp-evo-card--v1 { background: var(--bg-inset); }
+.pp-evo-card--v1 .pp-list li { color: var(--fg-2); }
+.pp-evo-card--v1 .pp-list li::before { background: var(--fg-3); }
+.pp-evo-card--v2 { background: var(--bg-accent-subtle); }
+.pp-evo-card--v2 .pp-card-label { color: var(--accent); }
+.pp-evo-title { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: 20px; line-height: 1.25; letter-spacing: -0.02em; color: var(--fg-1); }
+.pp-evo-arrow { align-self: center; color: var(--accent); font-weight: 700; font-size: 1.4rem; }
+
+/* End of page: contact for private projects, then navigation */
+.pp-end { padding-top: 4rem; padding-bottom: 5rem; }
+.pp-cta {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.25rem;
+  padding: 2rem; margin-bottom: 2.5rem;
+  background: var(--bg-surface); border-radius: var(--radius-md); box-shadow: var(--shadow-md);
+}
+.pp-cta p { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.25; letter-spacing: -0.02em; color: var(--fg-1); }
+.pp-next { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 
 @media (max-width: 860px) {
   .pp-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .pp-flow { grid-template-columns: 1fr; gap: 1.75rem; }
   .pp-step:not(:last-child)::after { content: "↓"; right: auto; left: 50%; top: auto; bottom: -1.55rem; transform: translateX(-50%); }
-  .pp-gallery, .pp-takeaways { grid-template-columns: 1fr; }
+  .pp-gallery, .pp-takeaways, .pp-evo { grid-template-columns: 1fr; }
+  .pp-evo-arrow { justify-self: center; transform: rotate(90deg); }
+  .pp-end { padding-top: 3rem; padding-bottom: 3.5rem; }
+  .pp-cta { padding: 1.5rem; }
+  .pp-cta .btn { width: 100%; }
   .pp-section { padding: 3.5rem 0; }
+}
+
+/* Touch targets: nav buttons keep their 32px look but get a 44px hit area
+   (transparent border; the outline ring is an inset shadow, the ripple is
+   clipped to the padding box). */
+@media (max-width: 768px) {
+  .nav-actions .btn-sm,
+  .mobile-menu-actions .btn-sm,
+  .project-page #navbar .btn-sm {
+    height: 44px;
+    border: 6px solid transparent;
+    border-left-width: 0;
+    border-right-width: 0;
+    background-clip: padding-box;
+  }
 }
