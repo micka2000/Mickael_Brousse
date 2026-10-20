@@ -1,5 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=6';
+import { mergeProjects } from './projects-data.js?v=7';
+import { validate, sendContact, mailtoHref } from './contact-send.js?v=7';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -82,8 +83,10 @@ const I18N = {
     'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jane Smith', 'contact.f_email_ph': 'you@company.com',
     'contact.f_message_ph': 'Tell me about your project…',
-    'contact.success': 'I just tried to open your mail client with the message pre-filled.',
-    'contact.success_fallback': 'Nothing happened? No mail app set up? Copy the address below and send it from wherever you write email.',
+    'contact.sending': 'Sending…', 'contact.sent_t': 'Message sent.', 'contact.sent_d': 'Thanks. I will reply by email.',
+    'contact.fail_t': 'The message could not be sent from here.',
+    'contact.fail_d': 'Write to me directly: open your mail app with the message ready, or copy the address.',
+    'contact.open_mail': 'Open my mail app',
     'contact.copy': 'Copy', 'contact.copied': 'Copied',
     'a11y.skip': 'Skip to main content',
     'a11y.lang_toggle': 'Switch language',
@@ -171,8 +174,10 @@ const I18N = {
     'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jeanne Dupont', 'contact.f_email_ph': 'vous@entreprise.com',
     'contact.f_message_ph': 'Parlez-moi de votre projet…',
-    'contact.success': 'J\'ai tenté d\'ouvrir votre client mail avec le message pré-rempli.',
-    'contact.success_fallback': 'Rien ne s\'est passé ? Pas de client mail configuré ? Copiez l\'adresse ci-dessous et écrivez-moi depuis votre webmail habituel.',
+    'contact.sending': 'Envoi…', 'contact.sent_t': 'Message envoyé.', 'contact.sent_d': 'Merci, je vous réponds par e-mail.',
+    'contact.fail_t': 'Le message n\u2019a pas pu partir d\u2019ici.',
+    'contact.fail_d': 'Écrivez-moi directement\u00a0: ouvrez votre messagerie avec le message prêt, ou copiez l\u2019adresse.',
+    'contact.open_mail': 'Ouvrir ma messagerie',
     'contact.copy': 'Copier', 'contact.copied': 'Copié',
     'a11y.skip': 'Aller au contenu principal',
     'a11y.lang_toggle': 'Changer de langue',
@@ -405,35 +410,55 @@ inView('.contact-grid', () => {
   );
 }, { amount: 0.2 });
 
-// ---- Contact form → mailto with validation ----
+// ---- Contact form → FormSubmit (contact-send.js), mailto as fallback ----
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   const fields = {
-    name:    { input: contactForm.querySelector('#cf-name'),    err: contactForm.querySelector('#cf-name-err'),    test: v => v.length > 0 },
-    email:   { input: contactForm.querySelector('#cf-email'),   err: contactForm.querySelector('#cf-email-err'),   test: v => EMAIL_RE.test(v) },
-    message: { input: contactForm.querySelector('#cf-message'), err: contactForm.querySelector('#cf-message-err'), test: v => v.length >= 10 },
+    name:    { input: contactForm.querySelector('#cf-name'),    err: contactForm.querySelector('#cf-name-err') },
+    email:   { input: contactForm.querySelector('#cf-email'),   err: contactForm.querySelector('#cf-email-err') },
+    message: { input: contactForm.querySelector('#cf-message'), err: contactForm.querySelector('#cf-message-err') },
   };
+  const submitBtn = contactForm.querySelector('.cf-submit');
+  const submitLabel = contactForm.querySelector('.cf-submit-label');
+  const sentPanel = document.getElementById('cf-sent');
+  const failedPanel = document.getElementById('cf-failed');
+  const mailtoLink = document.getElementById('cf-mailto');
+  const values = () => Object.fromEntries(Object.entries(fields).map(([k, f]) => [k, f.input.value]));
   const setError = (f, on) => {
     f.input.classList.toggle('cf-input--error', on);
     f.input.setAttribute('aria-invalid', on ? 'true' : 'false');
     if (f.err) f.err.hidden = !on;
   };
-  contactForm.addEventListener('submit', e => {
+  const setSending = (on) => {
+    submitBtn.disabled = on;
+    contactForm.setAttribute('aria-busy', String(on));
+    submitLabel.dataset.i18n = on ? 'contact.sending' : 'contact.cta_short';
+    submitLabel.textContent = t(submitLabel.dataset.i18n);
+  };
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
+    const checks = validate(values());
     let firstInvalid = null;
-    Object.values(fields).forEach(f => {
-      const ok = f.test(f.input.value.trim());
-      setError(f, !ok);
-      if (!ok && !firstInvalid) firstInvalid = f.input;
+    Object.entries(fields).forEach(([k, f]) => {
+      setError(f, !checks[k]);
+      if (!checks[k] && !firstInvalid) firstInvalid = f.input;
     });
     if (firstInvalid) { firstInvalid.focus(); return; }
-    const subject = `[Portfolio] ${fields.name.input.value.trim()}`;
-    const body = `${fields.message.input.value.trim()}\n\n— ${fields.name.input.value.trim()}\n${fields.email.input.value.trim()}`;
-    const href = `mailto:mickabrousse@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = href;
-    const success = document.getElementById('cf-success');
-    if (success) success.hidden = false;
+
+    sentPanel.hidden = true;
+    failedPanel.hidden = true;
+    setSending(true);
+    const data = { ...values(), lang: currentLang, page: location.href.split('#')[0] };
+    const result = await sendContact(data, { honeypot: contactForm.querySelector('.cf-hp').value });
+    setSending(false);
+    if (result.ok) {
+      contactForm.reset();
+      sentPanel.hidden = false;
+    } else {
+      mailtoLink.href = mailtoHref(data);
+      failedPanel.hidden = false;
+      console.warn('Contact form not delivered:', result.reason, result.detail || '');
+    }
   });
   const copyBtn = document.getElementById('cf-copy-btn');
   if (copyBtn) {
@@ -471,8 +496,7 @@ if (contactForm) {
       if (f.input.classList.contains('cf-input--error') && f.test(f.input.value.trim())) {
         setError(f, false);
       }
-      const success = document.getElementById('cf-success');
-      if (success) success.hidden = true;
+      sentPanel.hidden = true;
     });
     f.input.addEventListener('blur', () => {
       const v = f.input.value.trim();

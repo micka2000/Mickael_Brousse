@@ -15,7 +15,7 @@
       } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=7" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -408,13 +408,20 @@
             <textarea id="cf-message" name="message" rows="5" required aria-required="true" aria-describedby="cf-message-err" data-i18n-attr="placeholder:contact.f_message_ph" placeholder="Tell me about your project…"></textarea>
             <span class="cf-error" id="cf-message-err" data-i18n="contact.err_message" hidden>Please write a short message.</span>
           </div>
+          <!-- honeypot: invisible to people, bots fill it and get dropped -->
+          <input type="text" name="_honey" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <button type="submit" class="btn btn-primary cf-submit">
-            <span data-i18n="contact.cta_short">Send</span>
+            <span class="cf-submit-label" data-i18n="contact.cta_short">Send</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-          <div class="cf-success" id="cf-success" hidden role="status" aria-live="polite">
-            <p data-i18n="contact.success">I just tried to open your mail client with the message pre-filled.</p>
-            <p class="cf-success-fallback" data-i18n="contact.success_fallback">Nothing happened? No mail app set up? Copy the address below and send it from wherever you write email.</p>
+          <div class="cf-sent" id="cf-sent" hidden role="status" aria-live="polite">
+            <p class="cf-sent-title" data-i18n="contact.sent_t">Message sent.</p>
+            <p data-i18n="contact.sent_d">Thanks. I will reply by email.</p>
+          </div>
+          <div class="cf-success" id="cf-failed" hidden role="alert">
+            <p data-i18n="contact.fail_t">The message could not be sent from here.</p>
+            <p class="cf-success-fallback" data-i18n="contact.fail_d">Write to me directly: open your mail app with the message ready, or copy the address.</p>
+            <a class="btn btn-tonal btn-sm cf-mailto" id="cf-mailto" href="mailto:mickabrousse@gmail.com"><span data-i18n="contact.open_mail">Open my mail app</span> <span aria-hidden="true">↗</span></a>
             <div class="cf-copy">
               <code class="cf-copy-addr">mickabrousse@gmail.com</code>
               <button type="button" class="btn btn-primary btn-sm cf-copy-btn" id="cf-copy-btn" aria-label="Copy email address" data-i18n-attr="aria-label:a11y.copy_email">
@@ -469,6 +476,6 @@
     </div>
   </footer>
 
-  <script type="module" src="script.js?v=6"></script>
+  <script type="module" src="script.js?v=7"></script>
 </body>
 </html>

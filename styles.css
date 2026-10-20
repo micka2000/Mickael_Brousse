@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=6');
-@import url('tokens/colors.css?v=6');
-@import url('tokens/typography.css?v=6');
-@import url('tokens/spacing.css?v=6');
+@import url('tokens/fonts.css?v=7');
+@import url('tokens/colors.css?v=7');
+@import url('tokens/typography.css?v=7');
+@import url('tokens/spacing.css?v=7');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -1272,7 +1272,21 @@ button, input, textarea, select { font: inherit; color: inherit; }
   flex-direction: column;
   gap: 0.7rem;
 }
-.cf-success[hidden] { display: none; }
+.cf-success[hidden], .cf-sent[hidden] { display: none; }
+/* Sent — DS ContactSection confirmation */
+.cf-sent {
+  background: var(--bg-accent-subtle);
+  color: var(--accent);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: var(--text-sm);
+}
+.cf-sent p { margin: 0; line-height: 1.5; }
+.cf-sent-title { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 0.15rem !important; }
+.cf-mailto { align-self: flex-start; }
+.cf-submit:disabled { opacity: 0.6; cursor: progress; }
+/* Honeypot — out of sight and out of the tab order */
+.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .cf-success p { margin: 0; line-height: 1.45; }
 .cf-success p:first-child { font-weight: 600; }
 .cf-success-fallback { color: var(--fg-2); font-size: var(--text-sm); }
