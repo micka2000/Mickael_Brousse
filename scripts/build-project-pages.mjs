@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 
 const root = new URL('..', import.meta.url);
 const SITE = 'https://micka2000.github.io/Mickael_Brousse/';
-const V = 19; // asset version, keep in step with index.html
+const V = 20; // asset version, keep in step with index.html
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // bilingual text; `rich` keeps the authored inline HTML (strong, code)
@@ -30,6 +30,8 @@ const UI = {
   whatTitle: { en: 'In short', fr: 'En bref' },
   how: { en: 'How it works', fr: 'Comment ça marche' },
   howTitle: { en: 'From source to screen', fr: 'De la source à l’écran' },
+  video: { en: 'In motion', fr: 'En vidéo' },
+  videoNote: { en: '30 seconds, no sound. Demo data.', fr: '30 secondes, sans son. Données de démonstration.' },
   evolution: { en: 'Evolution', fr: 'Évolution' },
   evolutionTitle: { en: 'From V1 to V2', fr: 'De la V1 à la V2' },
   gallery: { en: 'In pictures', fr: 'En images' },
@@ -69,6 +71,15 @@ function page(p, all) {
   const sections = [];
   const add = (key, label, title, body, inset = false, wide = false) => sections.push({ key, label, title, body, inset, wide });
 
+  if (p.video) {
+    const v = l => `<video class="pp-video" data-l="${l}" controls playsinline preload="none" width="1440" height="900"
+            poster="../../${esc(p.video[l].poster)}" aria-label="${esc(p.video[l].label)}">
+            <source src="../../${esc(p.video[l].src)}" type="video/mp4" />
+          </video>`;
+    add('video', UI.video, UI.video,
+      `<div class="pp-video-wrap">${v('en')}${v('fr')}</div>
+        <p class="pp-footnote">${L(UI.videoNote)}</p>`, false, true);
+  }
   add('why', UI.why, UI.whyTitle,
     `<blockquote class="pp-quote"><p>${L(p.why)}</p><cite>Mickaël Brousse</cite></blockquote>`, false, false);
   if (p.what?.length) add('what', UI.what, UI.whatTitle,

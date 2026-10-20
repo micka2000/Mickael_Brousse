@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=19');
-@import url('tokens/colors.css?v=19');
-@import url('tokens/typography.css?v=19');
-@import url('tokens/spacing.css?v=19');
+@import url('tokens/fonts.css?v=20');
+@import url('tokens/colors.css?v=20');
+@import url('tokens/typography.css?v=20');
+@import url('tokens/spacing.css?v=20');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -1583,3 +1583,8 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
 .legal code { font-family: var(--font-mono); font-size: 0.88em; background: var(--bg-accent-subtle); color: var(--accent); padding: 1px 6px; border-radius: var(--radius-sm); }
 .legal .pp-next { margin-top: 3.5rem; }
 .footer-privacy { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Project video (optional `video` field) */
+.pp-video-wrap { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--bg-inset); line-height: 0; }
+.pp-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; }
+html[lang="fr"] video[data-l="en"], html:not([lang="fr"]) video[data-l="fr"] { display: none; }

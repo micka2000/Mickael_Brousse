@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=19" />
+  <link rel="stylesheet" href="../../styles.css?v=20" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -58,6 +58,20 @@
       <p class="pp-private-note"><span data-l="en">The code is private. This page shows what the project does and how it works.</span><span data-l="fr">Le code est privé. Cette page montre ce que fait le projet et comment il fonctionne.</span></p>
       <figure class="pp-hero-shot"><div class="pp-frame"><a class="pp-zoom" href="../../assets/projects/pizza-planning/planning.webp"><img src="../../assets/projects/pizza-planning/planning.webp" alt="Weekly planning: one grid per site, employees by day, morning and evening" data-alt-en="Weekly planning: one grid per site, employees by day, morning and evening" data-alt-fr="Planning de la semaine : une grille par site, employés par jour, matin et soir" width="1280" height="800" decoding="async" /></a></div></figure>
     </header>
+
+    <section class="pp-section" id="video">
+      <div class="container">
+        <div class="section-header"><h2><span data-l="en">In motion</span><span data-l="fr">En vidéo</span></h2></div>
+        <div class="pp-video-wrap"><video class="pp-video" data-l="en" controls playsinline preload="none" width="1440" height="900"
+            poster="../../assets/projects/pizza-planning/motion-poster-en.jpg" aria-label="Video: the manager plans the week, an employee sees their schedule, monthly hours go to payroll">
+            <source src="../../assets/projects/pizza-planning/motion-en.mp4" type="video/mp4" />
+          </video><video class="pp-video" data-l="fr" controls playsinline preload="none" width="1440" height="900"
+            poster="../../assets/projects/pizza-planning/motion-poster-fr.jpg" aria-label="Vidéo : le gérant planifie la semaine, une employée voit son planning, les heures du mois partent à la paie">
+            <source src="../../assets/projects/pizza-planning/motion-fr.mp4" type="video/mp4" />
+          </video></div>
+        <p class="pp-footnote"><span data-l="en">30 seconds, no sound. Demo data.</span><span data-l="fr">30 secondes, sans son. Données de démonstration.</span></p>
+      </div>
+    </section>
 
     <section class="pp-section" id="why">
       <div class="container pp-grid">
@@ -117,6 +131,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=19" defer></script>
+  <script src="../../project-page.js?v=20" defer></script>
 </body>
 </html>

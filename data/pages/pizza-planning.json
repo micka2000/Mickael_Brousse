@@ -25,6 +25,18 @@
     }
   },
   "og": "assets/projects/pizza-planning/og.jpg",
+  "video": {
+    "en": {
+      "src": "assets/projects/pizza-planning/motion-en.mp4",
+      "poster": "assets/projects/pizza-planning/motion-poster-en.jpg",
+      "label": "Video: the manager plans the week, an employee sees their schedule, monthly hours go to payroll"
+    },
+    "fr": {
+      "src": "assets/projects/pizza-planning/motion-fr.mp4",
+      "poster": "assets/projects/pizza-planning/motion-poster-fr.jpg",
+      "label": "Vidéo : le gérant planifie la semaine, une employée voit son planning, les heures du mois partent à la paie"
+    }
+  },
   "why": {
     "en": "My father owns pizzerias and does his schedules by hand, and I saw a chance to make his day-to-day easier.",
     "fr": "Mon père possède des pizzerias et réalise ses plannings à la main, et j’ai vu l’opportunité de lui faciliter le quotidien."
