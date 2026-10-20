@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=10');
-@import url('tokens/colors.css?v=10');
-@import url('tokens/typography.css?v=10');
-@import url('tokens/spacing.css?v=10');
+@import url('tokens/fonts.css?v=11');
+@import url('tokens/colors.css?v=11');
+@import url('tokens/typography.css?v=11');
+@import url('tokens/spacing.css?v=11');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -806,6 +806,67 @@ button, input, textarea, select { font: inherit; color: inherit; }
   padding: 1.75rem;
   box-shadow: var(--shadow-md);
 }
+.skill-category--wide { grid-column: 1 / -1; }
+
+/* Tools — real logos on a white tile (brand colors stay true in dark mode) */
+.tool-group + .tool-group { margin-top: 1.25rem; }
+.tool-group-label {
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-3);
+  margin-bottom: 0.6rem;
+}
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.tool {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  transition: background var(--duration-micro) var(--ease-standard);
+}
+.tool:hover { background: var(--bg-inset); }
+.tool-mark {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--border-subtle), var(--shadow-sm);
+}
+[data-theme="dark"] .tool-mark { box-shadow: none; }
+.tool-mark img { width: 24px; height: 24px; object-fit: contain; }
+.tool-text { display: flex; flex-direction: column; min-width: 0; }
+.tool-name { font-size: var(--text-sm); font-weight: var(--weight-semi); color: var(--fg-1); line-height: 1.3; }
+.tool-sub { font-size: var(--text-xs); color: var(--fg-3); line-height: 1.3; }
+@media (max-width: 600px) {
+  .tool { gap: 0.6rem; padding: 0.4rem; }
+  .tool-mark { width: 36px; height: 36px; }
+  .tool-mark img { width: 22px; height: 22px; }
+}
+@media (max-width: 360px) { .tool-grid { grid-template-columns: 1fr; } }
+
+/* Languages — code, so JetBrains Mono (DS: mono for code only) */
+.code-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.code-chips code {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent);
+  background: var(--bg-accent-subtle);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+}
+
 .skill-category h3 {
   display: flex;
   align-items: center;
@@ -851,20 +912,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: #fff;
   border-color: var(--color-blue);
 }
-.tool-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.85rem 0.45rem 0.6rem;
-}
-.tool-tag .tool-logo { height: 18px; width: auto; }
-.tool-tag .tool-logo-wide { max-width: 44px; }
-.tool-tag .letter-mark {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 18px; height: 18px; font-size: 0.72rem;
-}
-.tool-tag:hover .tool-logo { filter: brightness(0) invert(1); }
-.tool-tag:hover .letter-mark { color: #fff; border-color: rgba(255,255,255,0.5); }
 
 /* ============================================================
    PROJECTS — catalog (DS ui_kits/portfolio ProjectCard + ProjectGrid)
@@ -1420,34 +1467,4 @@ footer {
 
 .edu-icon-wrap { color: var(--accent); }
 
-/* === Tool logos === */
-.tool-logo {
-  width: auto;
-  height: 20px;
-  max-width: 64px;
-  object-fit: contain;
-  flex-shrink: 0;
-  display: inline-block;
-}
-.tool-logo.letter-mark {
-  width: 20px;
-  max-width: 20px;
-}
-.tool-logo-wide { max-width: 80px; }
-[data-theme="dark"] img.tool-logo[src$="sas.svg"],
-[data-theme="dark"] img.tool-logo[src$="oracle.svg"] {
-  filter: brightness(1.6) saturate(1.1);
-}
-.tool-logo.letter-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 11px;
-  color: #fff;
-  background: #1F7A4D;
-  border-radius: 4px;
-  letter-spacing: 0;
-}
 

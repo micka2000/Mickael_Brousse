@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=10';
-import { validate, sendContact } from './contact-send.js?v=10';
+import { mergeProjects } from './projects-data.js?v=11';
+import { validate, sendContact } from './contact-send.js?v=11';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -79,6 +79,7 @@ const I18N = {
     'exp.mich2_period': 'Mar 2022 — Aug 2022', 'exp.badge_internship': 'Internship', 'exp.role_intern': 'Internship',
     'skills.tag': '04 / Skills', 'skills.title': 'Stack & Expertise',
     'skills.cat_core': 'Core Expertise', 'skills.cat_tools': 'Tools & Technologies',
+    'skills.tools_data': 'Data & BI', 'skills.tools_office': 'Productivity', 'skills.tools_code': 'Languages',
     'skills.cat_approach': 'Approach & Soft Skills',
     'skills.lvl_expert': 'Expert', 'skills.lvl_advanced': 'Advanced',
     'edu.tag': '05 / Education', 'edu.title': 'Education',
@@ -175,6 +176,7 @@ const I18N = {
     'exp.mich2_period': 'Mars 2022 — Août 2022', 'exp.badge_internship': 'Stage', 'exp.role_intern': 'Stage',
     'skills.tag': '04 / Compétences', 'skills.title': 'Stack & Expertises',
     'skills.cat_core': 'Expertise Cœur', 'skills.cat_tools': 'Outils & Technologies',
+    'skills.tools_data': 'Data & BI', 'skills.tools_office': 'Productivité', 'skills.tools_code': 'Langages',
     'skills.cat_approach': 'Approche & Soft Skills',
     'skills.lvl_expert': 'Expert', 'skills.lvl_advanced': 'Avancé',
     'edu.tag': '05 / Formation', 'edu.title': 'Éducation',

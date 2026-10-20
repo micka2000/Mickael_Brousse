@@ -15,7 +15,7 @@
       } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
     })();
   </script>
-  <link rel="stylesheet" href="styles.css?v=10" />
+  <link rel="stylesheet" href="styles.css?v=11" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -302,23 +302,37 @@
           </ul>
         </div>
 
-        <div class="skill-category">
+        <div class="skill-category skill-category--tools">
           <h3><span data-i18n="skills.cat_tools">Tools &amp; Technologies</span></h3>
-          <div class="soft-skills tools-tags">
-            <span class="soft-tag tool-tag"><img class="tool-logo" src="assets/logos/powerbi.svg" alt="" loading="lazy" />Power BI</span>
-            <span class="soft-tag tool-tag"><img class="tool-logo" src="assets/logos/oracle.svg" alt="" loading="lazy" />SQL (Oracle)</span>
-            <span class="soft-tag tool-tag"><img class="tool-logo tool-logo-wide" src="assets/logos/sas.svg" alt="" loading="lazy" />SAS (BDN, Enterprise Guide)</span>
-            <span class="soft-tag tool-tag"><span class="tool-logo letter-mark" aria-hidden="true">C</span>Collibra</span>
-            <span class="soft-tag tool-tag">Excel</span>
-            <span class="soft-tag tool-tag">Power Platform</span>
-            <span class="soft-tag tool-tag">Microsoft 365</span>
-            <span class="soft-tag tool-tag">Google Workspace</span>
-            <span class="soft-tag tool-tag">DAX</span>
-            <span class="soft-tag tool-tag">VBA</span>
+          <div class="tool-group">
+            <p class="tool-group-label" data-i18n="skills.tools_data">Data &amp; BI</p>
+            <ul class="tool-grid">
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/powerbi.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Power BI</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/sas.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">SAS</span><span class="tool-sub">BDN, Enterprise Guide</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/oracle.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Oracle</span><span class="tool-sub">SQL</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/collibra.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Collibra</span></span></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <p class="tool-group-label" data-i18n="skills.tools_office">Productivity</p>
+            <ul class="tool-grid">
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/excel.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Excel</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/power-platform.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Power Platform</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/microsoft-365.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Microsoft 365</span></span></li>
+              <li class="tool"><span class="tool-mark"><img src="assets/logos/tools/google.svg" alt="" width="24" height="24" loading="lazy" /></span><span class="tool-text"><span class="tool-name">Google Workspace</span></span></li>
+            </ul>
+          </div>
+          <div class="tool-group">
+            <p class="tool-group-label" data-i18n="skills.tools_code">Languages</p>
+            <ul class="code-chips">
+              <li><code>SQL</code></li>
+              <li><code>DAX</code></li>
+              <li><code>VBA</code></li>
+            </ul>
           </div>
         </div>
 
-        <div class="skill-category">
+        <div class="skill-category skill-category--wide">
           <h3><span data-i18n="skills.cat_approach">Approach &amp; Soft Skills</span></h3>
           <div class="soft-skills">
             <span class="soft-tag" data-i18n="skills.soft_agile">Agile</span>
@@ -454,6 +468,6 @@
     </div>
   </footer>
 
-  <script type="module" src="script.js?v=11"></script>
+  <script type="module" src="script.js?v=12"></script>
 </body>
 </html>
