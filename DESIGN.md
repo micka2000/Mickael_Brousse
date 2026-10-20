@@ -15,7 +15,7 @@ Static site on GitHub Pages (`main` branch, repo root), built on the
 | `contact-send.js` | Contact form validation and FormSubmit delivery (tested) |
 | `data/catalog.json` | Curated project copy: titles, EN/FR summaries, tags, visuals, private allowlist |
 | `data/projects.json` | Generated snapshot of repos that exist (`scripts/build-projects.mjs`) |
-| `assets/` | Fonts (local variable TTF), portrait, tool and school logos, project screenshots (WebP 960×600) |
+| `assets/` | Fonts (local variable TTF), portrait, `icons/` (MB. favicon 32/48/512, apple-touch 180), tool and school logos, project screenshots (WebP 960×600) |
 | `tests/` | `node --test tests/*.test.mjs` |
 
 Asset URLs carry `?v=N`. Bump it in `index.html`, `script.js` imports and the
