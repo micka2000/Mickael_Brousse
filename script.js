@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=17';
-import { validate, sendContact } from './contact-send.js?v=17';
+import { mergeProjects } from './projects-data.js?v=18';
+import { validate, sendContact } from './contact-send.js?v=18';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;

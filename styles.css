@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=17');
-@import url('tokens/colors.css?v=17');
-@import url('tokens/typography.css?v=17');
-@import url('tokens/spacing.css?v=17');
+@import url('tokens/fonts.css?v=18');
+@import url('tokens/colors.css?v=18');
+@import url('tokens/typography.css?v=18');
+@import url('tokens/spacing.css?v=18');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -152,6 +152,7 @@ section { padding: 6rem 0; position: relative; }
   color: var(--fg-2);
   position: relative;
   transition: color var(--duration-fast);
+  font-family: var(--font-label);
 }
 .nav-links a:hover { color: var(--color-blue); }
 .nav-links a::after {
@@ -222,6 +223,7 @@ section { padding: 6rem 0; position: relative; }
   color: var(--fg-1);
   padding: 0.5rem 0;
   display: block;
+  font-family: var(--font-label);
 }
 
 /* ============================================================
@@ -295,7 +297,7 @@ section { padding: 6rem 0; position: relative; }
 
 /* Role line above the name: plain text, no caps, no accent colour */
 .hero-eyebrow {
-  font-family: var(--font-body);
+  font-family: var(--font-title);
   font-size: var(--text-h4);
   font-weight: var(--weight-semi);
   color: var(--fg-2);
@@ -399,7 +401,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   gap: 8px;
   height: 40px;
   padding: 0 24px;
-  font-family: var(--font-body);
+  font-family: var(--font-label);
   font-size: 14px;
   font-weight: var(--weight-semi);
   letter-spacing: 0.01em;
@@ -484,10 +486,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 
 /* Component tweaks on top of the variants */
-.lang-toggle { gap: 4px; padding: 0 12px; letter-spacing: 0.06em; }
+.lang-toggle { gap: 4px; padding: 0 12px; letter-spacing: 0.06em; font-family: var(--font-label); }
 .theme-toggle-icon { font-size: 14px; line-height: 1; }
 .nav-badge { gap: 8px; }
-.project-filter { color: var(--fg-2); padding: 0 14px; }
+.project-filter { color: var(--fg-2); padding: 0 14px; font-family: var(--font-label); }
 .project-filter.is-active,
 .project-filter.is-active:hover {
   background: var(--color-blue);
@@ -496,8 +498,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 /* ============================================================
    BADGES & TAGS — DS "Badges & Tags"
-   badge: 11px / 600 / CAPS / .06em, pill 4px 10px
-   tag:   10px / 600 / CAPS / .07em, pill 3px 8px (cards)
+   badge: 12px / 600 / Bricolage (--font-label), sentence case, pill 4px 10px
+   tag:   12px / 600 / Bricolage (--font-label), sentence case, pill 3px 8px
    chip:  13px / 500, pill 8px 14px (skills)
    ============================================================ */
 .timeline-badge,
@@ -528,6 +530,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   box-shadow: inset 0 0 0 1.5px currentColor;
   margin-left: 0.5rem;
   vertical-align: 0.2em;
+  font-family: var(--font-label);
 }
 
 /* Skill level — filled for Expert, tinted for Advanced */
@@ -745,6 +748,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--fg-2);
   font-weight: 500;
   margin-bottom: 1rem;
+  font-family: var(--font-title);
 }
 .timeline-list {
   display: flex;
@@ -827,7 +831,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 [data-theme="dark"] .tool-mark { box-shadow: none; }
 .tool-mark img { width: 24px; height: 24px; object-fit: contain; }
 .tool-text { display: flex; flex-direction: column; min-width: 0; }
-.tool-name { font-size: var(--text-sm); font-weight: var(--weight-semi); color: var(--fg-1); line-height: 1.3; }
+.tool-name { font-size: var(--text-sm); font-weight: var(--weight-semi); color: var(--fg-1); line-height: 1.3; font-family: var(--font-title); }
 .tool-sub { font-size: var(--text-xs); color: var(--fg-3); line-height: 1.3; }
 @media (max-width: 600px) {
   .tool { gap: 0.6rem; padding: 0.4rem; }
@@ -865,6 +869,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .skill-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .skill-row {
+  font-family: var(--font-title);
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -1097,6 +1102,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--accent);
   font-weight: 500;
   margin-bottom: 0.75rem;
+  font-family: var(--font-title);
 }
 .edu-desc {
   font-size: var(--text-sm);
@@ -1263,7 +1269,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-size: var(--text-sm);
 }
 .cf-sent p { margin: 0; line-height: 1.5; }
-.cf-sent-title { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 0.15rem !important; }
+.cf-sent-title { font-family: var(--font-title); font-weight: var(--weight-ultra); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 0.15rem !important; }
 .cf-alt { align-self: flex-start; }
 .cf-submit:disabled { opacity: 0.6; cursor: progress; }
 /* Honeypot — out of sight and out of the tab order */
@@ -1315,7 +1321,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--fg-3);
 }
 .contact-card-value {
-  font-family: var(--font-display);
+  font-family: var(--font-title);
   font-weight: var(--weight-ultra);
   font-size: 16px;
   color: var(--fg-1);
@@ -1351,8 +1357,8 @@ footer {
 .footer-name span { color: var(--color-sky); }
 .footer-tagline { font-size: var(--text-sm); line-height: 1.6; color: #A9A7A1; margin-bottom: 1.25rem; max-width: 280px; }
 .footer-col { display: flex; flex-direction: column; align-items: flex-start; gap: 0.55rem; }
-.footer-col-title { font-size: var(--text-sm); font-weight: var(--weight-semi); color: #F0EEE9; margin-bottom: 0.3rem; }
-.footer-col a { font-size: var(--text-sm); color: #A9A7A1; transition: color var(--duration-micro); }
+.footer-col-title { font-size: var(--text-sm); font-weight: var(--weight-semi); color: #F0EEE9; margin-bottom: 0.3rem; font-family: var(--font-label); }
+.footer-col a { font-size: var(--text-sm); color: #A9A7A1; transition: color var(--duration-micro); font-family: var(--font-label); }
 .footer-col a:hover { color: var(--color-sky); }
 .footer-data p:not(.footer-col-title) { font-size: var(--text-sm); line-height: 1.6; color: #A9A7A1; }
 .footer-data a { color: var(--color-sky); text-decoration: underline; text-underline-offset: 3px; }
@@ -1610,19 +1616,3 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
 .legal code { font-family: var(--font-mono); font-size: 0.88em; background: var(--bg-accent-subtle); color: var(--accent); padding: 1px 6px; border-radius: var(--radius-sm); }
 .legal .pp-next { margin-top: 3.5rem; }
 .footer-privacy { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
-
-/* ============================================================
-   DS typography roles (2026-10-20): Bricolage for anything that
-   names something, Roboto for sentences. See tokens/typography.css.
-   ============================================================ */
-.btn, .nav-links a, .mobile-menu a, .lang-toggle, .project-filter,
-.badge, .skill-level, .role-type, .project-tags span, .project-badge,
-.timeline-tags span, .footer-col a, .footer-col-title,
-.stat-label, .cf-submit-label {
-  font-family: var(--font-label);
-}
-.skill-row > span:first-child, .tool-name, .timeline-company, .edu-school,
-.contact-card-value, .hero-eyebrow, .cf-sent-title {
-  font-family: var(--font-title);
-}
-.code-chips span { font-family: var(--font-mono); }
