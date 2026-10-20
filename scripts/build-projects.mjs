@@ -55,7 +55,8 @@ for (const r of all) {
     private: r.private,
     language: r.language,
     created_at: r.created_at,
-    pushed_at: r.pushed_at,
+    // no pushed_at: it changes on every push (including this workflow's own
+    // commit) and would make the snapshot churn; the live API provides it
   };
   if (!r.private) {
     entry.description = r.description;
