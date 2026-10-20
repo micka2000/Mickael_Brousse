@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=20" />
+  <link rel="stylesheet" href="../../styles.css?v=21" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -85,6 +85,20 @@
       </div>
     </section>
 
+    <section class="pp-section" id="details">
+      <div class="container">
+        <div class="section-header"><h2><span data-l="en">Under the hood</span><span data-l="fr">Sous le capot</span></h2></div>
+        <div class="pp-details">
+          <div class="pp-detail"><h3><span data-l="en">No login screen</span><span data-l="fr">Pas d’écran de connexion</span></h3><p><span data-l="en">Access is handled by the network: the app is only reachable over my private Tailscale network, so it has no accounts, sessions or passwords.</span><span data-l="fr">L’accès est réglé au niveau du réseau : l’app n’est joignable que par mon réseau privé Tailscale, donc ni compte, ni session, ni mot de passe.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">The day is frozen when you log it</span><span data-l="fr">Le jour est figé à la saisie</span></h3><p><span data-l="en">Each entry stores its local day and time zone at write time. Moving to another country never rewrites past streaks.</span><span data-l="fr">Chaque saisie garde son jour local et son fuseau au moment de l’écriture. Changer de pays ne réécrit jamais les séries passées.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Logs that only grow</span><span data-l="fr">Des journaux qui ne font que grandir</span></h3><p><span data-l="en">Unticking a habit writes a new line instead of erasing one; the last line for a day wins. A backup is a plain copy of one folder.</span><span data-l="fr">Décocher une habitude écrit une nouvelle ligne au lieu d’en effacer une ; la dernière ligne du jour fait foi. Une sauvegarde, c’est la copie d’un dossier.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Never a silent failure</span><span data-l="fr">Jamais d’échec silencieux</span></h3><p><span data-l="en">Every write is preceded by a health check. If the host is unreachable, a banner says so and input is disabled: no entry is swallowed.</span><span data-l="fr">Chaque écriture est précédée d’un test de santé. Si l’hôte ne répond pas, un bandeau le dit et la saisie est coupée : aucune saisie n’est perdue en silence.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">One currency, on purpose</span><span data-l="fr">Une seule devise, exprès</span></h3><p><span data-l="en">All amounts are converted to the reference currency at the date of each transaction. A quote in another currency is rejected rather than added up wrongly.</span><span data-l="fr">Tous les montants sont convertis dans la devise de référence à la date de chaque opération. Une cotation dans une autre devise est rejetée plutôt qu’additionnée à tort.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">It never asks for attention</span><span data-l="fr">Elle ne sollicite jamais</span></h3><p><span data-l="en">No notification, no widget, no auto-start. I open it when I decide to.</span><span data-l="fr">Ni notification, ni widget, ni lancement automatique. Je l’ouvre quand je le décide.</span></p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="pp-section pp-section--inset" id="gallery">
       <div class="container">
         <div class="section-header"><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
@@ -129,6 +143,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=20" defer></script>
+  <script src="../../project-page.js?v=21" defer></script>
 </body>
 </html>

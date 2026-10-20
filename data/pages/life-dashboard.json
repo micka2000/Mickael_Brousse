@@ -94,6 +94,68 @@
       }
     }
   ],
+  "details": [
+    {
+      "title": {
+        "en": "No login screen",
+        "fr": "Pas d’écran de connexion"
+      },
+      "text": {
+        "en": "Access is handled by the network: the app is only reachable over my private Tailscale network, so it has no accounts, sessions or passwords.",
+        "fr": "L’accès est réglé au niveau du réseau : l’app n’est joignable que par mon réseau privé Tailscale, donc ni compte, ni session, ni mot de passe."
+      }
+    },
+    {
+      "title": {
+        "en": "The day is frozen when you log it",
+        "fr": "Le jour est figé à la saisie"
+      },
+      "text": {
+        "en": "Each entry stores its local day and time zone at write time. Moving to another country never rewrites past streaks.",
+        "fr": "Chaque saisie garde son jour local et son fuseau au moment de l’écriture. Changer de pays ne réécrit jamais les séries passées."
+      }
+    },
+    {
+      "title": {
+        "en": "Logs that only grow",
+        "fr": "Des journaux qui ne font que grandir"
+      },
+      "text": {
+        "en": "Unticking a habit writes a new line instead of erasing one; the last line for a day wins. A backup is a plain copy of one folder.",
+        "fr": "Décocher une habitude écrit une nouvelle ligne au lieu d’en effacer une ; la dernière ligne du jour fait foi. Une sauvegarde, c’est la copie d’un dossier."
+      }
+    },
+    {
+      "title": {
+        "en": "Never a silent failure",
+        "fr": "Jamais d’échec silencieux"
+      },
+      "text": {
+        "en": "Every write is preceded by a health check. If the host is unreachable, a banner says so and input is disabled: no entry is swallowed.",
+        "fr": "Chaque écriture est précédée d’un test de santé. Si l’hôte ne répond pas, un bandeau le dit et la saisie est coupée : aucune saisie n’est perdue en silence."
+      }
+    },
+    {
+      "title": {
+        "en": "One currency, on purpose",
+        "fr": "Une seule devise, exprès"
+      },
+      "text": {
+        "en": "All amounts are converted to the reference currency at the date of each transaction. A quote in another currency is rejected rather than added up wrongly.",
+        "fr": "Tous les montants sont convertis dans la devise de référence à la date de chaque opération. Une cotation dans une autre devise est rejetée plutôt qu’additionnée à tort."
+      }
+    },
+    {
+      "title": {
+        "en": "It never asks for attention",
+        "fr": "Elle ne sollicite jamais"
+      },
+      "text": {
+        "en": "No notification, no widget, no auto-start. I open it when I decide to.",
+        "fr": "Ni notification, ni widget, ni lancement automatique. Je l’ouvre quand je le décide."
+      }
+    }
+  ],
   "gallery": [
     {
       "image": "assets/projects/life-dashboard/habits.webp",

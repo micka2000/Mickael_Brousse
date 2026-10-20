@@ -93,6 +93,48 @@
       }
     }
   ],
+  "details": [
+    {
+      "title": {
+        "en": "Brand tokens, mapped once",
+        "fr": "Des tokens de marque, branchés une fois"
+      },
+      "text": {
+        "en": "Blue, Olive and Sky are mapped onto every Material 3 system colour, with a light and a dark set.",
+        "fr": "Bleu, Olive et Ciel sont branchés sur chaque couleur système Material 3, avec un jeu clair et un jeu sombre."
+      }
+    },
+    {
+      "title": {
+        "en": "One rule for type",
+        "fr": "Une règle pour la typo"
+      },
+      "text": {
+        "en": "Bricolage Grotesque for everything that names something: titles, buttons, navigation, chips. Roboto for sentences only. No tracked uppercase.",
+        "fr": "Bricolage Grotesque pour tout ce qui nomme : titres, boutons, navigation, chips. Roboto seulement pour les phrases. Jamais de capitales espacées."
+      }
+    },
+    {
+      "title": {
+        "en": "Fonts shipped with it",
+        "fr": "Des polices livrées avec"
+      },
+      "text": {
+        "en": "Both typefaces are bundled as local variable fonts: no call to a font service, the same rendering everywhere.",
+        "fr": "Les deux polices sont livrées en polices variables locales : aucun appel à un service de polices, le même rendu partout."
+      }
+    },
+    {
+      "title": {
+        "en": "No framework lock-in",
+        "fr": "Aucun framework imposé"
+      },
+      "text": {
+        "en": "They are standard web components, so the same import works in React, Vue, Svelte, Astro or plain HTML.",
+        "fr": "Ce sont des web components standard : le même import marche dans React, Vue, Svelte, Astro ou en HTML pur."
+      }
+    }
+  ],
   "gallery": [
     {
       "image": "assets/projects/design-system/overview.webp",

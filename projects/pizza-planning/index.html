@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=20" />
+  <link rel="stylesheet" href="../../styles.css?v=21" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -99,6 +99,19 @@
       </div>
     </section>
 
+    <section class="pp-section" id="details">
+      <div class="container">
+        <div class="section-header"><h2><span data-l="en">Under the hood</span><span data-l="fr">Sous le capot</span></h2></div>
+        <div class="pp-details">
+          <div class="pp-detail"><h3><span data-l="en">One rule for the hours</span><span data-l="fr">Une seule règle pour les heures</span></h3><p><span data-l="en">A cross takes the site’s opening hours; typed hours replace them, start and end independently. The planning, the exports and the hours page all use the same function, because a mistake here ends up on a payslip.</span><span data-l="fr">Une croix prend les horaires d’ouverture du site ; des horaires saisis les remplacent, début et fin indépendamment. Le planning, les exports et la page des heures passent tous par la même fonction, parce qu’une erreur ici finit sur une fiche de paie.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Identity comes from the server</span><span data-l="fr">L’identité vient du serveur</span></h3><p><span data-l="en">An employee’s first name lives in a signed, HttpOnly cookie. The app ignores any name passed in the address, so nobody can read someone else’s schedule.</span><span data-l="fr">Le prénom de l’employé vit dans un cookie signé et HttpOnly. L’app ignore tout prénom passé dans l’adresse : personne ne peut lire le planning d’un autre.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">A team code nobody can read back</span><span data-l="fr">Un code d’équipe que personne ne peut relire</span></h3><p><span data-l="en">The six-digit code is stored hashed. The manager changes it in the app, and after 20 wrong tries the door closes for 15 minutes.</span><span data-l="fr">Le code à six chiffres est stocké haché. Le gérant le change depuis l’app, et après 20 essais ratés la porte se ferme un quart d’heure.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Data kept in Europe</span><span data-l="fr">Des données gardées en Europe</span></h3><p><span data-l="en">Employee schedules are personal data: the database and the app run in Ireland.</span><span data-l="fr">Les plannings des employés sont des données personnelles : la base et l’app tournent en Irlande.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Exports made for payroll</span><span data-l="fr">Des exports pensés pour la paie</span></h3><p><span data-l="en">Excel with a totals sheet to enter and a detail sheet to justify them, and CSV with a French decimal comma, ready for the payroll software.</span><span data-l="fr">Excel avec un onglet de totaux à saisir et un onglet de détail pour les justifier, et CSV en décimale française, prêt pour le logiciel de paie.</span></p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="pp-section pp-section--inset" id="gallery">
       <div class="container">
         <div class="section-header"><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
@@ -131,6 +144,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=20" defer></script>
+  <script src="../../project-page.js?v=21" defer></script>
 </body>
 </html>

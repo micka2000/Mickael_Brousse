@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=20" />
+  <link rel="stylesheet" href="../../styles.css?v=21" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -104,6 +104,19 @@
       </div>
     </section>
 
+    <section class="pp-section" id="details">
+      <div class="container">
+        <div class="section-header"><h2><span data-l="en">Under the hood</span><span data-l="fr">Sous le capot</span></h2></div>
+        <div class="pp-details">
+          <div class="pp-detail"><h3><span data-l="en">An ATS score that is checked</span><span data-l="fr">Un score ATS vérifié</span></h3><p><span data-l="en">The first version let the model grade its own CV. Now a fixed formula scores the final CV against the posting: keywords 35, where they appear 25, years of experience 15, education 15, job title 10.</span><span data-l="fr">La première version laissait le modèle noter son propre CV. Désormais une formule fixe note le CV final face à l’offre : mots-clés 35, leur emplacement 25, années d’expérience 15, formation 15, intitulé du poste 10.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Offers ranked on what matters</span><span data-l="fr">Des offres classées sur ce qui compte</span></h3><p><span data-l="en">Each offer gets a composite score: distance 40, salary 30, ATS match 20, recency 10, with remote and distance filters.</span><span data-l="fr">Chaque offre reçoit un score composite : distance 40, salaire 30, correspondance ATS 20, fraîcheur 10, avec des filtres télétravail et distance.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">One call to score them all</span><span data-l="fr">Un seul appel pour tout noter</span></h3><p><span data-l="en">All offers are scored against the profile in a single API call instead of one call each, which cut token use by about 89%.</span><span data-l="fr">Toutes les offres sont notées face au profil en un seul appel d’API au lieu d’un par offre, soit environ 89 % de jetons en moins.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">No invented experience</span><span data-l="fr">Pas d’expérience inventée</span></h3><p><span data-l="en">A fidelity guard stops the rewrite from claiming a domain the CV does not cover, even when the posting is far from the profile.</span><span data-l="fr">Un garde-fou de fidélité empêche la réécriture de revendiquer un domaine que le CV ne couvre pas, même quand l’offre est loin du profil.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Always one page</span><span data-l="fr">Toujours une page</span></h3><p><span data-l="en">The PDF is rendered in a headless browser, then trimmed bullet by bullet until it fits on one page.</span><span data-l="fr">Le PDF est rendu dans un navigateur sans interface, puis allégé puce par puce jusqu’à tenir sur une page.</span></p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="pp-section pp-section--inset" id="gallery">
       <div class="container">
         <div class="section-header"><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
@@ -146,6 +159,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=20" defer></script>
+  <script src="../../project-page.js?v=21" defer></script>
 </body>
 </html>

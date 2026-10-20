@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 
 const root = new URL('..', import.meta.url);
 const SITE = 'https://micka2000.github.io/Mickael_Brousse/';
-const V = 20; // asset version, keep in step with index.html
+const V = 21; // asset version, keep in step with index.html
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // bilingual text; `rich` keeps the authored inline HTML (strong, code)
@@ -32,6 +32,7 @@ const UI = {
   howTitle: { en: 'From source to screen', fr: 'De la source à l’écran' },
   video: { en: 'In motion', fr: 'En vidéo' },
   videoNote: { en: '30 seconds, no sound. Demo data.', fr: '30 secondes, sans son. Données de démonstration.' },
+  details: { en: 'Under the hood', fr: 'Sous le capot' },
   evolution: { en: 'Evolution', fr: 'Évolution' },
   evolutionTitle: { en: 'From V1 to V2', fr: 'De la V1 à la V2' },
   gallery: { en: 'In pictures', fr: 'En images' },
@@ -101,6 +102,10 @@ function page(p, all) {
           ${card(p.evolution.v2, 'v2')}
         </div>`, false, true);
   }
+  if (p.details?.length) add('details', UI.details, UI.details,
+    `<div class="pp-details">${p.details.map(d => `
+          <div class="pp-detail"><h3>${L(d.title)}</h3><p>${L(d.text, true)}</p></div>`).join('')}
+        </div>`, false, true);
   const gallery = (p.gallery || []).filter(g => g.image !== p.hero.image);
   if (gallery.length) add('gallery', UI.gallery, UI.galleryTitle,
     `<div class="pp-gallery">${gallery.map(g => `

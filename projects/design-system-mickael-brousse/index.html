@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=20" />
+  <link rel="stylesheet" href="../../styles.css?v=21" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -85,6 +85,18 @@
       </div>
     </section>
 
+    <section class="pp-section" id="details">
+      <div class="container">
+        <div class="section-header"><h2><span data-l="en">Under the hood</span><span data-l="fr">Sous le capot</span></h2></div>
+        <div class="pp-details">
+          <div class="pp-detail"><h3><span data-l="en">Brand tokens, mapped once</span><span data-l="fr">Des tokens de marque, branchés une fois</span></h3><p><span data-l="en">Blue, Olive and Sky are mapped onto every Material 3 system colour, with a light and a dark set.</span><span data-l="fr">Bleu, Olive et Ciel sont branchés sur chaque couleur système Material 3, avec un jeu clair et un jeu sombre.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">One rule for type</span><span data-l="fr">Une règle pour la typo</span></h3><p><span data-l="en">Bricolage Grotesque for everything that names something: titles, buttons, navigation, chips. Roboto for sentences only. No tracked uppercase.</span><span data-l="fr">Bricolage Grotesque pour tout ce qui nomme : titres, boutons, navigation, chips. Roboto seulement pour les phrases. Jamais de capitales espacées.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">Fonts shipped with it</span><span data-l="fr">Des polices livrées avec</span></h3><p><span data-l="en">Both typefaces are bundled as local variable fonts: no call to a font service, the same rendering everywhere.</span><span data-l="fr">Les deux polices sont livrées en polices variables locales : aucun appel à un service de polices, le même rendu partout.</span></p></div>
+          <div class="pp-detail"><h3><span data-l="en">No framework lock-in</span><span data-l="fr">Aucun framework imposé</span></h3><p><span data-l="en">They are standard web components, so the same import works in React, Vue, Svelte, Astro or plain HTML.</span><span data-l="fr">Ce sont des web components standard : le même import marche dans React, Vue, Svelte, Astro ou en HTML pur.</span></p></div>
+        </div>
+      </div>
+    </section>
+
     <section class="pp-section pp-section--inset" id="gallery">
       <div class="container">
         <div class="section-header"><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
@@ -127,6 +139,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=20" defer></script>
+  <script src="../../project-page.js?v=21" defer></script>
 </body>
 </html>

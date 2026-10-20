@@ -105,6 +105,58 @@
       }
     }
   ],
+  "details": [
+    {
+      "title": {
+        "en": "One rule for the hours",
+        "fr": "Une seule règle pour les heures"
+      },
+      "text": {
+        "en": "A cross takes the site’s opening hours; typed hours replace them, start and end independently. The planning, the exports and the hours page all use the same function, because a mistake here ends up on a payslip.",
+        "fr": "Une croix prend les horaires d’ouverture du site ; des horaires saisis les remplacent, début et fin indépendamment. Le planning, les exports et la page des heures passent tous par la même fonction, parce qu’une erreur ici finit sur une fiche de paie."
+      }
+    },
+    {
+      "title": {
+        "en": "Identity comes from the server",
+        "fr": "L’identité vient du serveur"
+      },
+      "text": {
+        "en": "An employee’s first name lives in a signed, HttpOnly cookie. The app ignores any name passed in the address, so nobody can read someone else’s schedule.",
+        "fr": "Le prénom de l’employé vit dans un cookie signé et HttpOnly. L’app ignore tout prénom passé dans l’adresse : personne ne peut lire le planning d’un autre."
+      }
+    },
+    {
+      "title": {
+        "en": "A team code nobody can read back",
+        "fr": "Un code d’équipe que personne ne peut relire"
+      },
+      "text": {
+        "en": "The six-digit code is stored hashed. The manager changes it in the app, and after 20 wrong tries the door closes for 15 minutes.",
+        "fr": "Le code à six chiffres est stocké haché. Le gérant le change depuis l’app, et après 20 essais ratés la porte se ferme un quart d’heure."
+      }
+    },
+    {
+      "title": {
+        "en": "Data kept in Europe",
+        "fr": "Des données gardées en Europe"
+      },
+      "text": {
+        "en": "Employee schedules are personal data: the database and the app run in Ireland.",
+        "fr": "Les plannings des employés sont des données personnelles : la base et l’app tournent en Irlande."
+      }
+    },
+    {
+      "title": {
+        "en": "Exports made for payroll",
+        "fr": "Des exports pensés pour la paie"
+      },
+      "text": {
+        "en": "Excel with a totals sheet to enter and a detail sheet to justify them, and CSV with a French decimal comma, ready for the payroll software.",
+        "fr": "Excel avec un onglet de totaux à saisir et un onglet de détail pour les justifier, et CSV en décimale française, prêt pour le logiciel de paie."
+      }
+    }
+  ],
   "gallery": [
     {
       "image": "assets/projects/pizza-planning/employee.webp",
