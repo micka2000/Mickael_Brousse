@@ -26,6 +26,19 @@
     }
   },
   "og": "assets/projects/life-dashboard/og.jpg",
+  "video": {
+    "seconds": 27,
+    "en": {
+      "src": "assets/projects/life-dashboard/motion-en.mp4",
+      "poster": "assets/projects/life-dashboard/motion-poster-en.jpg",
+      "label": "Video: tiles on one screen, five habits ticked to keep the streak, the weight curve against the target, the same screen on iPhone"
+    },
+    "fr": {
+      "src": "assets/projects/life-dashboard/motion-fr.mp4",
+      "poster": "assets/projects/life-dashboard/motion-poster-fr.jpg",
+      "label": "Vidéo : les tuiles sur un seul écran, cinq habitudes cochées pour garder la série, la courbe du poids face à l’objectif, le même écran sur iPhone"
+    }
+  },
   "why": {
     "en": "I wanted to see if I could build an app I would use every day, and test my vibe coding skills.",
     "fr": "Je voulais voir si je pouvais créer une app que je puisse utiliser au quotidien, et tester mes capacités à vibe coder."

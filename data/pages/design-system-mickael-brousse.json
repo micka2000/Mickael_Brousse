@@ -25,6 +25,19 @@
     }
   },
   "og": "assets/projects/design-system/og.jpg",
+  "video": {
+    "seconds": 28,
+    "en": {
+      "src": "assets/projects/design-system/motion-en.mp4",
+      "poster": "assets/projects/design-system/motion-poster-en.jpg",
+      "label": "Video: the three brand colours and their tints, the type rule, the components in light and dark, the two imports"
+    },
+    "fr": {
+      "src": "assets/projects/design-system/motion-fr.mp4",
+      "poster": "assets/projects/design-system/motion-poster-fr.jpg",
+      "label": "Vidéo : les trois couleurs de marque et leurs nuances, la règle typo, les composants en clair et en sombre, les deux imports"
+    }
+  },
   "why": {
     "en": "I wanted code that saves me from rebuilding a design system every time I start a new project.",
     "fr": "Je voulais un code qui m’évite de rebâtir un design system à chaque fois que je commence un nouveau travail."
@@ -35,8 +48,8 @@
       "fr": "<strong>Composants web Material 3</strong> (<code>@material/web</code>, basés sur Lit), rethémés avec ma palette : Bleu <code>#003FA3</code> en primaire, Olive en secondaire, Ciel en tertiaire."
     },
     {
-      "en": "<strong>Typography</strong>: Bricolage Grotesque for display and headlines, Roboto for body and labels, both shipped as local variable fonts.",
-      "fr": "<strong>Typographie</strong> : Bricolage Grotesque pour les titres, Roboto pour le texte et les libellés, toutes deux livrées en polices variables locales."
+      "en": "<strong>Typography</strong>: Bricolage Grotesque for titles, buttons and labels, Roboto for body text, both shipped as local variable fonts.",
+      "fr": "<strong>Typographie</strong> : Bricolage Grotesque pour les titres, les boutons et les libellés, Roboto pour le texte courant, toutes deux livrées en polices variables locales."
     },
     {
       "en": "<strong>Native web components</strong>: they work in React, Next.js, Vue, Svelte, Astro or plain HTML, without wrappers.",

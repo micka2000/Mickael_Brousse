@@ -31,7 +31,7 @@ const UI = {
   how: { en: 'How it works', fr: 'Comment ça marche' },
   howTitle: { en: 'From source to screen', fr: 'De la source à l’écran' },
   video: { en: 'In motion', fr: 'En vidéo' },
-  videoNote: { en: '30 seconds, no sound. Demo data.', fr: '30 secondes, sans son. Données de démonstration.' },
+  videoNote: n => ({ en: `${n} seconds, no sound. Demo data.`, fr: `${n} secondes, sans son. Données de démonstration.` }),
   details: { en: 'Under the hood', fr: 'Sous le capot' },
   evolution: { en: 'Evolution', fr: 'Évolution' },
   evolutionTitle: { en: 'From V1 to V2', fr: 'De la V1 à la V2' },
@@ -79,7 +79,7 @@ function page(p, all) {
           </video>`;
     add('video', UI.video, UI.video,
       `<div class="pp-video-wrap">${v('en')}${v('fr')}</div>
-        <p class="pp-footnote">${L(UI.videoNote)}</p>`, false, true);
+        <p class="pp-footnote">${L(UI.videoNote(p.video.seconds || 30))}</p>`, false, true);
   }
   add('why', UI.why, UI.whyTitle,
     `<blockquote class="pp-quote"><p>${L(p.why)}</p><cite>Mickaël Brousse</cite></blockquote>`, false, false);

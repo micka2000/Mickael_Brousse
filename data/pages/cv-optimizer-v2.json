@@ -25,6 +25,19 @@
     }
   },
   "og": "assets/projects/cv-optimizer/og.jpg",
+  "video": {
+    "seconds": 25,
+    "en": {
+      "src": "assets/projects/cv-optimizer/motion-en.mp4",
+      "poster": "assets/projects/cv-optimizer/motion-poster-en.jpg",
+      "label": "Video: offers found from the CV, ranked by score with matching and missing keywords, then the CV rewritten for one offer"
+    },
+    "fr": {
+      "src": "assets/projects/cv-optimizer/motion-fr.mp4",
+      "poster": "assets/projects/cv-optimizer/motion-poster-fr.jpg",
+      "label": "Vidéo : des offres trouvées depuis le CV, classées par score avec les mots-clés présents et manquants, puis le CV réécrit pour une offre"
+    }
+  },
   "why": {
     "en": "I built it to optimise my CV for ATS in my job search.",
     "fr": "Pour optimiser l’ATS dans mes recherches d’emploi."
