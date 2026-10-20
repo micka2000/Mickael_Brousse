@@ -72,25 +72,26 @@ Screenshots sit in a browser frame; while loading the frame shows
 
 ## Design system in use
 
-**Type ramp** (Bricolage Grotesque for display, Roboto for text, JetBrains Mono
-for code only):
+**Type ramp**. Bricolage Grotesque names things, Roboto carries sentences,
+JetBrains Mono is for code only. Same rule as the design system repo
+(`--md-sys-typescale-title/label-*` on the brand face, body on Roboto):
 
-| Role | Spec |
-|---|---|
-| Hero name | Bricolage 800, `clamp(52px, 7vw, 104px)`, line-height 0.92, −0.03em |
-| Section title | Bricolage 800, `clamp(36px, 4.5vw, 48px)`, 1, −0.03em, accent period via `::after` |
-| Card titles | Bricolage 800, 22 / 18 / 16px, 1.2, −0.02em |
-| Lead / body / small | Roboto 17 / 16 / 14px, line-height 1.65 |
-| Role line (hero, project meta) | Roboto 600, 18px, `--fg-2`, sentence case |
-| Label / meta | Roboto 600, 11px, caps, +0.08em |
-| Card tag | Roboto 600, 10px, caps, +0.07em, pill |
+| Role | Font | Used for |
+|---|---|---|
+| Display / headline | Bricolage 800 | Hero name, section titles (accent period), page titles |
+| Title (`--font-title`) | Bricolage | Skill and tool names, roles, companies, schools, card titles |
+| Label (`--font-label`) | Bricolage 600, 12px, sentence case | Buttons, nav, badges, tags, dates, field labels, footer links |
+| Body | Roboto 400, 16–17px, line-height 1.65 | Paragraphs, bullets, descriptions |
+| Code | JetBrains Mono | SQL / DAX / VBA chips, file names |
+
+No tracked uppercase anywhere, no eyebrow above titles.
 
 **Buttons** (`.btn` + variant + size): `btn-primary` (filled blue), `btn-tonal`,
 `btn-outline`, `btn-text`, `btn-ink` (neutral controls); `btn-sm` 32px, default
 40px, `btn-lg` 48px; `btn-icon` for round icon buttons. Pill only. Hover changes
 color and shadow; press scales to 0.97 with a ripple.
 
-**Badges**: 11px caps pill. Sector badges use the three brand tones only
+**Badges**: 12px sentence-case pill. Sector badges use the three brand tones only
 (Banking blue, Industry olive, Internship sky). `role-type` is the outline
 badge; `skill-level` Expert is filled blue, Advanced is olive tint.
 

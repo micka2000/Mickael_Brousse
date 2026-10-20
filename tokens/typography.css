@@ -7,12 +7,17 @@
    ============================================================ */
 
 :root {
-  /* Display : Bricolage Grotesque — 800 hero/display, 700 headings
-     Body    : Roboto — 400 body, 500 UI, 600 labels
-     Mono    : JetBrains Mono — labels/eyebrows, sparingly */
+  /* Bricolage Grotesque names things: display and headings (800/700),
+     titles of items (skills, tools, roles, companies) and labels
+     (buttons, navigation, badges, tags, field labels).
+     Roboto is for sentences only (body).
+     JetBrains Mono is for code only (SQL, DAX, file names).
+     Labels are sentence case: no tracked uppercase, no eyebrow above titles. */
   --font-display:  'Bricolage Grotesque', 'Arial Black', sans-serif;
   --font-body:     'Roboto', 'Helvetica Neue', sans-serif;
   --font-mono:     'JetBrains Mono', 'Courier New', monospace;
+  --font-title:    var(--font-display);
+  --font-label:    var(--font-display);
 
   /* Scale */
   --text-hero:    clamp(60px, 8vw, 120px);
@@ -24,7 +29,7 @@
   --text-body:    16px;
   --text-sm:      14px;
   --text-xs:      12px;
-  --text-label:   11px;
+  --text-label:   12px;
 
   /* Weights */
   --weight-ultra:   800;
