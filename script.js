@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=8';
-import { validate, sendContact, mailtoHref } from './contact-send.js?v=8';
+import { mergeProjects } from './projects-data.js?v=9';
+import { validate, sendContact } from './contact-send.js?v=9';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -85,15 +85,11 @@ const I18N = {
     'contact.f_message_ph': 'Tell me about your project…',
     'contact.sending': 'Sending…', 'contact.sent_t': 'Message sent.', 'contact.sent_d': 'Thanks. I will reply by email.',
     'contact.fail_t': 'The message could not be sent from here.',
-    'contact.fail_d': 'Write to me directly: open your mail app with the message ready, or copy the address.',
-    'contact.open_mail': 'Open my mail app',
-    'contact.copy': 'Copy', 'contact.copied': 'Copied',
+    'contact.fail_d': 'Try again in a moment, or write to me on LinkedIn.', 'contact.write_linkedin': 'Message me on LinkedIn', 'footer.cta': 'Send me a message',
+   
     'a11y.skip': 'Skip to main content',
     'a11y.lang_toggle': 'Switch language',
     'a11y.menu': 'Menu',
-    'a11y.social_email': 'Email',
-    'a11y.social_phone_ca': 'Phone Canada',
-    'a11y.copy_email': 'Copy email address',
     'hero.stat_countries': 'International markets',
     'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse',
     'contact.err_name': 'Please enter your name.',
@@ -176,15 +172,11 @@ const I18N = {
     'contact.f_message_ph': 'Parlez-moi de votre projet…',
     'contact.sending': 'Envoi…', 'contact.sent_t': 'Message envoyé.', 'contact.sent_d': 'Merci, je vous réponds par e-mail.',
     'contact.fail_t': 'Le message n\u2019a pas pu partir d\u2019ici.',
-    'contact.fail_d': 'Écrivez-moi directement\u00a0: ouvrez votre messagerie avec le message prêt, ou copiez l\u2019adresse.',
-    'contact.open_mail': 'Ouvrir ma messagerie',
-    'contact.copy': 'Copier', 'contact.copied': 'Copié',
+    'contact.fail_d': 'Réessayez dans un instant, ou écrivez-moi sur LinkedIn.', 'contact.write_linkedin': 'M’écrire sur LinkedIn', 'footer.cta': 'M’envoyer un message',
+   
     'a11y.skip': 'Aller au contenu principal',
     'a11y.lang_toggle': 'Changer de langue',
     'a11y.menu': 'Menu',
-    'a11y.social_email': 'Email',
-    'a11y.social_phone_ca': 'Téléphone Canada',
-    'a11y.copy_email': 'Copier l\'adresse email',
     'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse',
     'contact.err_name': 'Merci d\'indiquer votre nom.',
     'contact.err_email': 'Merci d\'indiquer une adresse email valide.',
@@ -410,7 +402,7 @@ inView('.contact-grid', () => {
   );
 }, { amount: 0.2 });
 
-// ---- Contact form → FormSubmit (contact-send.js), mailto as fallback ----
+// ---- Contact form → FormSubmit (contact-send.js), LinkedIn as fallback ----
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
   const fields = {
@@ -422,7 +414,6 @@ if (contactForm) {
   const submitLabel = contactForm.querySelector('.cf-submit-label');
   const sentPanel = document.getElementById('cf-sent');
   const failedPanel = document.getElementById('cf-failed');
-  const mailtoLink = document.getElementById('cf-mailto');
   const values = () => Object.fromEntries(Object.entries(fields).map(([k, f]) => [k, f.input.value]));
   const setError = (f, on) => {
     f.input.classList.toggle('cf-input--error', on);
@@ -455,42 +446,10 @@ if (contactForm) {
       contactForm.reset();
       sentPanel.hidden = false;
     } else {
-      mailtoLink.href = mailtoHref(data);
       failedPanel.hidden = false;
       console.warn('Contact form not delivered:', result.reason, result.detail || '');
     }
   });
-  const copyBtn = document.getElementById('cf-copy-btn');
-  if (copyBtn) {
-    const label = copyBtn.querySelector('.cf-copy-label');
-    const origKey = 'contact.copy';
-    copyBtn.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText('mickabrousse@gmail.com');
-      } catch {
-        const r = document.createRange();
-        r.selectNode(document.querySelector('.cf-copy-addr'));
-        const sel = window.getSelection();
-        sel.removeAllRanges(); sel.addRange(r);
-        try { document.execCommand('copy'); } catch {}
-        sel.removeAllRanges();
-      }
-      copyBtn.classList.add('cf-copy-btn--copied');
-      if (label) {
-        const lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
-        label.textContent = I18N[lang]['contact.copied'];
-        label.dataset.i18n = 'contact.copied';
-      }
-      setTimeout(() => {
-        copyBtn.classList.remove('cf-copy-btn--copied');
-        if (label) {
-          const lang = document.documentElement.lang === 'fr' ? 'fr' : 'en';
-          label.textContent = I18N[lang][origKey];
-          label.dataset.i18n = origKey;
-        }
-      }, 1800);
-    });
-  }
   Object.values(fields).forEach(f => {
     f.input.addEventListener('input', () => {
       if (f.input.classList.contains('cf-input--error') && f.test(f.input.value.trim())) {

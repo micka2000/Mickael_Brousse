@@ -5,9 +5,8 @@
 // The first submission from a new site sends an activation email instead;
 // until it is confirmed, every send answers success:"false".
 
-export const CONTACT_EMAIL = 'mickabrousse@gmail.com';
-// FormSubmit alias for CONTACT_EMAIL (from its activation email), so the
-// address itself is not what the form posts to.
+// FormSubmit alias of the inbox (from its activation email): the address
+// itself never appears in the site.
 export const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/105f60a098bd2d9406e36577de48dd1d';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -33,12 +32,6 @@ export function buildPayload({ name, email, message, lang = 'en', page = '' }) {
     language: lang,
     page,
   };
-}
-
-export function mailtoHref({ name = '', email = '', message = '' }) {
-  const subject = `[Portfolio] ${name.trim()}`;
-  const body = `${message.trim()}\n\n— ${name.trim()}\n${email.trim()}`;
-  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 // Returns { ok: true } or { ok: false, reason } with reason one of

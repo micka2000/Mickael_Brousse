@@ -1,7 +1,8 @@
 // node --test tests/*.test.mjs
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validate, buildPayload, mailtoHref, sendContact, CONTACT_ENDPOINT } from '../contact-send.js';
+import { readFileSync, readdirSync } from 'node:fs';
+import { validate, buildPayload, sendContact, CONTACT_ENDPOINT } from '../contact-send.js';
 
 const good = { name: ' Jane Doe ', email: 'jane@company.com ', message: 'Hello, let us talk data.', lang: 'fr', page: 'https://x/' };
 const reply = (status, body) => async () => ({ ok: status >= 200 && status < 300, status, json: async () => body });
@@ -52,8 +53,16 @@ test('a filled honeypot (bot) never reaches the network', async () => {
   assert.equal(called, false);
 });
 
-test('mailto fallback carries subject and body', () => {
-  const href = mailtoHref(good);
-  assert.match(href, /^mailto:mickabrousse@gmail\.com\?subject=%5BPortfolio%5D%20Jane%20Doe&body=/);
-  assert.ok(decodeURIComponent(href).includes('jane@company.com'));
+test('the site publishes no email address or phone number', () => {
+  const root = new URL('../', import.meta.url);
+  const published = readdirSync(root).filter(f => /\.(html|js|css|md|json)$/.test(f))
+    .concat(readdirSync(new URL('data/', root)).map(f => `data/${f}`));
+  const email = /[A-Za-z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|icloud|proton)\.[a-z]{2,}/i;
+  const phone = /(\+\d{1,3}[\s.()-]*)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}|\+33\s?\d(?:[\s.]?\d{2}){4}|tel:/;
+  for (const f of published) {
+    const text = readFileSync(new URL(f, root), 'utf8');
+    assert.doesNotMatch(text, email, `email address in ${f}`);
+    assert.doesNotMatch(text, phone, `phone number in ${f}`);
+  }
+  assert.doesNotMatch(CONTACT_ENDPOINT, /@/);
 });

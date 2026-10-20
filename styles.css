@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=7');
-@import url('tokens/colors.css?v=7');
-@import url('tokens/typography.css?v=7');
-@import url('tokens/spacing.css?v=7');
+@import url('tokens/fonts.css?v=9');
+@import url('tokens/colors.css?v=9');
+@import url('tokens/typography.css?v=9');
+@import url('tokens/spacing.css?v=9');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -497,9 +497,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--color-white);
   box-shadow: none;
 }
-.cf-copy-btn--copied,
-.cf-copy-btn--copied:hover { background: var(--color-olive); color: var(--color-ink); }
-
 /* ============================================================
    BADGES & TAGS — DS "Badges & Tags"
    badge: 11px / 600 / CAPS / .06em, pill 4px 10px
@@ -1283,40 +1280,19 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .cf-sent p { margin: 0; line-height: 1.5; }
 .cf-sent-title { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: 18px; letter-spacing: -0.02em; margin-bottom: 0.15rem !important; }
-.cf-mailto { align-self: flex-start; }
+.cf-alt { align-self: flex-start; }
 .cf-submit:disabled { opacity: 0.6; cursor: progress; }
 /* Honeypot — out of sight and out of the tab order */
 .cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 .cf-success p { margin: 0; line-height: 1.45; }
 .cf-success p:first-child { font-weight: 600; }
 .cf-success-fallback { color: var(--fg-2); font-size: var(--text-sm); }
-.cf-copy {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bg-base);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  padding: 0.35rem 0.45rem 0.35rem 0.85rem;
-}
-.cf-copy-addr {
-  flex: 1;
-  font-family: var(--font-mono);
-  font-size: 13px;
-  color: var(--fg-1);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: 500;
-}
 .cf-copy-btn--copied { background: var(--color-olive); color: var(--color-ink); }
 [data-theme="dark"] .cf-success {
   background: rgba(193,193,130,0.12);
   color: var(--color-olive);
 }
 [data-theme="dark"] .cf-success-fallback { color: var(--color-olive); opacity: 0.8; }
-[data-theme="dark"] .cf-copy { background: rgba(0,0,0,0.25); }
-[data-theme="dark"] .cf-copy-addr { color: var(--color-olive); }
 
 @media (max-width: 960px) {
   .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1330,7 +1306,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.875rem;
 }
 .contact-card {

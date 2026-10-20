@@ -2,30 +2,10 @@
 
 Open work surfaced during the design review on 2026-04-28.
 
-## 1. Wire up real form delivery (Formspree / Web3Forms / EmailJS)
+## 1. ~~Wire up real form delivery~~ (done 2026-10-20)
 
-**What:** Replace the mailto-only handoff with a service that POSTs the form
-data and emails it to mickabrousse@gmail.com without requiring the visitor to
-have a configured mail client.
-
-**Why:** Mobile visitors and users on web-only mail (Gmail in browser without
-default-handler set, work laptops with locked apps) currently get the
-copy-to-clipboard fallback — which works, but adds friction. A real backend
-removes the fallback path and converts more leads.
-
-**Pros:** Real delivery, real loading/success/error states, spam protection
-(honeypot, reCAPTCHA-free options exist), works everywhere.
-
-**Cons:** External dependency, requires creating a free account, the form
-endpoint becomes a value to keep secret-ish.
-
-**Context:** Form handler already supports the architecture — currently calls
-`window.location.href = mailto:` then shows the success panel. Swap that for
-`fetch('https://formspree.io/f/XXX', {method:'POST', body: formData})` and
-toggle loading/success/error classes. The `cf-success` panel can stay.
-
-**Estimate:** ~5 minutes once a Formspree account exists. Free tier covers
-50 submissions/month, plenty for a portfolio.
+Shipped with FormSubmit (`contact-send.js`, tests in `tests/`). No address
+or phone number is published on the site.
 
 ## 2. Dedicated favicon set (32×32 + 180×180)
 

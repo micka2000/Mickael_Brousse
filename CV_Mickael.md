@@ -5,9 +5,7 @@
 
 ## Contact
 
-- **Téléphone (FR) :** +33 777 32 32 38
-- **Téléphone (CA) :** +1 (437) 435-3500
-- **Email :** mickabrousse@gmail.com
+- **Contact :** [formulaire du portfolio](https://micka2000.github.io/Mickael_Brousse/#contact) · [LinkedIn](https://www.linkedin.com/in/micka-brousse)
 - **Localisation :** Toronto, Canada
 
 ---

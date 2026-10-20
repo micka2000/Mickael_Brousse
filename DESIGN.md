@@ -97,9 +97,9 @@ tags and the copy address.
   All translatable strings live in `script.js` `I18N` map. New strings: add to
   both `en` and `fr` blocks, mark in HTML with `data-i18n`, `data-i18n-html`,
   or `data-i18n-attr`.
-- **Form validation** is honest: client-side only, mailto handoff with
-  copy-to-clipboard fallback. Never claim delivery succeeded — the form says
-  "I tried to open your mail client."
+- **Contact form** posts to FormSubmit (`contact-send.js`). "Message sent"
+  only after FormSubmit confirms; otherwise the fallback panel points to
+  LinkedIn. No email address or phone number is published on the site.
 
 ## Accessibility minimums
 
