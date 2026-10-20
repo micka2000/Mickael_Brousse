@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=9');
-@import url('tokens/colors.css?v=9');
-@import url('tokens/typography.css?v=9');
-@import url('tokens/spacing.css?v=9');
+@import url('tokens/fonts.css?v=10');
+@import url('tokens/colors.css?v=10');
+@import url('tokens/typography.css?v=10');
+@import url('tokens/spacing.css?v=10');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -169,7 +169,6 @@ section { padding: 6rem 0; position: relative; }
   gap: 0.6rem;
 }
 
-
 .lang-opt {
   color: var(--fg-3);
   padding: 0 0.15rem;
@@ -328,7 +327,6 @@ section { padding: 6rem 0; position: relative; }
   flex-wrap: wrap;
   margin-bottom: 2rem;
 }
-
 
 .hero-social {
   display: flex;
@@ -868,31 +866,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .tool-tag:hover .tool-logo { filter: brightness(0) invert(1); }
 .tool-tag:hover .letter-mark { color: #fff; border-color: rgba(255,255,255,0.5); }
 
-.ai-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.85rem;
-}
-.ai-card {
-  background: var(--bg-inset);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  transition: transform var(--duration-fast), border-color var(--duration-fast);
-}
-.ai-card:hover { transform: translateY(-2px); border-color: var(--color-blue); }
-.ai-icon { font-size: 1.4rem; }
-.ai-card strong {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 700;
-  color: var(--fg-1);
-}
-.ai-card p { font-size: 0.78rem; color: var(--fg-3); line-height: 1.45; }
-
 /* ============================================================
    PROJECTS — catalog (DS ui_kits/portfolio ProjectCard + ProjectGrid)
    ============================================================ */
@@ -967,7 +940,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .project-card:hover .project-abbr,
 .project-card:focus-within .project-abbr { opacity: 0.9; }
-
 
 .project-body {
   display: flex;
@@ -1106,7 +1078,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--fg-2);
   line-height: 1.6;
 }
-
 
 /* Master MIT — logo + link (grey artwork on transparent) */
 .edu-logo {
@@ -1287,7 +1258,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .cf-success p { margin: 0; line-height: 1.45; }
 .cf-success p:first-child { font-weight: 600; }
 .cf-success-fallback { color: var(--fg-2); font-size: var(--text-sm); }
-.cf-copy-btn--copied { background: var(--color-olive); color: var(--color-ink); }
 [data-theme="dark"] .cf-success {
   background: rgba(193,193,130,0.12);
   color: var(--color-olive);
@@ -1426,7 +1396,6 @@ footer {
   .hero-stats { gap: 1.25rem; flex-wrap: wrap; }
   .hero-portrait { justify-content: flex-start; margin-left: 20px; }
   .stat-sep { display: none; }
-  .ai-cards { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .timeline { padding-left: 1.75rem; }
   .timeline-dot { left: -1.6rem; }
@@ -1452,11 +1421,6 @@ footer {
 .edu-icon-wrap { color: var(--accent); }
 
 /* === Tool logos === */
-.skill-name {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-}
 .tool-logo {
   width: auto;
   height: 20px;

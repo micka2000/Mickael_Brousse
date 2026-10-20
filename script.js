@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=9';
-import { validate, sendContact } from './contact-send.js?v=9';
+import { mergeProjects } from './projects-data.js?v=10';
+import { validate, sendContact } from './contact-send.js?v=10';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -56,15 +56,13 @@ const I18N = {
     'projects.filter_label': 'Filter projects', 'projects.all': 'All',
     'projects.view_code': 'Code', 'projects.view_live': 'Live site',
     'projects.private': 'Private', 'projects.private_note': 'Private repository · code not public',
-    'projects.shot_alt': 'Screenshot of {title}', 'projects.updated': 'Updated', 'projects.all_github': 'All repositories on GitHub ↗',
+    'projects.shot_alt': 'Screenshot of {title}','projects.all_github': 'All repositories on GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & AI',
     'projects.type_design': 'Design', 'projects.type_lab': 'Lab',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profile', 'nav.experience': 'Experience', 'nav.skills': 'Skills',
     'nav.education': 'Education', 'nav.contact': 'Contact', 'nav.available': 'Available',
-    'hero.badge': 'Available · Toronto, Canada',
     'hero.cta_primary': 'See my projects', 'hero.cta_secondary': 'Contact me',
-    'hero.typed': 'Data Governance Analyst',
     'hero.stat_years': 'Years of experience', 'hero.stat_sectors': 'Sectors covered',
     'about.tag': '02 / Profile', 'about.title': 'About me',
     'about.hi_mobility': 'International mobility — Europe & Canada',
@@ -92,7 +90,7 @@ const I18N = {
     'contact.intro': "Available for opportunities in Canada and internationally.<br />Let's talk about your next data project.",
     'contact.eyebrow': 'Get in touch',
     'contact.headline': 'Let\'s talk<span class="ch-accent">?</span>',
-    'contact.cta': 'Send a message', 'contact.cta_short': 'Send',
+'contact.cta_short': 'Send',
     'contact.f_name': 'Your name', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jane Smith', 'contact.f_email_ph': 'you@company.com',
     'contact.f_message_ph': 'Tell me about your project…',
@@ -154,15 +152,13 @@ const I18N = {
     'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',
     'projects.view_code': 'Code', 'projects.view_live': 'Voir le site',
     'projects.private': 'Privé', 'projects.private_note': 'Dépôt privé · code non public',
-    'projects.shot_alt': 'Capture d’écran de {title}', 'projects.updated': 'Mis à jour', 'projects.all_github': 'Tous les dépôts sur GitHub ↗',
+    'projects.shot_alt': 'Capture d’écran de {title}','projects.all_github': 'Tous les dépôts sur GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & IA',
     'projects.type_design': 'Design', 'projects.type_lab': 'Labo',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profil', 'nav.experience': 'Expérience', 'nav.skills': 'Compétences',
     'nav.education': 'Formation', 'nav.contact': 'Contact', 'nav.available': 'Disponible',
-    'hero.badge': 'Disponible · Toronto, Canada',
     'hero.cta_primary': 'Voir mes projets', 'hero.cta_secondary': 'Me contacter',
-    'hero.typed': 'Data Governance Analyst',
     'hero.stat_years': "Ans d'expérience", 'hero.stat_sectors': 'Secteurs couverts',
     'about.tag': '02 / Profil', 'about.title': 'À propos de moi',
     'about.hi_mobility': 'Mobilité internationale — Europe & Canada',
@@ -190,7 +186,7 @@ const I18N = {
     'contact.intro': "Disponible pour des opportunités au Canada et à l'international.<br />Parlons de votre prochain projet data.",
     'contact.eyebrow': 'Contact',
     'contact.headline': 'On parle <span class="ch-accent">?</span>',
-    'contact.cta': 'Envoyer un message', 'contact.cta_short': 'Envoyer',
+'contact.cta_short': 'Envoyer',
     'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jeanne Dupont', 'contact.f_email_ph': 'vous@entreprise.com',
     'contact.f_message_ph': 'Parlez-moi de votre projet…',
@@ -274,12 +270,6 @@ const progressBar = document.getElementById('progress-bar');
 window.addEventListener('scroll', () => {
   const scrolled = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
   progressBar.style.transform = `scaleX(${Math.min(scrolled, 1)})`;
-}, { passive: true });
-
-// ---- Navbar scroll ----
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 50);
 }, { passive: true });
 
 // Active nav link
