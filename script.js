@@ -99,7 +99,7 @@ const I18N = {
   fr: {
     'hero.eyebrow': 'Data Governance Analyst · Toronto', 'hero.scroll': 'Défiler ↓',
     'theme.to_dark': 'Sombre', 'theme.to_light': 'Clair', 'a11y.theme_toggle': 'Changer de thème',
-    'footer.tagline': 'Gouvernance, qualité et conformité des données.', 'footer.eyebrow': 'On travaille ensemble ?',
+    'footer.tagline': 'Gouvernance, qualité et conformité des données.', 'footer.eyebrow': 'On travaille ensemble ?',
     'nav.projects': 'Projets',
     'projects.tag': '01 / Projets', 'projects.title': 'Projets',
     'projects.intro': 'Tout ce que je construis à côté, en direct depuis mon GitHub.',
@@ -133,7 +133,7 @@ const I18N = {
     'exp.bnp_period': 'Mai 2024 — Nov 2025', 'exp.badge_banking': 'Banque',
     'exp.bnp_li1': 'Pilotage de la mise à jour du <strong>Registre des Traitements de Données Personnelles</strong> pour assurer la conformité RGPD, en coordination avec les équipes Juridique et DPO.',
     'exp.bnp_li2': "Développement d'un <strong>dashboard Power BI</strong> pour comparer les données du registre avec les évaluations des risques, en suivant la vélocité de livraison et la cohérence.",
-    'exp.bnp_li3': 'Gestion du <strong>Dictionnaire de Données SAS-BDN</strong> : définition des règles, résolution des incohérences sémantiques et investigation via SQL (Oracle).',
+    'exp.bnp_li3': 'Gestion du <strong>Dictionnaire de Données SAS-BDN</strong> : définition des règles, résolution des incohérences sémantiques et investigation via SQL (Oracle).',
     'exp.bnp_li4': 'Présentation des règles de qualité des données et recommandations stratégiques au <strong>CDO</strong> lors des réunions trimestrielles de gouvernance.',
     'exp.tag_gdpr': 'RGPD',
     'exp.mich1_period': 'Sept 2022 — Août 2023', 'exp.badge_industry': 'Industrie',
@@ -165,13 +165,13 @@ const I18N = {
     'contact.tag': '06 / Contact', 'contact.title': 'Travaillons Ensemble',
     'contact.intro': "Disponible pour des opportunités au Canada et à l'international.<br />Parlons de votre prochain projet data.",
     'contact.eyebrow': 'Contact',
-    'contact.headline': 'On parle<span class="ch-accent">?</span>',
+    'contact.headline': 'On parle <span class="ch-accent">?</span>',
     'contact.cta': 'Envoyer un message', 'contact.cta_short': 'Envoyer',
     'contact.f_name': 'Votre nom', 'contact.f_email': 'Email', 'contact.f_message': 'Message',
     'contact.f_name_ph': 'Jeanne Dupont', 'contact.f_email_ph': 'vous@entreprise.com',
     'contact.f_message_ph': 'Parlez-moi de votre projet…',
     'contact.success': 'J\'ai tenté d\'ouvrir votre client mail avec le message pré-rempli.',
-    'contact.success_fallback': 'Rien ne s\'est passé ? Pas de client mail configuré ? Copiez l\'adresse ci-dessous et écrivez-moi depuis votre webmail habituel.',
+    'contact.success_fallback': 'Rien ne s\'est passé ? Pas de client mail configuré ? Copiez l\'adresse ci-dessous et écrivez-moi depuis votre webmail habituel.',
     'contact.copy': 'Copier', 'contact.copied': 'Copié',
     'a11y.skip': 'Aller au contenu principal',
     'a11y.lang_toggle': 'Changer de langue',
@@ -515,12 +515,12 @@ const CATALOG = {
   'Mickael_Brousse': {
     order: 1, abbr: 'MB', title: 'Portfolio', type: 'web', tags: ['HTML', 'CSS', 'JS'],
     desc: { en: 'This site: a bilingual portfolio built on my own design system.',
-            fr: 'Ce site : un portfolio bilingue construit sur mon propre design system.' },
+            fr: 'Ce site : un portfolio bilingue construit sur mon propre design system.' },
   },
   'kenzahotelconsulting': {
     order: 2, abbr: 'MK', title: 'Maison MK', type: 'web', tags: ['JavaScript', 'Branding'],
     desc: { en: 'Showcase site for Kenza Hotel Consulting: audit and advisory for independent hotels.',
-            fr: 'Site vitrine de Kenza Hotel Consulting : audit et conseil pour hôtels indépendants.' },
+            fr: 'Site vitrine de Kenza Hotel Consulting : audit et conseil pour hôtels indépendants.' },
   },
   'shiller-pe-simulator': {
     order: 3, abbr: 'PE', title: 'Shiller PE Simulator', type: 'data', tags: ['Finance', 'CSS', 'JS'],
@@ -544,7 +544,7 @@ const PRIVATE_PROJECTS = [
     name: 'life-dashboard', order: 5, abbr: 'LD', title: 'Life Dashboard', type: 'app', year: 2026,
     tags: ['TypeScript'],
     desc: { en: 'Personal tracker: habits, measurements and portfolio on a single screen.',
-            fr: 'Tracker perso : habitudes, mesures et portefeuille sur un seul écran.' },
+            fr: 'Tracker perso : habitudes, mesures et portefeuille sur un seul écran.' },
   },
   {
     name: 'cv-optimizer-v2', order: 6, abbr: 'CV', title: 'CV Optimizer', type: 'app', year: 2026,
@@ -556,7 +556,7 @@ const PRIVATE_PROJECTS = [
     name: 'design-system-mickael-brousse', order: 7, abbr: 'DS', title: 'Design System', type: 'design', year: 2026,
     tags: ['CSS', 'Material 3', 'Tokens'],
     desc: { en: 'Personal design system: Material 3 web components rethemed with the Blue/Olive/Sky palette.',
-            fr: 'Design system personnel : composants Material 3 rethémés avec la palette Bleu/Olive/Ciel.' },
+            fr: 'Design system personnel : composants Material 3 rethémés avec la palette Bleu/Olive/Ciel.' },
   },
 ];
 

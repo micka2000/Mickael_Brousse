@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=4');
-@import url('tokens/colors.css?v=4');
-@import url('tokens/typography.css?v=4');
-@import url('tokens/spacing.css?v=4');
+@import url('tokens/fonts.css?v=5');
+@import url('tokens/colors.css?v=5');
+@import url('tokens/typography.css?v=5');
+@import url('tokens/spacing.css?v=5');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -42,6 +42,9 @@ body {
 }
 
 a { color: inherit; text-decoration: none; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+.stat-number, .timeline-period, .edu-period, .project-meta { font-variant-numeric: tabular-nums; }
 strong { color: var(--fg-1); font-weight: 600; }
 ul { list-style: none; }
 
@@ -61,7 +64,7 @@ ul { list-style: none; }
   padding: 0.7rem 1.1rem;
   border-radius: 0 0 var(--radius-md) 0;
   font-weight: 600;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   z-index: 9999;
   transition: transform var(--duration-fast) var(--ease-standard);
 }
@@ -129,9 +132,10 @@ section { padding: 6rem 0; position: relative; }
 .nav-logo {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 1.15rem;
+  font-size: 18px;
   letter-spacing: -0.03em;
   color: var(--fg-1);
+  line-height: 1;
 }
 .nav-logo .dot { color: var(--accent); }
 
@@ -178,20 +182,6 @@ section { padding: 6rem 0; position: relative; }
 .theme-toggle-icon { font-size: 0.9rem; line-height: 1; }
 .mobile-menu-actions { display: flex; gap: 0.6rem; margin-top: 1rem; }
 
-.status-dot, .badge-dot {
-  width: 8px; height: 8px;
-  background: var(--color-olive-dark);
-  border-radius: 50%;
-  position: relative;
-}
-.status-dot::after, .badge-dot::after {
-  content: '';
-  position: absolute; inset: -4px;
-  border-radius: 50%;
-  background: var(--color-olive);
-  opacity: 0.4;
-  animation: pulse 2s ease-out infinite;
-}
 @keyframes pulse {
   0%   { transform: scale(1);   opacity: 0.5; }
   100% { transform: scale(2.2); opacity: 0;   }
@@ -309,12 +299,13 @@ section { padding: 6rem 0; position: relative; }
   text-transform: uppercase;
   color: var(--accent-warm);
   margin-bottom: 1.25rem;
+  font-family: var(--font-body);
 }
 
 .hero-name {
   font-family: var(--font-display);
   font-weight: var(--weight-ultra);
-  font-size: clamp(3.25rem, 7.5vw, 6.5rem);
+  font-size: clamp(52px, 7vw, 104px);
   line-height: 0.92;
   letter-spacing: var(--tracking-tight);
   color: var(--fg-1);
@@ -324,8 +315,8 @@ section { padding: 6rem 0; position: relative; }
 .name-word.accent { color: var(--accent); }
 
 .hero-subtitle {
-  font-size: 1.0625rem;
-  line-height: 1.65;
+  font-size: 17px;
+  line-height: var(--leading-body);
   color: var(--fg-2);
   max-width: 480px;
   margin-bottom: 2.25rem;
@@ -365,11 +356,12 @@ section { padding: 6rem 0; position: relative; }
 }
 .stat-plus { font-size: 1.25rem; color: var(--accent-warm); }
 .stat-label {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-3);
+  font-family: var(--font-body);
 }
 .stat-sep {
   width: 1px;
@@ -388,6 +380,7 @@ section { padding: 6rem 0; position: relative; }
   text-transform: uppercase;
   color: var(--fg-3);
   transition: color var(--duration-micro);
+  font-weight: 500;
 }
 .scroll-indicator:hover { color: var(--accent); }
 @media (max-width: 1180px) { .scroll-indicator { display: none; } }
@@ -508,6 +501,86 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .cf-copy-btn--copied:hover { background: var(--color-olive); color: var(--color-ink); }
 
 /* ============================================================
+   BADGES & TAGS — DS "Badges & Tags"
+   badge: 11px / 600 / CAPS / .06em, pill 4px 10px
+   tag:   10px / 600 / CAPS / .07em, pill 3px 8px (cards)
+   chip:  13px / 500, pill 8px 14px (skills)
+   ============================================================ */
+.timeline-badge,
+.role-type,
+.skill-level,
+.project-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+}
+
+/* Sector badges — blue / olive / sky (the only three sector tones) */
+.badge-banking    { background: var(--color-blue);  color: var(--color-white); }
+.badge-industry   { background: var(--color-olive); color: var(--color-ink); }
+.badge-internship { background: var(--color-sky);   color: var(--color-blue); }
+
+/* Contract type — outline badge next to the job title */
+.role-type {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: inset 0 0 0 1.5px currentColor;
+  margin-left: 0.5rem;
+  vertical-align: 0.2em;
+}
+
+/* Skill level — filled for Expert, tinted for Advanced */
+.skill-level.expert   { background: var(--color-blue); color: var(--color-white); }
+.skill-level.advanced { background: var(--color-olive-tint); color: #5A5A20; }
+[data-theme="dark"] .skill-level.advanced { background: rgba(193,193,130,0.16); color: var(--color-olive); }
+
+/* Private — ink badge, paper on the ink thumbnail */
+.project-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-ink);
+  color: #F0EEE9;
+}
+.project-thumb--ink .project-badge { background: var(--color-paper-dark); color: var(--color-ink-50); }
+
+/* Live dot — "Available" (DS .b-live) */
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: badge-live 1.5s ease-in-out infinite;
+}
+@keyframes badge-live { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* Card tags */
+.project-tags span,
+.timeline-tags span {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: var(--weight-semi);
+  line-height: 1.2;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-inset);
+  color: var(--fg-3);
+}
+[data-theme="dark"] .project-tags span,
+[data-theme="dark"] .timeline-tags span { background: var(--border-subtle); color: var(--fg-2); }
+
+/* ============================================================
    SECTION HEADER
    ============================================================ */
 .section-header {
@@ -534,7 +607,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .section-header h2 {
   font-family: var(--font-display);
   font-weight: var(--weight-ultra);
-  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-size: clamp(36px, 4.5vw, 48px);
   line-height: 1;
   letter-spacing: var(--tracking-tight);
   color: var(--fg-1);
@@ -560,8 +633,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
   align-items: start;
 }
 .about-text p {
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: var(--leading-body);
   color: var(--color-sky);
   margin-bottom: 1.25rem;
 }
@@ -577,9 +650,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .highlight-item {
   position: relative;
   padding-left: 1.25rem;
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--color-white);
   font-weight: 500;
+  line-height: var(--leading-body);
 }
 .highlight-item::before {
   content: "";
@@ -608,13 +682,19 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .info-card:hover { transform: translateY(-2px); background: rgba(255,255,255,0.14); }
 .info-card strong {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: var(--weight-ultra);
+  font-size: 16px;
   color: var(--color-white);
   display: block;
   margin-bottom: 0.15rem;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
-.info-card p { font-size: 0.85rem; color: var(--color-sky); line-height: 1.4; }
+.info-card p {
+  font-size: var(--text-sm);
+  color: var(--color-sky);
+  line-height: 1.45;
+}
 
 /* ============================================================
    EXPERIENCE — Timeline
@@ -670,47 +750,20 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-weight: var(--weight-semi);
   text-transform: uppercase;
   color: var(--fg-3);
-  letter-spacing: var(--tracking-wide);
-}
-.timeline-badge {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-pill);
-  color: #fff;
 }
-.badge-banking    { background: var(--banking); }
-.badge-industry   { background: var(--industry); }
-.badge-internship { background: var(--internship); }
 
 .timeline-card h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: var(--weight-ultra);
+  font-size: 22px;
   letter-spacing: -0.02em;
   color: var(--fg-1);
   margin-bottom: 0.25rem;
+  line-height: 1.2;
 }
-.role-type {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  background: var(--color-blue-tint);
-  color: var(--color-blue);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
-  margin-left: 0.5rem;
-  vertical-align: middle;
-}
-[data-theme="dark"] .role-type { background: var(--bg-accent-subtle); color: var(--color-sky); }
 .timeline-company {
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--accent-warm);
   font-weight: 500;
   margin-bottom: 1rem;
@@ -724,8 +777,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .timeline-list li {
   position: relative;
   padding-left: 1.25rem;
-  font-size: 0.95rem;
-  line-height: 1.6;
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
   color: var(--fg-2);
 }
 .timeline-list li::before {
@@ -743,17 +796,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   padding-top: 1rem;
   border-top: 1px solid var(--border-subtle);
 }
-.timeline-tags span {
-  font-size: 10px;
-  font-weight: var(--weight-semi);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  background: var(--bg-inset);
-  color: var(--fg-3);
-  border-radius: var(--radius-pill);
-}
-[data-theme="dark"] .timeline-tags span { background: var(--border-subtle); color: var(--fg-2); }
 
 /* ============================================================
    SKILLS
@@ -774,13 +816,14 @@ button, input, textarea, select { font: inherit; color: inherit; }
   align-items: center;
   gap: 0.6rem;
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: var(--weight-ultra);
+  font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--fg-1);
   margin-bottom: 1.25rem;
   padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-subtle);
+  line-height: 1.2;
 }
 .skill-items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
 .skill-row {
@@ -788,27 +831,19 @@ button, input, textarea, select { font: inherit; color: inherit; }
   justify-content: space-between;
   align-items: baseline;
   padding: 0.7rem 0;
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--fg-1);
-  font-weight: 500;
+  font-weight: var(--weight-regular);
   border-bottom: 1px solid var(--border-subtle);
 }
 .skill-row:last-child { border-bottom: none; }
-.skill-level {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.skill-level.expert   { color: var(--accent); }
-.skill-level.advanced { color: var(--accent-warm); }
 
 .soft-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .soft-tag {
-  font-size: 0.85rem;
+  font-size: 13px;
   font-weight: 500;
-  padding: 0.5rem 0.9rem;
+  line-height: 1.2;
+  padding: 8px 14px;
   background: var(--bg-inset);
   color: var(--fg-1);
   border: 1px solid transparent;
@@ -876,9 +911,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
   gap: var(--space-2);
 }
 .project-filter-count {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  opacity: 0.7;
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  opacity: 0.65;
+  font-variant-numeric: tabular-nums;
 }
 
 .project-grid {
@@ -930,23 +966,11 @@ button, input, textarea, select { font: inherit; color: inherit; }
   letter-spacing: -0.04em;
   opacity: 0.5;
   transition: opacity 250ms var(--ease-standard);
+  line-height: 1;
 }
 .project-card:hover .project-abbr,
 .project-card:focus-within .project-abbr { opacity: 0.9; }
 
-.project-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: rgba(0,0,0,0.5);
-  color: var(--color-white);
-  border-radius: var(--radius-pill);
-  padding: 4px 10px;
-  font-size: var(--text-label);
-  font-weight: var(--weight-semi);
-  letter-spacing: var(--tracking-wide);
-  text-transform: uppercase;
-}
 
 .project-body {
   display: flex;
@@ -955,12 +979,13 @@ button, input, textarea, select { font: inherit; color: inherit; }
   padding: 16px 18px 18px;
 }
 .project-meta {
-  font-size: 10px;
+  font-size: var(--text-label);
   font-weight: var(--weight-semi);
-  letter-spacing: 0.09em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-3);
   margin-bottom: 5px;
+  font-family: var(--font-body);
 }
 .project-title {
   font-family: var(--font-display);
@@ -982,17 +1007,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   gap: 6px;
   margin-top: 12px;
 }
-.project-tags span {
-  font-size: 10px;
-  font-weight: var(--weight-semi);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 3px 8px;
-  border-radius: var(--radius-pill);
-  background: var(--bg-inset);
-  color: var(--fg-3);
-}
-[data-theme="dark"] .project-tags span { background: var(--border-subtle); color: var(--fg-2); }
 
 .project-links {
   display: flex;
@@ -1006,6 +1020,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-size: var(--text-xs);
   color: var(--fg-3);
   font-style: italic;
+  font-weight: 500;
 }
 
 .project-footnote {
@@ -1052,27 +1067,27 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-weight: var(--weight-semi);
   text-transform: uppercase;
   color: var(--accent-warm);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.08em;
   display: block;
   margin-bottom: 0.5rem;
 }
 .edu-card h3 {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: var(--weight-ultra);
+  font-size: 18px;
   letter-spacing: -0.02em;
   color: var(--fg-1);
   margin-bottom: 0.35rem;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 .edu-school {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--accent);
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
 .edu-desc {
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--fg-2);
   line-height: 1.6;
 }
@@ -1123,26 +1138,26 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .contact-eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--accent-warm);
   margin-bottom: 1rem;
 }
 .contact-headline {
   font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(2.25rem, 4vw, 3.25rem);
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-weight: var(--weight-bold);
+  font-size: 32px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
   color: var(--fg-1);
   margin-bottom: 1.25rem;
 }
 .contact-headline .ch-accent { color: var(--color-blue); }
 .contact-intro {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 17px;
+  line-height: var(--leading-body);
   color: var(--fg-2);
   max-width: 420px;
 }
@@ -1166,8 +1181,8 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .cf-field label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-3);
@@ -1180,7 +1195,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   border: 1.5px solid var(--border-subtle);
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: var(--text-body);
   color: var(--fg-1);
   outline: none;
   transition: border-color var(--duration-fast), box-shadow var(--duration-fast),
@@ -1200,7 +1215,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   margin-top: 0.25rem;
 }
 .cf-error {
-  font-size: 0.78rem;
+  font-size: var(--text-xs);
   color: #C0392B;
   font-weight: 500;
   margin-top: 0.15rem;
@@ -1233,15 +1248,16 @@ button, input, textarea, select { font: inherit; color: inherit; }
   border: 1px solid var(--color-olive);
   border-radius: var(--radius-md);
   padding: 0.95rem 1.1rem;
-  font-size: 0.9rem;
+  font-size: var(--text-sm);
   color: var(--color-ink);
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
 }
+.cf-success[hidden] { display: none; }
 .cf-success p { margin: 0; line-height: 1.45; }
 .cf-success p:first-child { font-weight: 600; }
-.cf-success-fallback { color: var(--fg-2); font-size: 0.85rem; }
+.cf-success-fallback { color: var(--fg-2); font-size: var(--text-sm); }
 .cf-copy {
   display: flex;
   align-items: center;
@@ -1254,11 +1270,12 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .cf-copy-addr {
   flex: 1;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 13px;
   color: var(--fg-1);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
 }
 .cf-copy-btn--copied { background: var(--color-olive); color: var(--color-ink); }
 [data-theme="dark"] .cf-success {
@@ -1302,18 +1319,20 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .contact-card-label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: var(--text-label);
+  font-weight: var(--weight-semi);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--fg-3);
 }
 .contact-card-value {
   font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
+  font-weight: var(--weight-ultra);
+  font-size: 16px;
   color: var(--fg-1);
   word-break: break-word;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 /* ============================================================
@@ -1336,7 +1355,7 @@ footer {
 .footer-name {
   font-family: var(--font-display);
   font-weight: var(--weight-ultra);
-  font-size: 2.5rem;
+  font-size: 40px;
   line-height: 1;
   letter-spacing: var(--tracking-tight);
   color: #F0EEE9;
@@ -1348,9 +1367,10 @@ footer {
 .footer-eyebrow {
   font-size: var(--text-label);
   font-weight: var(--weight-semi);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--tracking-wider);
   text-transform: uppercase;
   color: var(--color-olive);
+  font-family: var(--font-body);
 }
 .footer-links { display: flex; gap: 1rem; margin-top: 0.25rem; }
 .footer-link {
