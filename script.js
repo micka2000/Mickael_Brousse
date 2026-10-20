@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=11';
-import { validate, sendContact } from './contact-send.js?v=11';
+import { mergeProjects } from './projects-data.js?v=12';
+import { validate, sendContact } from './contact-send.js?v=12';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -55,6 +55,7 @@ const I18N = {
     'projects.intro': 'Everything I build on the side, pulled live from my GitHub.',
     'projects.filter_label': 'Filter projects', 'projects.all': 'All',
     'projects.view_code': 'Code', 'projects.view_live': 'Live site',
+    'projects.view_page': 'View project',
     'projects.private': 'Private', 'projects.private_note': 'Private repository · code not public',
     'projects.shot_alt': 'Screenshot of {title}','projects.all_github': 'All repositories on GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & AI',
@@ -152,6 +153,7 @@ const I18N = {
     'projects.intro': 'Tout ce que je construis à côté, en direct depuis mon GitHub.',
     'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',
     'projects.view_code': 'Code', 'projects.view_live': 'Voir le site',
+    'projects.view_page': 'Voir le projet',
     'projects.private': 'Privé', 'projects.private_note': 'Dépôt privé · code non public',
     'projects.shot_alt': 'Capture d’écran de {title}','projects.all_github': 'Tous les dépôts sur GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & IA',
@@ -583,9 +585,11 @@ function projectVisual(p, i) {
 
 function projectCard(p, i) {
   const meta = [t(`projects.type_${p.type}`), p.year].filter(Boolean).join(' · ');
+  const pageBtn = p.page ? `<a class="btn btn-primary btn-sm" href="${esc(p.page)}">${esc(t('projects.view_page'))} <span aria-hidden="true">→</span></a>` : '';
   const links = p.private
-    ? `<span class="project-private-note">${esc(t('projects.private_note'))}</span>`
+    ? (pageBtn || `<span class="project-private-note">${esc(t('projects.private_note'))}</span>`)
     : [
+        pageBtn,
         p.live ? `<a class="btn btn-tonal btn-sm" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
         `<a class="btn btn-text btn-sm" href="${esc(p.code)}" target="_blank" rel="noopener">${esc(t('projects.view_code'))} <span aria-hidden="true">↗</span></a>`,
       ].join('');
@@ -594,7 +598,7 @@ function projectCard(p, i) {
       ${projectVisual(p, i)}
       <div class="project-body">
         <span class="project-meta">${esc(meta)}</span>
-        <h3 class="project-title">${esc(pick(p.title))}</h3>
+        <h3 class="project-title">${p.page ? `<a href="${esc(p.page)}">${esc(pick(p.title))}</a>` : esc(pick(p.title))}</h3>
         <p class="project-desc">${esc(pick(p.summary))}</p>
         <div class="project-tags">${p.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>
         <div class="project-links">${links}</div>

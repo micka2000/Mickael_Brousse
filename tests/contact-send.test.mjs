@@ -55,8 +55,12 @@ test('a filled honeypot (bot) never reaches the network', async () => {
 
 test('the site publishes no email address or phone number', () => {
   const root = new URL('../', import.meta.url);
-  const published = readdirSync(root).filter(f => /\.(html|js|css|md|json)$/.test(f))
-    .concat(readdirSync(new URL('data/', root)).map(f => `data/${f}`));
+  // every published text file, recursively (skips tooling and git folders)
+  const walk = (dir) => readdirSync(new URL(dir, root), { withFileTypes: true }).flatMap(e =>
+    e.isDirectory()
+      ? (/^(\.git|\.gstack|\.github|node_modules|tests)$/.test(e.name) ? [] : walk(`${dir}${e.name}/`))
+      : (/\.(html|js|mjs|css|md|json)$/.test(e.name) ? [`${dir}${e.name}`] : []));
+  const published = walk('');
   const email = /[A-Za-z0-9._%+-]+@(gmail|yahoo|hotmail|outlook|icloud|proton)\.[a-z]{2,}/i;
   const phone = /(\+\d{1,3}[\s.()-]*)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}|\+33\s?\d(?:[\s.]?\d{2}){4}|tel:/;
   for (const f of published) {

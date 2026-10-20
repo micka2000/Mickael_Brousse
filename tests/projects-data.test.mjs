@@ -79,3 +79,8 @@ test('everything down: nothing crashes, curated private cards remain', () => {
   assert.deepEqual(names(mergeProjects({ catalog: undefined, snapshot: null, live: null })), []);
   assert.deepEqual(names(mergeProjects({ catalog, snapshot: null, live: null })), ['life-dashboard', 'cv-optimizer-v2']);
 });
+
+test('a curated "page" link is passed through to the card', () => {
+  const cat = { user: 'micka2000', projects: { ds: { private: true, page: 'projects/ds/' } } };
+  assert.equal(mergeProjects({ catalog: cat, snapshot: null, live: null })[0].page, 'projects/ds/');
+});

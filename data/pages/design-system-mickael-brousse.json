@@ -1,0 +1,62 @@
+{
+  "slug": "design-system-mickael-brousse",
+  "title": "Design System",
+  "type": { "en": "Design", "fr": "Design" },
+  "year": 2026,
+  "private": true,
+  "tags": ["Material 3", "Lit", "TypeScript", "CSS tokens"],
+  "tagline": {
+    "en": "A reusable design system, so every new project starts from the same foundations.",
+    "fr": "Un design system réutilisable, pour que chaque nouveau projet parte des mêmes fondations."
+  },
+  "hero": {
+    "image": "assets/projects/design-system/overview.webp",
+    "alt": { "en": "Design system demo: brand palette and buttons", "fr": "Démo du design system : palette et boutons" }
+  },
+  "why": {
+    "en": "I wanted code that saves me from rebuilding a design system every time I start a new project.",
+    "fr": "Je voulais un code qui m’évite de rebâtir un design system à chaque fois que je commence un nouveau travail."
+  },
+  "what": [
+    {
+      "en": "<strong>Material 3 web components</strong> (<code>@material/web</code>, built on Lit), rethemed with my palette: Blue <code>#003FA3</code> as primary, Olive as secondary, Sky as tertiary.",
+      "fr": "<strong>Composants web Material 3</strong> (<code>@material/web</code>, basés sur Lit), rethémés avec ma palette : Bleu <code>#003FA3</code> en primaire, Olive en secondaire, Ciel en tertiaire."
+    },
+    {
+      "en": "<strong>Typography</strong>: Bricolage Grotesque for display and headlines, Roboto for body and labels, both shipped as local variable fonts.",
+      "fr": "<strong>Typographie</strong> : Bricolage Grotesque pour les titres, Roboto pour le texte et les libellés, toutes deux livrées en polices variables locales."
+    },
+    {
+      "en": "<strong>Native web components</strong>: they work in React, Next.js, Vue, Svelte, Astro or plain HTML, without wrappers.",
+      "fr": "<strong>Composants web natifs</strong> : ils fonctionnent dans React, Next.js, Vue, Svelte, Astro ou en HTML pur, sans adaptateur."
+    },
+    {
+      "en": "<strong>Dark mode</strong> follows the system setting automatically.",
+      "fr": "<strong>Mode sombre</strong> qui suit automatiquement le réglage du système."
+    },
+    {
+      "en": "<strong>Buttons, chips, text fields, selects, dialogs, menus, tabs, lists</strong>, plus Labs components (cards, navigation bar, segmented buttons). One npm install and two imports to use it.",
+      "fr": "<strong>Boutons, chips, champs, listes déroulantes, dialogues, menus, onglets, listes</strong>, plus les composants Labs (cartes, barre de navigation, boutons segmentés). Une installation npm et deux imports pour l’utiliser."
+    }
+  ],
+  "flow": [
+    { "title": { "en": "Brand tokens", "fr": "Tokens de marque" }, "text": { "en": "Blue, Olive, Sky and their tints", "fr": "Bleu, Olive, Ciel et leurs nuances" } },
+    { "title": { "en": "theme.css", "fr": "theme.css" }, "text": { "en": "Mapped onto Material 3 system tokens, light and dark", "fr": "Branchés sur les tokens système Material 3, clair et sombre" } },
+    { "title": { "en": "Material Web", "fr": "Material Web" }, "text": { "en": "Lit components read those tokens", "fr": "Les composants Lit lisent ces tokens" } },
+    { "title": { "en": "Any project", "fr": "N’importe quel projet" }, "text": { "en": "React, Next.js, Vue, Astro, HTML", "fr": "React, Next.js, Vue, Astro, HTML" } }
+  ],
+  "gallery": [
+    { "image": "assets/projects/design-system/overview.webp", "caption": { "en": "Brand palette and buttons: elevated, filled, tonal, outlined, text", "fr": "Palette de marque et boutons : élevé, plein, tonal, contour, texte" } },
+    { "image": "assets/projects/design-system/forms.webp", "caption": { "en": "Selection controls, chips, text fields and selects", "fr": "Contrôles de sélection, chips, champs de texte et listes déroulantes" } },
+    { "image": "assets/projects/design-system/cards.webp", "caption": { "en": "Labs components: cards, badge, navigation bar, segmented button", "fr": "Composants Labs : cartes, badge, barre de navigation, bouton segmenté" } },
+    { "image": "assets/projects/design-system/dark.webp", "caption": { "en": "Dark mode, driven by the system preference", "fr": "Mode sombre, piloté par la préférence système" } }
+  ],
+  "highlight": {
+    "en": "How fast an AI assistant understands my design system.",
+    "fr": "La vitesse de compréhension de mon design system par l’IA."
+  },
+  "status": {
+    "en": "Due for an update: this version is too old.",
+    "fr": "À mettre à jour : cette version est trop ancienne."
+  }
+}

@@ -140,7 +140,8 @@
       "summary": {
         "en": "My personal design system: Material 3 web components (Lit) rethemed with the Blue/Olive/Sky palette and Bricolage Grotesque + Roboto. Framework-agnostic, light and dark.",
         "fr": "Mon design system personnel : composants web Material 3 (Lit) rethémés avec la palette Bleu/Olive/Ciel et Bricolage Grotesque + Roboto. Compatible avec tous les frameworks, en clair et en sombre."
-      }
+      },
+      "page": "projects/design-system-mickael-brousse/"
     }
   }
 }

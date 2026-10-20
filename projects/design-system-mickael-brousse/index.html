@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design System — Mickaël Brousse</title>
+  <meta name="description" content="A reusable design system, so every new project starts from the same foundations." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Design System — Mickaël Brousse" />
+  <meta property="og:description" content="A reusable design system, so every new project starts from the same foundations." />
+  <meta property="og:image" content="https://micka2000.github.io/Mickael_Brousse/assets/projects/design-system/overview.webp" />
+  <meta property="og:url" content="https://micka2000.github.io/Mickael_Brousse/projects/design-system-mickael-brousse/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="../../assets/portrait.png" />
+  <script>
+    (function () {
+      var d = document.documentElement, t = null, l = null;
+      try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) {}
+      if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      d.setAttribute('data-theme', t);
+      d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
+    })();
+  </script>
+  <link rel="stylesheet" href="../../styles.css?v=12" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body class="project-page">
+  <nav id="navbar">
+    <div class="nav-container">
+      <a class="nav-logo" href="../../">MB<span class="dot">.</span></a>
+      <a class="btn btn-text btn-sm pp-back" href="../../#projects"><span aria-hidden="true">←</span> <span data-l="en">All projects</span><span data-l="fr">Tous les projets</span></a>
+      <div class="pp-nav-actions">
+        <button class="btn btn-outline btn-sm lang-toggle" type="button" aria-label="Language">
+          <span class="lang-opt" data-lang="en">EN</span><span class="lang-sep">/</span><span class="lang-opt" data-lang="fr">FR</span>
+        </button>
+        <button class="btn btn-ink btn-sm theme-toggle" type="button" aria-label="Theme">
+          <span class="theme-toggle-icon" aria-hidden="true">◑</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="pp-hero container">
+      <p class="hero-eyebrow"><span data-l="en">Design</span><span data-l="fr">Design</span> · 2026 · <span data-l="en">Private repository</span><span data-l="fr">Dépôt privé</span></p>
+      <h1 class="pp-title">Design System<span class="pp-dot">.</span></h1>
+      <p class="pp-tagline"><span data-l="en">A reusable design system, so every new project starts from the same foundations.</span><span data-l="fr">Un design system réutilisable, pour que chaque nouveau projet parte des mêmes fondations.</span></p>
+      <div class="project-tags pp-tags"><span>Material 3</span><span>Lit</span><span>TypeScript</span><span>CSS tokens</span></div>
+      <p class="pp-private-note"><span data-l="en">The code is private. This page shows what the project does and how it works.</span><span data-l="fr">Le code est privé. Cette page montre ce que fait le projet et comment il fonctionne.</span></p>
+      <figure class="pp-frame pp-hero-shot">
+        <img src="../../assets/projects/design-system/overview.webp" alt="Design system demo: brand palette and buttons" width="1280" height="800" />
+      </figure>
+    </header>
+
+    <section class="pp-section">
+      <div class="container pp-grid">
+        <div class="section-header"><span class="section-tag">01 / <span data-l="en">Why</span><span data-l="fr">Pourquoi</span></span><h2><span data-l="en">The starting point</span><span data-l="fr">Le point de départ</span></h2></div>
+        <blockquote class="pp-quote"><p><span data-l="en">I wanted code that saves me from rebuilding a design system every time I start a new project.</span><span data-l="fr">Je voulais un code qui m’évite de rebâtir un design system à chaque fois que je commence un nouveau travail.</span></p><cite>Mickaël Brousse</cite></blockquote>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section--inset">
+      <div class="container pp-grid">
+        <div class="section-header"><span class="section-tag">02 / <span data-l="en">What it is</span><span data-l="fr">Ce que c’est</span></span><h2><span data-l="en">In short</span><span data-l="fr">En bref</span></h2></div>
+        <ul class="pp-list"><li><span data-l="en"><strong>Material 3 web components</strong> (<code>@material/web</code>, built on Lit), rethemed with my palette: Blue <code>#003FA3</code> as primary, Olive as secondary, Sky as tertiary.</span><span data-l="fr"><strong>Composants web Material 3</strong> (<code>@material/web</code>, basés sur Lit), rethémés avec ma palette : Bleu <code>#003FA3</code> en primaire, Olive en secondaire, Ciel en tertiaire.</span></li><li><span data-l="en"><strong>Typography</strong>: Bricolage Grotesque for display and headlines, Roboto for body and labels, both shipped as local variable fonts.</span><span data-l="fr"><strong>Typographie</strong> : Bricolage Grotesque pour les titres, Roboto pour le texte et les libellés, toutes deux livrées en polices variables locales.</span></li><li><span data-l="en"><strong>Native web components</strong>: they work in React, Next.js, Vue, Svelte, Astro or plain HTML, without wrappers.</span><span data-l="fr"><strong>Composants web natifs</strong> : ils fonctionnent dans React, Next.js, Vue, Svelte, Astro ou en HTML pur, sans adaptateur.</span></li><li><span data-l="en"><strong>Dark mode</strong> follows the system setting automatically.</span><span data-l="fr"><strong>Mode sombre</strong> qui suit automatiquement le réglage du système.</span></li><li><span data-l="en"><strong>Buttons, chips, text fields, selects, dialogs, menus, tabs, lists</strong>, plus Labs components (cards, navigation bar, segmented buttons). One npm install and two imports to use it.</span><span data-l="fr"><strong>Boutons, chips, champs, listes déroulantes, dialogues, menus, onglets, listes</strong>, plus les composants Labs (cartes, barre de navigation, boutons segmentés). Une installation npm et deux imports pour l’utiliser.</span></li></ul>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <div class="container">
+        <div class="section-header"><span class="section-tag">03 / <span data-l="en">How it works</span><span data-l="fr">Comment ça marche</span></span><h2><span data-l="en">From source to screen</span><span data-l="fr">De la source à l’écran</span></h2></div>
+        <ol class="pp-flow">
+          <li class="pp-step"><span class="pp-step-n">01</span><strong><span data-l="en">Brand tokens</span><span data-l="fr">Tokens de marque</span></strong><span><span data-l="en">Blue, Olive, Sky and their tints</span><span data-l="fr">Bleu, Olive, Ciel et leurs nuances</span></span></li>
+          <li class="pp-step"><span class="pp-step-n">02</span><strong><span data-l="en">theme.css</span><span data-l="fr">theme.css</span></strong><span><span data-l="en">Mapped onto Material 3 system tokens, light and dark</span><span data-l="fr">Branchés sur les tokens système Material 3, clair et sombre</span></span></li>
+          <li class="pp-step"><span class="pp-step-n">03</span><strong><span data-l="en">Material Web</span><span data-l="fr">Material Web</span></strong><span><span data-l="en">Lit components read those tokens</span><span data-l="fr">Les composants Lit lisent ces tokens</span></span></li>
+          <li class="pp-step"><span class="pp-step-n">04</span><strong><span data-l="en">Any project</span><span data-l="fr">N’importe quel projet</span></strong><span><span data-l="en">React, Next.js, Vue, Astro, HTML</span><span data-l="fr">React, Next.js, Vue, Astro, HTML</span></span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section--inset">
+      <div class="container">
+        <div class="section-header"><span class="section-tag">04 / <span data-l="en">In pictures</span><span data-l="fr">En images</span></span><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
+        <div class="pp-gallery">
+          <figure class="pp-shot"><div class="pp-frame"><img src="../../assets/projects/design-system/overview.webp" alt="Brand palette and buttons: elevated, filled, tonal, outlined, text" width="1280" height="800" loading="lazy" decoding="async" /></div><figcaption><span data-l="en">Brand palette and buttons: elevated, filled, tonal, outlined, text</span><span data-l="fr">Palette de marque et boutons : élevé, plein, tonal, contour, texte</span></figcaption></figure>
+          <figure class="pp-shot"><div class="pp-frame"><img src="../../assets/projects/design-system/forms.webp" alt="Selection controls, chips, text fields and selects" width="1280" height="800" loading="lazy" decoding="async" /></div><figcaption><span data-l="en">Selection controls, chips, text fields and selects</span><span data-l="fr">Contrôles de sélection, chips, champs de texte et listes déroulantes</span></figcaption></figure>
+          <figure class="pp-shot"><div class="pp-frame"><img src="../../assets/projects/design-system/cards.webp" alt="Labs components: cards, badge, navigation bar, segmented button" width="1280" height="800" loading="lazy" decoding="async" /></div><figcaption><span data-l="en">Labs components: cards, badge, navigation bar, segmented button</span><span data-l="fr">Composants Labs : cartes, badge, barre de navigation, bouton segmenté</span></figcaption></figure>
+          <figure class="pp-shot"><div class="pp-frame"><img src="../../assets/projects/design-system/dark.webp" alt="Dark mode, driven by the system preference" width="1280" height="800" loading="lazy" decoding="async" /></div><figcaption><span data-l="en">Dark mode, driven by the system preference</span><span data-l="fr">Mode sombre, piloté par la préférence système</span></figcaption></figure>
+        </div>
+        
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <div class="container">
+        <div class="section-header"><span class="section-tag">05 / <span data-l="en">Takeaways</span><span data-l="fr">Bilan</span></span><h2><span data-l="en">Where it stands</span><span data-l="fr">Où il en est</span></h2></div>
+        <div class="pp-takeaways">
+          <div class="pp-card pp-card--blue"><span class="pp-card-label"><span data-l="en">What I like most</span><span data-l="fr">Ce qui me plaît le plus</span></span><p><span data-l="en">How fast an AI assistant understands my design system.</span><span data-l="fr">La vitesse de compréhension de mon design system par l’IA.</span></p></div>
+          <div class="pp-card pp-card--olive"><span class="pp-card-label"><span data-l="en">Status</span><span data-l="fr">Statut</span></span><p><span data-l="en">Due for an update: this version is too old.</span><span data-l="fr">À mettre à jour : cette version est trop ancienne.</span></p></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="pp-next container" aria-label="Next project">
+      <a class="btn btn-outline" href="../../#projects"><span aria-hidden="true">←</span> <span data-l="en">All projects</span><span data-l="fr">Tous les projets</span></a>
+      
+    </nav>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-bottom">
+        <p>© <span class="pp-year">2026</span> Mickaël Brousse</p>
+        <p class="footer-place">TORONTO · CA</p>
+      </div>
+    </div>
+  </footer>
+  <script src="../../project-page.js?v=12" defer></script>
+</body>
+</html>

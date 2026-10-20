@@ -50,6 +50,7 @@ export function mergeProjects({ catalog, snapshot, live }) {
       title: c.title || titleFromName(name),
       type: c.type || 'lab',
       image: c.image || null,
+      page: c.page || null,
       tags: c.tags || (lang ? [lang] : []),
       summary: c.summary || repo?.description || s.description || '',
       year: created ? new Date(created).getFullYear() : (c.year ?? null),

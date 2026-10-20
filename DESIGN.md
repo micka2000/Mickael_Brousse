@@ -41,6 +41,21 @@ serves new HTML with an old script.
 - To feature a project: add an entry to `data/catalog.json` (order, title,
   type, tags, `summary.en` / `summary.fr`, optional `image`).
 
+## Project pages
+
+`projects/<slug>/index.html` is generated, do not edit it by hand:
+
+1. Write `data/pages/<slug>.json` (tagline, why, what, flow, gallery,
+   highlight, status, EN and FR). "Why", "highlight" and "status" are the
+   owner's own words; the rest must be backed by the project's README or code.
+2. Put screenshots in `assets/projects/<slug>/` as WebP (1280×800). Private
+   projects are shot with demo data only.
+3. Add `"page": "projects/<slug>/"` to the project in `data/catalog.json`.
+4. Run `node scripts/build-project-pages.mjs`.
+
+Both languages live in the page (`data-l="en|fr"`); `project-page.js` only
+switches language and theme.
+
 ## Design system in use
 
 **Type ramp** (Bricolage Grotesque for display, Roboto for text, JetBrains Mono
