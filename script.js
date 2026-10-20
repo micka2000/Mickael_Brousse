@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=18';
-import { validate, sendContact } from './contact-send.js?v=18';
+import { mergeProjects } from './projects-data.js?v=19';
+import { validate, sendContact } from './contact-send.js?v=19';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -11,7 +11,6 @@ const prefersReducedMotion = () => PRM.matches;
 const I18N = {
   en: {
     'hero.subtitle': "Building reliable &amp; compliant data in <strong>banking</strong> &amp; <strong>manufacturing</strong>.<br />3+ years in <strong>GDPR compliance</strong>, <strong>data quality</strong> &amp; <strong>metadata management</strong>.",
-    'hero.stat_countries': "Plants covered",
     'about.p1': "Data Governance Analyst with <strong>3+ years</strong> across <strong>banking</strong> (BGL BNP Paribas, Luxembourg) and <strong>manufacturing</strong> (Michelin, France), specializing in <strong>GDPR compliance</strong>, <strong>data quality</strong> and <strong>metadata management</strong>.",
     'about.p2': "Driven to turn data standards into <strong>business-ready tools</strong>, combining analytical thinking, clear communication and business-focused collaboration in a global environment.",
     'about.p3': "That work ranges from a <strong>180-activity GDPR register</strong> to a governance program covering <strong>70 plants</strong> and a Collibra catalog rollout run with a team in Pune, India. Now based in <strong>Toronto</strong>.",
@@ -63,8 +62,7 @@ const I18N = {
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profile', 'nav.experience': 'Experience', 'nav.skills': 'Skills',
     'nav.education': 'Education', 'nav.contact': 'Contact', 'nav.available': 'Available',
-    'hero.cta_primary': 'See my projects', 'hero.cta_secondary': 'Contact me',
-    'hero.stat_years': 'Years of experience', 'hero.stat_sectors': 'Sectors covered', 'about.title': 'About me',
+    'hero.cta_primary': 'See my projects', 'hero.cta_secondary': 'Contact me', 'about.title': 'About me',
     'about.hi_mobility': 'International mobility — Europe & Canada',
     'about.hi_lang': 'Native French · Professional English',
     'about.hi_avail': 'Open to opportunities — Available immediately',
@@ -103,7 +101,6 @@ const I18N = {
   },
   fr: {
     'hero.subtitle': "Des données fiables et conformes, dans la <strong>banque</strong> et l’<strong>industrie</strong>.<br />Plus de 3 ans en <strong>conformité RGPD</strong>, <strong>qualité des données</strong> et <strong>gestion des métadonnées</strong>.",
-    'hero.stat_countries': "Usines couvertes",
     'about.p1': "Data Governance Analyst avec <strong>plus de 3 ans</strong> d’expérience dans la <strong>banque</strong> (BGL BNP Paribas, Luxembourg) et l’<strong>industrie</strong> (Michelin, France), spécialisé en <strong>conformité RGPD</strong>, <strong>qualité des données</strong> et <strong>gestion des métadonnées</strong>.",
     'about.p2': "Je cherche à transformer les standards de données en <strong>outils prêts pour le métier</strong>, en alliant esprit d’analyse, communication claire et collaboration orientée business dans un environnement international.",
     'about.p3': "Ce travail va d’un <strong>registre RGPD de 180 traitements</strong> à un programme de gouvernance couvrant <strong>70 usines</strong> et un déploiement Collibra mené avec une équipe à Pune, en Inde. Aujourd’hui basé à <strong>Toronto</strong>.",
@@ -155,8 +152,7 @@ const I18N = {
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profil', 'nav.experience': 'Expérience', 'nav.skills': 'Compétences',
     'nav.education': 'Formation', 'nav.contact': 'Contact', 'nav.available': 'Disponible',
-    'hero.cta_primary': 'Voir mes projets', 'hero.cta_secondary': 'Me contacter',
-    'hero.stat_years': "Ans d'expérience", 'hero.stat_sectors': 'Secteurs couverts', 'about.title': 'À propos de moi',
+    'hero.cta_primary': 'Voir mes projets', 'hero.cta_secondary': 'Me contacter', 'about.title': 'À propos de moi',
     'about.hi_mobility': 'Mobilité internationale — Europe & Canada',
     'about.hi_lang': 'Français natif · Anglais professionnel',
     'about.hi_avail': 'Ouvert aux opportunités — Disponible immédiatement',
@@ -324,167 +320,6 @@ animate(nameWords[1], { opacity: [0, 1], y: [50, 0] }, { duration: 0.75, delay: 
 animate('.hero-subtitle', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, delay: 0.85, ease: expo });
 animate('.hero-cta',      { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, delay: 1.05, ease: expo });
 animate('.hero-social',   { opacity: [0, 1], y: [16, 0] }, { duration: 0.5, delay: 1.2, ease: expo });
-animate('.hero-stats',    { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, delay: 1.35, ease: expo });
-
-// ---- Counter Animation ----
-let countersStarted = false;
-inView('.hero-stats', () => {
-  if (countersStarted) return;
-  countersStarted = true;
-  document.querySelectorAll('.stat-number[data-count]').forEach(el => {
-    const target = parseInt(el.dataset.count);
-    if (prefersReducedMotion()) { el.textContent = target; return; }
-    const start = performance.now();
-    const dur = 1400;
-    const tick = (now) => {
-      const t = Math.min((now - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - t, 3);
-      el.textContent = Math.round(eased * target);
-      if (t < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  });
-}, { amount: 0.5 });
-
-// ---- Section Headers ----
-inView('.section-header', ({ target }) => {
-  animate(target, { opacity: [0, 1], y: [20, 0] }, { duration: 0.65, ease: expo });
-}, { amount: 0.35 });
-
-// ---- About ----
-inView('.about-text', ({ target }) => {
-  animate(target, { opacity: [0, 1], x: [-28, 0] }, { duration: 0.75, ease: expo });
-}, { amount: 0.2 });
-
-inView('.about-cards', ({ target }) => {
-  animate(target.querySelectorAll('.info-card'),
-    { opacity: [0, 1], x: [28, 0] },
-    { delay: stagger(0.1), duration: 0.65, ease: expo }
-  );
-}, { amount: 0.2 });
-
-// ---- Timeline ----
-document.querySelectorAll('.timeline-item').forEach(el => { el.style.opacity = '0'; });
-inView('.timeline', () => {
-  animate('.timeline-item',
-    { opacity: [0, 1], x: [-36, 0] },
-    { delay: stagger(0.2), duration: 0.75, ease: expo }
-  );
-  animate('.timeline-dot',
-    { scale: [0, 1], opacity: [0, 1] },
-    { delay: stagger(0.2, { startDelay: 0.15 }), duration: 0.45, ease: 'backOut' }
-  );
-}, { amount: 0.1 });
-
-// ---- Skills ----
-inView('#skills', () => {
-  animate('.skill-category',
-    { opacity: [0, 1], y: [32, 0] },
-    { delay: stagger(0.12), duration: 0.65, ease: expo }
-  );
-  animate('.skill-row',
-    { opacity: [0, 1], x: [-12, 0] },
-    { delay: stagger(0.05, { start: 0.25 }), duration: 0.5, ease: expo }
-  );
-}, { amount: 0.15 });
-
-// ---- Education ----
-document.querySelectorAll('.edu-card').forEach(el => { el.style.opacity = '0'; });
-inView('.edu-grid', ({ target }) => {
-  animate(target.querySelectorAll('.edu-card'),
-    { opacity: [0, 1], y: [28, 0] },
-    { delay: stagger(0.15), duration: 0.7, ease: expo }
-  );
-}, { amount: 0.15 });
-
-// ---- Contact ----
-document.querySelectorAll('.contact-pitch, .contact-form, .contact-card').forEach(el => { el.style.opacity = '0'; });
-inView('.contact-layout', ({ target }) => {
-  animate(target.querySelector('.contact-pitch'), { opacity: [0, 1], x: [-24, 0] }, { duration: 0.7, ease: expo });
-  animate(target.querySelector('.contact-form'),  { opacity: [0, 1], x: [24, 0]  }, { duration: 0.7, delay: 0.1, ease: expo });
-}, { amount: 0.2 });
-
-inView('.contact-grid', () => {
-  animate('.contact-card',
-    { opacity: [0, 1], y: [24, 0] },
-    { delay: stagger(0.09), duration: 0.6, ease: expo }
-  );
-}, { amount: 0.2 });
-
-// ---- Contact form → FormSubmit (contact-send.js), LinkedIn as fallback ----
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
-  const fields = {
-    name:    { input: contactForm.querySelector('#cf-name'),    err: contactForm.querySelector('#cf-name-err') },
-    email:   { input: contactForm.querySelector('#cf-email'),   err: contactForm.querySelector('#cf-email-err') },
-    message: { input: contactForm.querySelector('#cf-message'), err: contactForm.querySelector('#cf-message-err') },
-  };
-  const submitBtn = contactForm.querySelector('.cf-submit');
-  const submitLabel = contactForm.querySelector('.cf-submit-label');
-  const sentPanel = document.getElementById('cf-sent');
-  const failedPanel = document.getElementById('cf-failed');
-  const values = () => Object.fromEntries(Object.entries(fields).map(([k, f]) => [k, f.input.value]));
-  const setError = (f, on) => {
-    f.input.classList.toggle('cf-input--error', on);
-    f.input.setAttribute('aria-invalid', on ? 'true' : 'false');
-    if (f.err) f.err.hidden = !on;
-  };
-  const setSending = (on) => {
-    submitBtn.disabled = on;
-    contactForm.setAttribute('aria-busy', String(on));
-    submitLabel.dataset.i18n = on ? 'contact.sending' : 'contact.cta_short';
-    submitLabel.textContent = t(submitLabel.dataset.i18n);
-  };
-  contactForm.addEventListener('submit', async e => {
-    e.preventDefault();
-    const checks = validate(values());
-    let firstInvalid = null;
-    Object.entries(fields).forEach(([k, f]) => {
-      setError(f, !checks[k]);
-      if (!checks[k] && !firstInvalid) firstInvalid = f.input;
-    });
-    if (firstInvalid) { firstInvalid.focus(); return; }
-
-    sentPanel.hidden = true;
-    failedPanel.hidden = true;
-    setSending(true);
-    const data = { ...values(), lang: currentLang, page: location.href.split('#')[0] };
-    const result = await sendContact(data, { honeypot: contactForm.querySelector('.cf-hp').value });
-    setSending(false);
-    if (result.ok) {
-      contactForm.reset();
-      sentPanel.hidden = false;
-    } else {
-      failedPanel.hidden = false;
-      console.warn('Contact form not delivered:', result.reason, result.detail || '');
-    }
-  });
-  Object.values(fields).forEach(f => {
-    f.input.addEventListener('input', () => {
-      if (f.input.classList.contains('cf-input--error') && f.test(f.input.value.trim())) {
-        setError(f, false);
-      }
-      sentPanel.hidden = true;
-    });
-    f.input.addEventListener('blur', () => {
-      const v = f.input.value.trim();
-      if (v.length > 0 && !f.test(v)) setError(f, true);
-    });
-  });
-}
-
-// ---- Button ripple (DS MBButton) ----
-document.addEventListener('pointerdown', e => {
-  const btn = e.target.closest('.btn');
-  if (!btn || prefersReducedMotion()) return;
-  const r = btn.getBoundingClientRect();
-  const dot = document.createElement('span');
-  dot.className = 'btn-ripple';
-  dot.style.left = `${e.clientX - r.left}px`;
-  dot.style.top = `${e.clientY - r.top}px`;
-  btn.appendChild(dot);
-  dot.addEventListener('animationend', () => dot.remove());
-});
 
 // ---- Soft tag stagger on skills section ----
 inView('.soft-skills', ({ target }) => {
