@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=13');
-@import url('tokens/colors.css?v=13');
-@import url('tokens/typography.css?v=13');
-@import url('tokens/spacing.css?v=13');
+@import url('tokens/fonts.css?v=14');
+@import url('tokens/colors.css?v=14');
+@import url('tokens/typography.css?v=14');
+@import url('tokens/spacing.css?v=14');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -293,16 +293,15 @@ section { padding: 6rem 0; position: relative; }
 
 .name-dot { color: var(--fg-1); }
 
-/* DS eyebrow — Roboto caps, olive */
+/* Role line above the name: plain text, no caps, no accent colour */
 .hero-eyebrow {
-  font-size: var(--text-label);
-  font-weight: var(--weight-semi);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--accent-warm);
-  margin-bottom: 1.25rem;
   font-family: var(--font-body);
+  font-size: var(--text-h4);
+  font-weight: var(--weight-semi);
+  color: var(--fg-2);
+  margin-bottom: 1rem;
 }
+.pp-meta { font-size: var(--text-body); font-weight: var(--weight-regular); color: var(--fg-3); }
 
 .hero-name {
   font-family: var(--font-display);
@@ -355,7 +354,7 @@ section { padding: 6rem 0; position: relative; }
   letter-spacing: -0.03em;
   color: var(--accent);
 }
-.stat-plus { font-size: 1.25rem; color: var(--accent-warm); }
+.stat-plus { font-size: 1.25rem; color: var(--accent); }
 .stat-label {
   font-size: var(--text-label);
   font-weight: var(--weight-semi);
@@ -592,16 +591,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   flex-wrap: wrap;
   gap: 1.5rem;
 }
-.section-tag {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  font-weight: var(--weight-semi);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--accent-warm);
-  margin-bottom: 0.75rem;
-}
 .section-header h2 {
   font-family: var(--font-display);
   font-weight: var(--weight-ultra);
@@ -619,7 +608,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
   background: var(--color-blue);
   color: var(--color-white);
 }
-#about .section-tag { color: var(--color-sky); }
 #about .section-header h2 { color: var(--color-white); }
 #about .section-header h2::after { color: var(--color-olive); }
 #about strong { color: var(--color-white); }
@@ -762,7 +750,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .timeline-company {
   font-size: var(--text-body);
-  color: var(--accent-warm);
+  color: var(--fg-2);
   font-weight: 500;
   margin-bottom: 1rem;
 }
@@ -1103,7 +1091,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-size: var(--text-label);
   font-weight: var(--weight-semi);
   text-transform: uppercase;
-  color: var(--accent-warm);
+  color: var(--fg-3);
   letter-spacing: 0.08em;
   display: block;
   margin-bottom: 0.5rem;
@@ -1170,16 +1158,6 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .contact-pitch {
   position: relative;
   padding-top: 0.5rem;
-}
-.contact-eyebrow {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  font-weight: var(--weight-semi);
-  letter-spacing: var(--tracking-wider);
-  text-transform: uppercase;
-  color: var(--accent-warm);
-  margin-bottom: 1rem;
 }
 .contact-headline {
   font-family: var(--font-display);
@@ -1574,7 +1552,7 @@ html:not([lang="fr"]) [data-l="fr"] { display: none; }
   position: absolute; right: -1.55rem; top: 50%; transform: translateY(-50%);
   color: var(--accent); font-weight: 700; font-size: 1.1rem;
 }
-.pp-step-n { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--accent-warm); }
+.pp-step-n { font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--fg-3); }
 .pp-step strong { font-family: var(--font-display); font-weight: var(--weight-ultra); font-size: 18px; letter-spacing: -0.02em; color: var(--fg-1); }
 .pp-step > span:last-child { font-size: var(--text-sm); line-height: 1.5; color: var(--fg-2); }
 

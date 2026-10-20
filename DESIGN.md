@@ -81,7 +81,7 @@ for code only):
 | Section title | Bricolage 800, `clamp(36px, 4.5vw, 48px)`, 1, −0.03em, accent period via `::after` |
 | Card titles | Bricolage 800, 22 / 18 / 16px, 1.2, −0.02em |
 | Lead / body / small | Roboto 17 / 16 / 14px, line-height 1.65 |
-| Eyebrow | Roboto 600, 11px, caps, +0.10em, olive |
+| Role line (hero, project meta) | Roboto 600, 18px, `--fg-2`, sentence case |
 | Label / meta | Roboto 600, 11px, caps, +0.08em |
 | Card tag | Roboto 600, 10px, caps, +0.07em, pill |
 
@@ -110,3 +110,6 @@ Enter or Space.
 - No fourth brand color, no gradients, no emoji as design elements.
 - No percentage skill bars; levels are badges, and only where the CV backs them.
 - No mail-to or phone links.
+- No kicker above section titles (no "01 / Projects", no tracked caps
+  eyebrow): the Bricolage title with its accent period is the section marker.
+  Olive-dark text on paper is below 4.5:1, never use it for small text.

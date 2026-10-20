@@ -28,7 +28,7 @@
       d.setAttribute('lang', l === 'fr' ? 'fr' : 'en');
     })();
   </script>
-  <link rel="stylesheet" href="../../styles.css?v=13" />
+  <link rel="stylesheet" href="../../styles.css?v=14" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -51,7 +51,7 @@
 
   <main>
     <header class="pp-hero container">
-      <p class="hero-eyebrow"><span data-l="en">App</span><span data-l="fr">App</span> · 2026 · <span data-l="en">Private repository</span><span data-l="fr">Dépôt privé</span></p>
+      <p class="hero-eyebrow pp-meta"><span data-l="en">App</span><span data-l="fr">App</span> · 2026 · <span data-l="en">Private repository</span><span data-l="fr">Dépôt privé</span></p>
       <h1 class="pp-title">CV Optimizer<span class="pp-dot">.</span></h1>
       <p class="pp-tagline"><span data-l="en">Finds matching job offers and tailors the CV to each one, ready to send as a PDF.</span><span data-l="fr">Trouve les offres qui correspondent au profil et adapte le CV à chacune, prêt à envoyer en PDF.</span></p>
       <div class="project-tags pp-tags"><span>Node.js</span><span>Claude API</span><span>Adzuna</span><span>Puppeteer</span></div>
@@ -61,21 +61,21 @@
 
     <section class="pp-section" id="why">
       <div class="container pp-grid">
-        <div class="section-header"><span class="section-tag">01 / <span data-l="en">Why</span><span data-l="fr">Pourquoi</span></span><h2><span data-l="en">The starting point</span><span data-l="fr">Le point de départ</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">The starting point</span><span data-l="fr">Le point de départ</span></h2></div>
         <blockquote class="pp-quote"><p><span data-l="en">I built it to optimise my CV for ATS in my job search.</span><span data-l="fr">Pour optimiser l’ATS dans mes recherches d’emploi.</span></p><cite>Mickaël Brousse</cite></blockquote>
       </div>
     </section>
 
     <section class="pp-section pp-section--inset" id="what">
       <div class="container pp-grid">
-        <div class="section-header"><span class="section-tag">02 / <span data-l="en">What it is</span><span data-l="fr">Ce que c’est</span></span><h2><span data-l="en">In short</span><span data-l="fr">En bref</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">In short</span><span data-l="fr">En bref</span></h2></div>
         <ul class="pp-list"><li><span data-l="en"><strong>Job search from the CV</strong>: Claude derives search queries from the profile, Adzuna returns real listings.</span><span data-l="fr"><strong>Recherche d’offres depuis le CV</strong> : Claude déduit les requêtes du profil, Adzuna renvoie de vraies annonces.</span></li><li><span data-l="en"><strong>Ranking</strong> by ATS keyword match, distance from home, salary and recency, with matching and missing keywords on each offer.</span><span data-l="fr"><strong>Classement</strong> par correspondance ATS, distance du domicile, salaire et fraîcheur, avec les mots-clés présents et manquants pour chaque offre.</span></li><li><span data-l="en"><strong>Tailored CV</strong>: Claude rewrites the CV for the chosen offer, then a proofreading pass checks it.</span><span data-l="fr"><strong>CV sur mesure</strong> : Claude réécrit le CV pour l’offre choisie, puis une passe de relecture le vérifie.</span></li><li><span data-l="en"><strong>ATS score that is checked, not claimed</strong>: the rendered CV is scored against the posting with a fixed, weighted formula, instead of letting the model grade itself.</span><span data-l="fr"><strong>Score ATS vérifié, pas déclaré</strong> : le CV produit est noté face à l’offre avec une formule pondérée fixe, au lieu de laisser le modèle s’auto-évaluer.</span></li><li><span data-l="en"><strong>One-page PDF</strong> rendered in a headless browser, ready to send.</span><span data-l="fr"><strong>PDF d’une page</strong> rendu dans un navigateur sans interface, prêt à envoyer.</span></li></ul>
       </div>
     </section>
 
     <section class="pp-section" id="how">
       <div class="container">
-        <div class="section-header"><span class="section-tag">03 / <span data-l="en">How it works</span><span data-l="fr">Comment ça marche</span></span><h2><span data-l="en">From source to screen</span><span data-l="fr">De la source à l’écran</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">From source to screen</span><span data-l="fr">De la source à l’écran</span></h2></div>
         <ol class="pp-flow">
           <li class="pp-step"><span class="pp-step-n">01</span><strong><span data-l="en">CV</span><span data-l="fr">CV</span></strong><span><span data-l="en">The profile to start from</span><span data-l="fr">Le profil de départ</span></span></li>
           <li class="pp-step"><span class="pp-step-n">02</span><strong><span data-l="en">Offers</span><span data-l="fr">Offres</span></strong><span><span data-l="en">Queries from the CV, listings from Adzuna</span><span data-l="fr">Requêtes tirées du CV, annonces Adzuna</span></span></li>
@@ -87,7 +87,7 @@
 
     <section class="pp-section" id="evolution">
       <div class="container">
-        <div class="section-header"><span class="section-tag">04 / <span data-l="en">Evolution</span><span data-l="fr">Évolution</span></span><h2><span data-l="en">From V1 to V2</span><span data-l="fr">De la V1 à la V2</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">From V1 to V2</span><span data-l="fr">De la V1 à la V2</span></h2></div>
         <div class="pp-evo">
           <div class="pp-evo-card pp-evo-card--v1">
             <span class="pp-card-label">V1</span>
@@ -106,7 +106,7 @@
 
     <section class="pp-section pp-section--inset" id="gallery">
       <div class="container">
-        <div class="section-header"><span class="section-tag">05 / <span data-l="en">In pictures</span><span data-l="fr">En images</span></span><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">Screens</span><span data-l="fr">Écrans</span></h2></div>
         <div class="pp-gallery">
           <figure class="pp-shot"><div class="pp-frame"><a class="pp-zoom" href="../../assets/projects/cv-optimizer/jobs.webp"><img src="../../assets/projects/cv-optimizer/jobs.webp" alt="Ranked offers: composite score, breakdown, matching and missing keywords" data-alt-en="Ranked offers: composite score, breakdown, matching and missing keywords" data-alt-fr="Offres classées : score composite, détail, mots-clés présents et manquants" width="1280" height="800" loading="lazy" decoding="async" /></a></div><figcaption><span data-l="en">Ranked offers: composite score, breakdown, matching and missing keywords</span><span data-l="fr">Offres classées : score composite, détail, mots-clés présents et manquants</span></figcaption></figure>
           <figure class="pp-shot"><div class="pp-frame"><a class="pp-zoom" href="../../assets/projects/cv-optimizer/cv.webp"><img src="../../assets/projects/cv-optimizer/cv.webp" alt="The tailored CV, one page" data-alt-en="The tailored CV, one page" data-alt-fr="Le CV adapté, sur une page" width="1280" height="800" loading="lazy" decoding="async" /></a></div><figcaption><span data-l="en">The tailored CV, one page</span><span data-l="fr">Le CV adapté, sur une page</span></figcaption></figure>
@@ -118,7 +118,7 @@
 
     <section class="pp-section" id="takeaways">
       <div class="container">
-        <div class="section-header"><span class="section-tag">06 / <span data-l="en">Takeaways</span><span data-l="fr">Bilan</span></span><h2><span data-l="en">Where it stands</span><span data-l="fr">Où il en est</span></h2></div>
+        <div class="section-header"><h2><span data-l="en">Where it stands</span><span data-l="fr">Où il en est</span></h2></div>
         <div class="pp-takeaways">
           
           <div class="pp-card pp-card--olive"><span class="pp-card-label"><span data-l="en">Status</span><span data-l="fr">Statut</span></span><p><span data-l="en">I used it for a long time to apply twice as fast.</span><span data-l="fr">Je l’ai utilisé pendant longtemps pour postuler 2 fois plus vite.</span></p></div>
@@ -146,6 +146,6 @@
       </div>
     </div>
   </footer>
-  <script src="../../project-page.js?v=13" defer></script>
+  <script src="../../project-page.js?v=14" defer></script>
 </body>
 </html>

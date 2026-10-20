@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 
 const root = new URL('..', import.meta.url);
 const SITE = 'https://micka2000.github.io/Mickael_Brousse/';
-const V = 13; // asset version, keep in step with index.html
+const V = 14; // asset version, keep in step with index.html
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // bilingual text; `rich` keeps the authored inline HTML (strong, code)
@@ -102,8 +102,7 @@ function page(p, all) {
         </div>`, false, true);
 
   const body = sections.map((s, k) => {
-    const tag = `<span class="section-tag">${String(k + 1).padStart(2, '0')} / ${L(s.label)}</span>`;
-    const head = `<div class="section-header">${tag}<h2>${L(s.title)}</h2></div>`;
+    const head = `<div class="section-header"><h2>${L(s.title)}</h2></div>`;
     return `
     <section class="pp-section${s.inset ? ' pp-section--inset' : ''}" id="${s.key}">
       <div class="container${s.wide ? '' : ' pp-grid'}">
@@ -166,7 +165,7 @@ function page(p, all) {
 
   <main>
     <header class="pp-hero container">
-      <p class="hero-eyebrow">${L(p.type)} · ${p.year}${p.private ? ` · ${L(UI.private)}` : ''}</p>
+      <p class="hero-eyebrow pp-meta">${L(p.type)} · ${p.year}${p.private ? ` · ${L(UI.private)}` : ''}</p>
       <h1 class="pp-title">${esc(p.title)}<span class="pp-dot">.</span></h1>
       <p class="pp-tagline">${L(p.tagline)}</p>
       <div class="project-tags pp-tags">${(p.tags || []).map(t => `<span>${esc(t)}</span>`).join('')}</div>
