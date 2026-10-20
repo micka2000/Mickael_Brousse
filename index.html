@@ -6,6 +6,15 @@
   <title data-i18n="meta.title">Mickaël Brousse — Data Governance Analyst</title>
   <link rel="icon" type="image/png" href="assets/portrait.png" />
   <link rel="apple-touch-icon" href="assets/portrait.png" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (!t) t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    })();
+  </script>
   <link rel="stylesheet" href="styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,10 +31,10 @@
     <div class="nav-container">
       <span class="nav-logo">MB<span class="dot">.</span></span>
       <ul class="nav-links">
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
         <li><a href="#about" data-i18n="nav.about">Profile</a></li>
         <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
         <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
         <li><a href="#education" data-i18n="nav.education">Education</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
@@ -34,6 +43,10 @@
           <span class="lang-opt" data-lang="en">EN</span>
           <span class="lang-sep">/</span>
           <span class="lang-opt" data-lang="fr">FR</span>
+        </button>
+        <button class="theme-toggle" type="button" aria-label="Switch theme" data-i18n-attr="aria-label:a11y.theme_toggle">
+          <span class="theme-toggle-icon" aria-hidden="true">◑</span>
+          <span class="theme-toggle-label" data-i18n="theme.to_dark">Dark</span>
         </button>
         <button class="nav-badge" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
           <span class="status-dot"></span>
@@ -48,43 +61,42 @@
 
   <div class="mobile-menu" id="mobileMenu">
     <ul>
+      <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
       <li><a href="#about" data-i18n="nav.about">Profile</a></li>
       <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
       <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
-        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
       <li><a href="#education" data-i18n="nav.education">Education</a></li>
       <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="mobile-menu-actions">
+      <button class="lang-toggle" type="button" aria-label="Switch language" data-i18n-attr="aria-label:a11y.lang_toggle">
+        <span class="lang-opt" data-lang="en">EN</span>
+        <span class="lang-sep">/</span>
+        <span class="lang-opt" data-lang="fr">FR</span>
+      </button>
+      <button class="theme-toggle" type="button" aria-label="Switch theme" data-i18n-attr="aria-label:a11y.theme_toggle">
+        <span class="theme-toggle-icon" aria-hidden="true">◑</span>
+        <span class="theme-toggle-label" data-i18n="theme.to_dark">Dark</span>
+      </button>
+    </div>
   </div>
 
   <!-- Hero -->
   <section id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-      <div class="glow glow-1"></div>
-      <div class="glow glow-2"></div>
-      <div class="glow glow-3"></div>
-    </div>
     <div class="hero-grid">
     <div class="hero-content">
-      <div class="hero-badge">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero.badge">Available · Toronto, Canada</span>
-      </div>
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Data Governance Analyst · Toronto</p>
       <h1 class="hero-name">
         <span class="name-word">Mickaël</span>
         <span class="name-word accent">Brousse<span class="name-dot">.</span></span>
       </h1>
-      <p class="hero-title">
-        <span id="typed-title">Data Governance Analyst</span><span class="cursor">|</span>
-      </p>
       <p class="hero-subtitle" data-i18n-html="hero.subtitle">
         3 years of experience in <strong>banking</strong> &amp; <strong>manufacturing</strong> sectors<br />
         Expert in <strong>GDPR</strong>, <strong>data quality</strong> &amp; <strong>digital transformation</strong>
       </p>
       <div class="hero-cta">
-        <a href="#experience" class="btn btn-primary magnetic">
-          <span data-i18n="hero.cta_primary">View my journey</span>
+        <a href="#projects" class="btn btn-primary magnetic">
+          <span data-i18n="hero.cta_primary">See my projects</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
         <a href="#contact" class="btn btn-outline magnetic" data-i18n="hero.cta_secondary">Contact me</a>
@@ -123,8 +135,24 @@
       <img src="assets/portrait.png" alt="Mickaël Brousse" />
     </div>
     </div>
-    <div class="scroll-indicator">
-      <div class="scroll-line"></div>
+    <a href="#projects" class="scroll-indicator" data-i18n="hero.scroll">Scroll ↓</a>
+  </section>
+
+  <!-- Projects — catalog of GitHub repositories (rendered by script.js) -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header section-header--split">
+        <div>
+          <span class="section-tag" data-i18n="projects.tag">01 / Projects</span>
+          <h2 data-i18n="projects.title">Projects</h2>
+          <p class="section-intro" data-i18n="projects.intro">Everything I build on the side, pulled live from my GitHub.</p>
+        </div>
+        <div class="project-filters" role="toolbar" aria-label="Filter projects" data-i18n-attr="aria-label:projects.filter_label"></div>
+      </div>
+      <div class="project-grid" id="projectGrid" aria-live="polite"></div>
+      <p class="project-footnote">
+        <a href="https://github.com/micka2000" target="_blank" rel="noopener" data-i18n="projects.all_github">All repositories on GitHub ↗</a>
+      </p>
     </div>
   </section>
 
@@ -132,7 +160,7 @@
   <section id="about">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag" data-i18n="about.tag">01 / Profile</span>
+        <span class="section-tag" data-i18n="about.tag">02 / Profile</span>
         <h2 data-i18n="about.title">About me</h2>
       </div>
       <div class="about-grid">
@@ -197,7 +225,7 @@
   <section id="experience">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag" data-i18n="exp.tag">02 / Experience</span>
+        <span class="section-tag" data-i18n="exp.tag">03 / Experience</span>
         <h2 data-i18n="exp.title">Professional Journey</h2>
       </div>
       <div class="timeline">
@@ -271,7 +299,7 @@
   <section id="skills">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag" data-i18n="skills.tag">03 / Skills</span>
+        <span class="section-tag" data-i18n="skills.tag">04 / Skills</span>
         <h2 data-i18n="skills.title">Stack &amp; Expertise</h2>
       </div>
       <div class="skills-grid">
@@ -311,22 +339,6 @@
         </div>
 
       </div>
-    </div>
-  </section>
-
-  <!-- Projects — catalog of GitHub repositories (rendered by script.js) -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag" data-i18n="projects.tag">04 / Projects</span>
-        <h2><span data-i18n="projects.title">Projects</span><span class="title-dot">.</span></h2>
-        <p class="section-intro" data-i18n="projects.intro">Everything I build on the side, pulled live from my GitHub.</p>
-      </div>
-      <div class="project-filters" role="toolbar" aria-label="Filter projects" data-i18n-attr="aria-label:projects.filter_label"></div>
-      <div class="project-grid" id="projectGrid" aria-live="polite"></div>
-      <p class="project-footnote">
-        <a href="https://github.com/micka2000" target="_blank" rel="noopener" data-i18n="projects.all_github">All repositories on GitHub ↗</a>
-      </p>
     </div>
   </section>
 
@@ -432,13 +444,23 @@
 
   <footer>
     <div class="container">
-      <div class="footer-inner">
-        <span class="footer-logo">MB<span class="dot">.</span></span>
-        <p data-i18n-html="footer.copy">© <span id="footer-year">2026</span> Mickaël Brousse · Data Governance Analyst · Toronto</p>
-        <div class="footer-links">
-          <a href="mailto:mickabrousse@gmail.com" class="footer-link">Email</a>
-          <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+      <div class="footer-top">
+        <div class="footer-signature">
+          <p class="footer-name">Mickaël<br /><span>Brousse</span></p>
+          <p class="footer-tagline" data-i18n="footer.tagline">Data governance, quality &amp; compliance.</p>
         </div>
+        <div class="footer-cta">
+          <span class="footer-eyebrow" data-i18n="footer.eyebrow">Let's work together?</span>
+          <a href="mailto:mickabrousse@gmail.com" class="btn btn-primary btn-sm">mickabrousse@gmail.com <span aria-hidden="true">→</span></a>
+          <div class="footer-links">
+            <a href="https://www.linkedin.com/in/micka-brousse" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+            <a href="https://github.com/micka2000" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-i18n-html="footer.copy">© <span id="footer-year">2026</span> Mickaël Brousse</p>
+        <p class="footer-place">TORONTO · CA</p>
       </div>
     </div>
   </footer>

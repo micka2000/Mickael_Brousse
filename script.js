@@ -8,8 +8,11 @@ const prefersReducedMotion = () => PRM.matches;
    ============================================================ */
 const I18N = {
   en: {
+    'hero.eyebrow': 'Data Governance Analyst · Toronto', 'hero.scroll': 'Scroll ↓',
+    'theme.to_dark': 'Dark', 'theme.to_light': 'Light', 'a11y.theme_toggle': 'Switch theme',
+    'footer.tagline': 'Data governance, quality & compliance.', 'footer.eyebrow': 'Let\'s work together?',
     'nav.projects': 'Projects',
-    'projects.tag': '04 / Projects', 'projects.title': 'Projects',
+    'projects.tag': '01 / Projects', 'projects.title': 'Projects',
     'projects.intro': 'Everything I build on the side, pulled live from my GitHub.',
     'projects.filter_label': 'Filter projects', 'projects.all': 'All',
     'projects.view_code': 'Code', 'projects.view_live': 'Live site',
@@ -22,22 +25,22 @@ const I18N = {
     'nav.education': 'Education', 'nav.contact': 'Contact', 'nav.available': 'Available',
     'hero.badge': 'Available · Toronto, Canada',
     'hero.subtitle': '3 years of experience in <strong>banking</strong> &amp; <strong>manufacturing</strong> sectors<br />Expert in <strong>GDPR</strong>, <strong>data quality</strong> &amp; <strong>digital transformation</strong>',
-    'hero.cta_primary': 'View my journey', 'hero.cta_secondary': 'Contact me',
+    'hero.cta_primary': 'See my projects', 'hero.cta_secondary': 'Contact me',
     'hero.typed': 'Data Governance Analyst',
     'hero.stat_years': 'Years of experience', 'hero.stat_sectors': 'Sectors covered',
     'hero.stat_compliance': 'GDPR compliance',
-    'about.tag': '01 / Profile', 'about.title': 'About me',
+    'about.tag': '02 / Profile', 'about.title': 'About me',
     'about.p1': 'Data Governance Analyst with over <strong>3 years of experience</strong> in <strong>banking</strong> (BNP Paribas Luxembourg) and <strong>manufacturing</strong> (Michelin). Specialized in building reliable, GDPR-compliant frameworks and optimizing processes to maximize the value of data.',
     'about.p2': 'My expertise sits at the intersection of <strong>data governance</strong>, <strong>quality</strong>, and <strong>regulatory compliance</strong>, with an international scope covering Europe and now the <strong>Canadian</strong> market.',
     'about.p3': 'Passionate about <strong>digital transformation</strong> and <strong>artificial intelligence</strong> applied to enterprise data, I aim to bring rigorous governance expertise while expanding into data engineering and responsible AI.',
-    'about.hi_mobility': 'International mobility — Europe &amp; Canada',
+    'about.hi_mobility': 'International mobility — Europe & Canada',
     'about.hi_lang': 'Native French · Professional English',
     'about.hi_avail': 'Open to opportunities — Available immediately',
     'about.card_master_t': 'Master', 'about.card_master_d': 'Strategic Management & Digital Transformation',
     'about.card_bnp_d': 'Data Governance Analyst — Luxembourg',
     'about.card_michelin_d': 'Business Analyst / Data Owner — France',
     'about.card_loc_t': 'Toronto, Canada', 'about.card_loc_d': 'Available immediately',
-    'exp.tag': '02 / Experience', 'exp.title': 'Professional Journey',
+    'exp.tag': '03 / Experience', 'exp.title': 'Professional Journey',
     'exp.bnp_period': 'May 2024 — Nov 2025', 'exp.badge_banking': 'Banking',
     'exp.bnp_li1': 'Led the update of the <strong>Personal Data Processing Register</strong> to ensure GDPR compliance, in coordination with Legal and DPO teams.',
     'exp.bnp_li2': 'Built a <strong>Power BI dashboard</strong> to compare register data against risk assessments, tracking delivery velocity and consistency.',
@@ -54,7 +57,7 @@ const I18N = {
     'exp.mich2_li2': 'Analyzed manufacturing data processes to identify <strong>inconsistencies</strong> and support the rollout of governance standards.',
     'exp.mich2_li3': 'Built foundational expertise in complex industrial data environments and <strong>cross-team coordination</strong>.',
     'exp.tag_data_analysis': 'Data Analysis', 'exp.tag_cross': 'Cross-functional',
-    'skills.tag': '03 / Skills', 'skills.title': 'Stack & Expertise',
+    'skills.tag': '04 / Skills', 'skills.title': 'Stack & Expertise',
     'skills.cat_core': 'Core Expertise', 'skills.cat_tools': 'Tools & Technologies',
     'skills.cat_approach': 'Approach & Soft Skills',
     'skills.gov_quality': 'Data Governance & Quality', 'skills.gov_gdpr': 'GDPR & Compliance',
@@ -87,14 +90,17 @@ const I18N = {
     'a11y.social_phone_ca': 'Phone Canada',
     'a11y.copy_email': 'Copy email address',
     'hero.stat_countries': 'International markets',
-    'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse · Data Governance Analyst · Toronto',
+    'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse',
     'contact.err_name': 'Please enter your name.',
     'contact.err_email': 'Please enter a valid email address.',
     'contact.err_message': 'Please write a short message (at least 10 characters).',
   },
   fr: {
+    'hero.eyebrow': 'Data Governance Analyst · Toronto', 'hero.scroll': 'Défiler ↓',
+    'theme.to_dark': 'Sombre', 'theme.to_light': 'Clair', 'a11y.theme_toggle': 'Changer de thème',
+    'footer.tagline': 'Gouvernance, qualité et conformité des données.', 'footer.eyebrow': 'On travaille ensemble ?',
     'nav.projects': 'Projets',
-    'projects.tag': '04 / Projets', 'projects.title': 'Projets',
+    'projects.tag': '01 / Projets', 'projects.title': 'Projets',
     'projects.intro': 'Tout ce que je construis à côté, en direct depuis mon GitHub.',
     'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',
     'projects.view_code': 'Code', 'projects.view_live': 'Voir le site',
@@ -107,22 +113,22 @@ const I18N = {
     'nav.education': 'Formation', 'nav.contact': 'Contact', 'nav.available': 'Disponible',
     'hero.badge': 'Disponible · Toronto, Canada',
     'hero.subtitle': "3 ans d'expérience dans les secteurs <strong>bancaire</strong> &amp; <strong>manufacturier</strong><br />Expert <strong>RGPD</strong>, <strong>qualité des données</strong> &amp; <strong>transformation digitale</strong>",
-    'hero.cta_primary': 'Voir mon parcours', 'hero.cta_secondary': 'Me contacter',
+    'hero.cta_primary': 'Voir mes projets', 'hero.cta_secondary': 'Me contacter',
     'hero.typed': 'Data Governance Analyst',
     'hero.stat_years': "Ans d'expérience", 'hero.stat_sectors': 'Secteurs couverts',
     'hero.stat_countries': 'Marchés internationaux', 'hero.stat_compliance': 'Conformité RGPD',
-    'about.tag': '01 / Profil', 'about.title': 'À propos de moi',
+    'about.tag': '02 / Profil', 'about.title': 'À propos de moi',
     'about.p1': "Data Governance Analyst avec plus de <strong>3 ans d'expérience</strong> dans les secteurs <strong>bancaire</strong> (BNP Paribas Luxembourg) et <strong>manufacturier</strong> (Michelin). Spécialisé dans la construction de frameworks fiables et conformes au <strong>RGPD</strong>, ainsi que dans l'optimisation des processus pour maximiser la valeur des données.",
     'about.p2': "Mon expérience couvre l'intersection de la <strong>gouvernance des données</strong>, de la <strong>qualité</strong> et de la <strong>conformité réglementaire</strong>, avec une portée internationale couvrant l'Europe et désormais le marché <strong>canadien</strong>.",
     'about.p3': "Passionné par la <strong>transformation digitale</strong> et l'<strong>intelligence artificielle</strong> appliquée aux données d'entreprise, je cherche à apporter une expertise rigoureuse en gouvernance tout en développant des compétences en data engineering et IA responsable.",
-    'about.hi_mobility': 'Mobilité internationale — Europe &amp; Canada',
+    'about.hi_mobility': 'Mobilité internationale — Europe & Canada',
     'about.hi_lang': 'Français natif · Anglais professionnel',
     'about.hi_avail': 'Ouvert aux opportunités — Disponible immédiatement',
     'about.card_master_t': 'Master', 'about.card_master_d': 'Strategic Management & Digital Transformation',
     'about.card_bnp_d': 'Data Governance Analyst — Luxembourg',
     'about.card_michelin_d': 'Business Analyst / Data Owner — France',
     'about.card_loc_t': 'Toronto, Canada', 'about.card_loc_d': 'Disponible immédiatement',
-    'exp.tag': '02 / Expérience', 'exp.title': 'Parcours Professionnel',
+    'exp.tag': '03 / Expérience', 'exp.title': 'Parcours Professionnel',
     'exp.bnp_period': 'Mai 2024 — Nov 2025', 'exp.badge_banking': 'Banque',
     'exp.bnp_li1': 'Pilotage de la mise à jour du <strong>Registre des Traitements de Données Personnelles</strong> pour assurer la conformité RGPD, en coordination avec les équipes Juridique et DPO.',
     'exp.bnp_li2': "Développement d'un <strong>dashboard Power BI</strong> pour comparer les données du registre avec les évaluations des risques, en suivant la vélocité de livraison et la cohérence.",
@@ -139,7 +145,7 @@ const I18N = {
     'exp.mich2_li2': 'Analyse des processus de données manufacturing pour identifier les <strong>incohérences</strong> et soutenir le déploiement des standards de gouvernance.',
     'exp.mich2_li3': 'Acquisition d\'une expertise fondamentale dans les environnements de données industriels complexes et la <strong>coordination inter-équipes</strong>.',
     'exp.tag_data_analysis': 'Analyse de données', 'exp.tag_cross': 'Cross-fonctionnel',
-    'skills.tag': '03 / Compétences', 'skills.title': 'Stack & Expertises',
+    'skills.tag': '04 / Compétences', 'skills.title': 'Stack & Expertises',
     'skills.cat_core': 'Expertise Cœur', 'skills.cat_tools': 'Outils & Technologies',
     'skills.cat_approach': 'Approche & Soft Skills',
     'skills.gov_quality': 'Data Governance & Quality', 'skills.gov_gdpr': 'RGPD & Conformité',
@@ -171,7 +177,7 @@ const I18N = {
     'a11y.social_email': 'Email',
     'a11y.social_phone_ca': 'Téléphone Canada',
     'a11y.copy_email': 'Copier l\'adresse email',
-    'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse · Data Governance Analyst · Toronto',
+    'footer.copy': '© <span id="footer-year">{year}</span> Mickaël Brousse',
     'contact.err_name': 'Merci d\'indiquer votre nom.',
     'contact.err_email': 'Merci d\'indiquer une adresse email valide.',
     'contact.err_message': 'Merci d\'écrire un court message (10 caractères minimum).',
@@ -214,6 +220,31 @@ document.addEventListener('click', e => {
 });
 
 applyLang(currentLang);
+
+
+/* ---- Theme toggle (light / dark) ----
+   Initial theme is set inline in <head> (saved choice, else system). */
+function syncThemeToggle() {
+  const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const dict = I18N[currentLang] || I18N.en;
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.querySelector('.theme-toggle-icon').textContent = dark ? '☀' : '◑';
+    const label = btn.querySelector('.theme-toggle-label');
+    label.dataset.i18n = dark ? 'theme.to_light' : 'theme.to_dark';
+    label.textContent = dict[label.dataset.i18n];
+    btn.setAttribute('aria-pressed', String(dark));
+  });
+}
+document.addEventListener('click', e => {
+  if (e.target.closest('.theme-toggle')) {
+    const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch {}
+    syncThemeToggle();
+  }
+  if (e.target.closest('.lang-opt')) syncThemeToggle();
+});
+syncThemeToggle();
 
 // ---- Progress Bar ----
 const progressBar = document.getElementById('progress-bar');
@@ -275,7 +306,7 @@ mobileMenu.querySelectorAll('a').forEach(a => {
 // Staggered entrance with expo-out easing
 const expo = [0.16, 1, 0.3, 1];
 
-animate('.hero-badge', { opacity: [0, 1], y: [12, 0] }, { duration: 0.55, delay: 0.1, ease: expo });
+animate('.hero-eyebrow', { opacity: [0, 1], y: [12, 0] }, { duration: 0.55, delay: 0.1, ease: expo });
 
 const nameWords = document.querySelectorAll('.name-word');
 animate(nameWords[0], { opacity: [0, 1], y: [50, 0] }, { duration: 0.75, delay: 0.3, ease: expo });
@@ -285,49 +316,6 @@ animate('.hero-subtitle', { opacity: [0, 1], y: [20, 0] }, { duration: 0.6, dela
 animate('.hero-cta',      { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, delay: 1.05, ease: expo });
 animate('.hero-social',   { opacity: [0, 1], y: [16, 0] }, { duration: 0.5, delay: 1.2, ease: expo });
 animate('.hero-stats',    { opacity: [0, 1], y: [20, 0] }, { duration: 0.55, delay: 1.35, ease: expo });
-
-// Typing effect (re-types on language switch). Skipped under reduced-motion.
-const typedEl = document.getElementById('typed-title');
-function runTyping() {
-  if (!typedEl) return;
-  const text = (I18N[currentLang] || I18N.en)['hero.typed'];
-  if (prefersReducedMotion()) {
-    typedEl.textContent = text;
-    return;
-  }
-  typedEl.textContent = '';
-  let i = 0;
-  const type = () => {
-    if (typedEl.textContent.length >= text.length) return;
-    if (i < text.length) {
-      typedEl.textContent += text[i++];
-      setTimeout(type, 55);
-    }
-  };
-  setTimeout(type, 420);
-}
-runTyping();
-document.addEventListener('click', e => {
-  if (e.target.closest('.lang-opt')) runTyping();
-});
-
-// Hero mouse parallax on glows
-const hero = document.getElementById('hero');
-const glow1 = document.querySelector('.glow-1');
-const glow2 = document.querySelector('.glow-2');
-let ticking = false;
-
-hero.addEventListener('mousemove', (e) => {
-  if (ticking || prefersReducedMotion()) return;
-  ticking = true;
-  requestAnimationFrame(() => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 2;
-    const y = (e.clientY / window.innerHeight - 0.5) * 2;
-    animate(glow1, { x: x * 40, y: y * 28 }, { duration: 1.8, ease: 'easeOut' });
-    animate(glow2, { x: x * -28, y: y * -20 }, { duration: 2.0, ease: 'easeOut' });
-    ticking = false;
-  });
-});
 
 // ---- Counter Animation ----
 let countersStarted = false;
@@ -504,15 +492,6 @@ if (!prefersReducedMotion()) {
     });
   });
 }
-
-// ---- Card Spotlight Effect ----
-document.querySelectorAll('.timeline-card, .skill-category, .edu-card, .contact-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
-    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
-  });
-});
 
 // ---- Soft tag stagger on skills section ----
 inView('.soft-skills', ({ target }) => {
