@@ -1,6 +1,8 @@
 {
   "user": "micka2000",
-  "hidden": ["micka2000.github.io"],
+  "hidden": [
+    "micka2000.github.io"
+  ],
   "projects": {
     "Mickael_Brousse": {
       "order": 1,
@@ -8,7 +10,12 @@
       "title": "Portfolio",
       "type": "web",
       "image": "assets/projects/Mickael_Brousse.webp",
-      "tags": ["HTML", "CSS", "JavaScript", "GitHub Actions"],
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "GitHub Actions"
+      ],
       "summary": {
         "en": "Bilingual portfolio built on my own design system. The project catalog keeps itself in sync with my GitHub, in light or dark theme.",
         "fr": "Portfolio bilingue construit sur mon propre design system. Le catalogue de projets se synchronise tout seul avec mon GitHub, en thème clair ou sombre."
@@ -20,7 +27,12 @@
       "title": "Maison MK",
       "type": "web",
       "image": "assets/projects/kenzahotelconsulting.webp",
-      "tags": ["JavaScript", "Node.js", "SQLite", "CI/CD"],
+      "tags": [
+        "JavaScript",
+        "Node.js",
+        "SQLite",
+        "CI/CD"
+      ],
       "summary": {
         "en": "Showcase site for Kenza Hotel Consulting: audits and advisory for independent hotels, with a Michelin-guide lens. Bilingual static site with continuous deployment; a Node.js + SQLite back end is in progress.",
         "fr": "Site vitrine de Kenza Hotel Consulting : audit et conseil « vision Michelin » pour hôtels indépendants. Site statique bilingue en déploiement continu, back-end Node.js + SQLite en cours."
@@ -32,7 +44,12 @@
       "title": "Shiller PE Simulator",
       "type": "data",
       "image": "assets/projects/shiller-pe-simulator.webp",
-      "tags": ["Python", "JavaScript", "GitHub Actions", "Data viz"],
+      "tags": [
+        "Python",
+        "JavaScript",
+        "GitHub Actions",
+        "Data viz"
+      ],
       "summary": {
         "en": "Explains the Shiller CAPE ratio and gives today's value for the S&P 500. A GitHub Action fetches the CAPE and the index price every trading evening. The site charts 150 years of history, compares countries and includes a calculator, in light or dark theme.",
         "fr": "Explique le ratio Shiller CAPE et donne sa valeur du jour pour le S&P 500. Une GitHub Action récupère le CAPE et le prix de l'indice chaque soir de bourse. Le site trace 150 ans d'historique, compare les pays et propose un calculateur, en thème clair ou sombre."
@@ -41,22 +58,50 @@
     "Pr-sentation-shiller-PE": {
       "order": 4,
       "abbr": "SP",
-      "title": { "en": "Shiller PE · Presentation", "fr": "Shiller PE · Présentation" },
+      "title": {
+        "en": "Shiller PE · Presentation",
+        "fr": "Shiller PE · Présentation"
+      },
       "type": "data",
-      "tags": ["Finance", "Markdown"],
+      "tags": [
+        "Finance",
+        "Markdown"
+      ],
       "summary": {
         "en": "Slide-style explainer of the Shiller PE ratio: the formula, how to read it, historical examples (1929, 2008) and its limits.",
         "fr": "Présentation du ratio Shiller PE : la formule, comment le lire, des exemples historiques (1929, 2008) et ses limites."
       }
     },
-    "life-dashboard": {
+    "pizza-planning": {
       "year": 2026,
       "order": 5,
+      "private": true,
+      "abbr": "PP",
+      "title": "Pizza Planning",
+      "type": "app",
+      "tags": [
+        "Next.js",
+        "Prisma",
+        "SQLite",
+        "NextAuth"
+      ],
+      "summary": {
+        "en": "Staff scheduling for a multi-site restaurant: weekly planning per site and shift, a personal schedule for each employee, and an hours page that feeds payroll, with PDF and Excel exports.",
+        "fr": "Planning du personnel d’un restaurant multi-sites : planning hebdomadaire par site et par service, planning personnel pour chaque employé et page des heures qui alimente la paie, avec exports PDF et Excel."
+      }
+    },
+    "life-dashboard": {
+      "year": 2026,
+      "order": 6,
       "private": true,
       "abbr": "LD",
       "title": "Life Dashboard",
       "type": "app",
-      "tags": ["Next.js", "TypeScript", "Tailscale"],
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Tailscale"
+      ],
       "summary": {
         "en": "Personal tracker for habits, measurements and investment portfolio on a single screen, identical on PC and iPhone. Self-hosted Next.js app, reachable privately over Tailscale.",
         "fr": "Tracker perso : habitudes, mesures et portefeuille sur un seul écran, identique sur PC et iPhone. App Next.js auto-hébergée, accessible en privé via Tailscale."
@@ -64,12 +109,17 @@
     },
     "cv-optimizer-v2": {
       "year": 2026,
-      "order": 6,
+      "order": 7,
       "private": true,
       "abbr": "CV",
       "title": "CV Optimizer",
       "type": "app",
-      "tags": ["Node.js", "Claude API", "Adzuna", "Vitest"],
+      "tags": [
+        "Node.js",
+        "Claude API",
+        "Adzuna",
+        "Vitest"
+      ],
       "summary": {
         "en": "Upload a CV, find matching jobs, get a tailored PDF in one click. Ranks Adzuna listings by ATS keyword match, distance and recency, then rewrites and proofreads the CV with Claude.",
         "fr": "Dépôt d'un CV, recherche des offres correspondantes et PDF adapté en un clic. Les offres Adzuna sont classées par mots-clés ATS, distance et fraîcheur, puis le CV est réécrit et relu avec Claude."
@@ -77,12 +127,16 @@
     },
     "design-system-mickael-brousse": {
       "year": 2026,
-      "order": 7,
+      "order": 8,
       "private": true,
       "abbr": "DS",
       "title": "Design System",
       "type": "design",
-      "tags": ["Material 3", "Lit", "TypeScript"],
+      "tags": [
+        "Material 3",
+        "Lit",
+        "TypeScript"
+      ],
       "summary": {
         "en": "My personal design system: Material 3 web components (Lit) rethemed with the Blue/Olive/Sky palette and Bricolage Grotesque + Roboto. Framework-agnostic, light and dark.",
         "fr": "Mon design system personnel : composants web Material 3 (Lit) rethémés avec la palette Bleu/Olive/Ciel et Bricolage Grotesque + Roboto. Compatible avec tous les frameworks, en clair et en sombre."
