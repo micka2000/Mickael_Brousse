@@ -32,10 +32,10 @@
       "title": "Shiller PE Simulator",
       "type": "data",
       "image": "assets/projects/shiller-pe-simulator.webp",
-      "tags": ["Python", "Flask", "SQLite", "yfinance"],
+      "tags": ["Python", "JavaScript", "GitHub Actions", "Data viz"],
       "summary": {
-        "en": "Explains the Shiller CAPE ratio and lets you compute it. The S&P 500 price is fetched automatically and stored daily, then read against the historical zones: cheap below 15, bubble risk above 30.",
-        "fr": "Explique le ratio Shiller CAPE et permet de le calculer. Le prix du S&P 500 est récupéré automatiquement et historisé chaque jour, puis lu selon les zones historiques : bon marché sous 15, risque de bulle au-dessus de 30."
+        "en": "Explains the Shiller CAPE ratio and gives today's value for the S&P 500. A GitHub Action fetches the CAPE and the index price every trading evening. The site charts 150 years of history, compares countries and includes a calculator, in light or dark theme.",
+        "fr": "Explique le ratio Shiller CAPE et donne sa valeur du jour pour le S&P 500. Une GitHub Action récupère le CAPE et le prix de l'indice chaque soir de bourse. Le site trace 150 ans d'historique, compare les pays et propose un calculateur, en thème clair ou sombre."
       }
     },
     "Pr-sentation-shiller-PE": {
