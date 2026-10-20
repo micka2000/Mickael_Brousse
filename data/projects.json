@@ -36,6 +36,15 @@
       "description": null,
       "html_url": "https://github.com/micka2000/shiller-pe-simulator",
       "live_url": "https://micka2000.github.io/shiller-pe-simulator/"
+    },
+    {
+      "name": "vigie-dette-france",
+      "private": false,
+      "language": "JavaScript",
+      "created_at": "2026-10-20T17:43:42Z",
+      "description": "Les cinq signaux de santé de la dette française, avec seuils de risque historiques",
+      "html_url": "https://github.com/micka2000/vigie-dette-france",
+      "live_url": "https://micka2000.github.io/vigie-dette-france/"
     }
   ]
 }
