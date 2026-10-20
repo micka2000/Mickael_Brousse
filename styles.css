@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=3');
-@import url('tokens/colors.css?v=3');
-@import url('tokens/typography.css?v=3');
-@import url('tokens/spacing.css?v=3');
+@import url('tokens/fonts.css?v=4');
+@import url('tokens/colors.css?v=4');
+@import url('tokens/typography.css?v=4');
+@import url('tokens/spacing.css?v=4');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -1067,7 +1067,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 }
 .edu-school {
   font-size: 0.9rem;
-  color: var(--color-blue);
+  color: var(--accent);
   font-weight: 500;
   margin-bottom: 0.75rem;
 }
@@ -1076,6 +1076,33 @@ button, input, textarea, select { font: inherit; color: inherit; }
   color: var(--fg-2);
   line-height: 1.6;
 }
+
+
+/* Master MIT — logo + link (grey artwork on transparent) */
+.edu-logo {
+  flex-shrink: 0;
+  width: 96px; height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-surface);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 1px var(--border-subtle);
+  transition: box-shadow var(--duration-micro);
+}
+.edu-logo:hover { box-shadow: inset 0 0 0 1.5px var(--accent); }
+.edu-logo img { width: 84px; height: auto; display: block; }
+[data-theme="dark"] .edu-logo img { filter: invert(1) brightness(1.1); }
+.edu-link { margin-top: 1rem; }
+
+.info-card--link { color: inherit; }
+.info-card-arrow {
+  margin-left: auto;
+  color: var(--color-sky);
+  font-size: 1rem;
+  transition: transform var(--duration-micro) var(--ease-standard);
+}
+.info-card--link:hover .info-card-arrow { transform: translate(2px, -2px); color: var(--color-white); }
 
 /* ============================================================
    CONTACT
@@ -1364,6 +1391,7 @@ footer {
 }
 
 @media (max-width: 600px) {
+  .edu-card { flex-direction: column; }
   section { padding: 4rem 0; }
   .container { padding: 0 1.25rem; }
   .hero-name { font-size: clamp(2.6rem, 13vw, 4.5rem); letter-spacing: -0.03em; }
@@ -1393,7 +1421,7 @@ footer {
 #about .info-card:nth-child(2) .card-icon { color: var(--color-olive); }
 #about .info-card:nth-child(3) .card-icon { color: var(--color-sky); }
 
-.edu-icon-wrap { color: var(--color-blue); }
+.edu-icon-wrap { color: var(--accent); }
 
 /* === Tool logos === */
 .skill-name {
