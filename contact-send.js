@@ -6,7 +6,9 @@
 // until it is confirmed, every send answers success:"false".
 
 export const CONTACT_EMAIL = 'mickabrousse@gmail.com';
-export const CONTACT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`;
+// FormSubmit alias for CONTACT_EMAIL (from its activation email), so the
+// address itself is not what the form posts to.
+export const CONTACT_ENDPOINT = 'https://formsubmit.co/ajax/105f60a098bd2d9406e36577de48dd1d';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
