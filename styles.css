@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=5');
-@import url('tokens/colors.css?v=5');
-@import url('tokens/typography.css?v=5');
-@import url('tokens/spacing.css?v=5');
+@import url('tokens/fonts.css?v=6');
+@import url('tokens/colors.css?v=6');
+@import url('tokens/typography.css?v=6');
+@import url('tokens/spacing.css?v=6');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -947,7 +947,7 @@ button, input, textarea, select { font: inherit; color: inherit; }
 
 .project-thumb {
   position: relative;
-  height: 180px;
+  aspect-ratio: 16 / 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -997,10 +997,28 @@ button, input, textarea, select { font: inherit; color: inherit; }
   margin-bottom: 6px;
 }
 .project-desc {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--fg-3);
+  font-size: var(--text-sm);
+  line-height: 1.55;
+  color: var(--fg-2);
 }
+
+/* Screenshot visual — top of the live page, slight zoom on hover */
+.project-thumb--shot {
+  background: var(--bg-inset);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.project-thumb--shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform var(--duration-slow) var(--ease-standard);
+}
+.project-card:hover .project-thumb--shot img,
+.project-card:focus-within .project-thumb--shot img { transform: scale(1.03); }
+.project-thumb--shot .project-badge { z-index: 1; }
 .project-tags {
   display: flex;
   flex-wrap: wrap;

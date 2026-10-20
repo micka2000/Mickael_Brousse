@@ -1,4 +1,5 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
+import { mergeProjects } from './projects-data.js?v=6';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -17,7 +18,7 @@ const I18N = {
     'projects.filter_label': 'Filter projects', 'projects.all': 'All',
     'projects.view_code': 'Code', 'projects.view_live': 'Live site',
     'projects.private': 'Private', 'projects.private_note': 'Private repository · code not public',
-    'projects.updated': 'Updated', 'projects.all_github': 'All repositories on GitHub ↗',
+    'projects.shot_alt': 'Screenshot of {title}', 'projects.updated': 'Updated', 'projects.all_github': 'All repositories on GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & AI',
     'projects.type_design': 'Design', 'projects.type_lab': 'Lab',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
@@ -106,7 +107,7 @@ const I18N = {
     'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',
     'projects.view_code': 'Code', 'projects.view_live': 'Voir le site',
     'projects.private': 'Privé', 'projects.private_note': 'Dépôt privé · code non public',
-    'projects.updated': 'Mis à jour', 'projects.all_github': 'Tous les dépôts sur GitHub ↗',
+    'projects.shot_alt': 'Capture d’écran de {title}', 'projects.updated': 'Mis à jour', 'projects.all_github': 'Tous les dépôts sur GitHub ↗',
     'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & IA',
     'projects.type_design': 'Design', 'projects.type_lab': 'Labo',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
@@ -503,63 +504,20 @@ inView('.soft-skills', ({ target }) => {
 
 /* ============================================================
    PROJECTS — catalog of GitHub repositories
-   Public repos are fetched live from the GitHub API, so a new
-   public repo shows up on its own. CATALOG adds curated copy on
-   top; PRIVATE_PROJECTS lists private repos shown without code
-   links. Repos in HIDDEN never show.
+   data/catalog.json   curated copy, visuals, private allowlist
+   data/projects.json  snapshot rebuilt every 6 h by GitHub Actions
+                       (scripts/build-projects.mjs): which repos exist,
+                       which private ones are allowed, verified live URLs
+   GitHub API (live)   public repos right now
+   A repo that disappears from GitHub disappears from the site: public ones
+   at once (live API), private ones at the next snapshot.
    ============================================================ */
 const GH_USER = 'micka2000';
-const HIDDEN = new Set(['micka2000.github.io']);
-
-const CATALOG = {
-  'Mickael_Brousse': {
-    order: 1, abbr: 'MB', title: 'Portfolio', type: 'web', tags: ['HTML', 'CSS', 'JS'],
-    desc: { en: 'This site: a bilingual portfolio built on my own design system.',
-            fr: 'Ce site : un portfolio bilingue construit sur mon propre design system.' },
-  },
-  'kenzahotelconsulting': {
-    order: 2, abbr: 'MK', title: 'Maison MK', type: 'web', tags: ['JavaScript', 'Branding'],
-    desc: { en: 'Showcase site for Kenza Hotel Consulting: audit and advisory for independent hotels.',
-            fr: 'Site vitrine de Kenza Hotel Consulting : audit et conseil pour hôtels indépendants.' },
-  },
-  'shiller-pe-simulator': {
-    order: 3, abbr: 'PE', title: 'Shiller PE Simulator', type: 'data', tags: ['Finance', 'CSS', 'JS'],
-    desc: { en: 'Interactive simulator built around the Shiller PE (CAPE) ratio.',
-            fr: 'Simulateur interactif autour du ratio Shiller PE (CAPE).' },
-  },
-  'Pr-sentation-shiller-PE': {
-    order: 4, abbr: 'SP', title: { en: 'Shiller PE · Presentation', fr: 'Shiller PE · Présentation' },
-    type: 'data', tags: ['Finance', 'Slides'],
-    desc: { en: 'Presentation explaining the Shiller PE ratio.',
-            fr: 'Présentation sur le ratio Shiller PE.' },
-  },
-  'fun': {
-    order: 9, abbr: '→', title: 'Fun', type: 'lab', tags: ['HTML'],
-    desc: { en: 'Playground for small experiments.', fr: 'Bac à sable pour petites expériences.' },
-  },
-};
-
-const PRIVATE_PROJECTS = [
-  {
-    name: 'life-dashboard', order: 5, abbr: 'LD', title: 'Life Dashboard', type: 'app', year: 2026,
-    tags: ['TypeScript'],
-    desc: { en: 'Personal tracker: habits, measurements and portfolio on a single screen.',
-            fr: 'Tracker perso : habitudes, mesures et portefeuille sur un seul écran.' },
-  },
-  {
-    name: 'cv-optimizer-v2', order: 6, abbr: 'CV', title: 'CV Optimizer', type: 'app', year: 2026,
-    tags: ['JavaScript', 'AI', 'V2'],
-    desc: { en: 'AI-powered CV optimizer with a job-search pipeline.',
-            fr: 'Optimiseur de CV par IA avec pipeline de recherche d\'emploi.' },
-  },
-  {
-    name: 'design-system-mickael-brousse', order: 7, abbr: 'DS', title: 'Design System', type: 'design', year: 2026,
-    tags: ['CSS', 'Material 3', 'Tokens'],
-    desc: { en: 'Personal design system: Material 3 web components rethemed with the Blue/Olive/Sky palette.',
-            fr: 'Design system personnel : composants Material 3 rethémés avec la palette Bleu/Olive/Ciel.' },
-  },
+const SNAPSHOT_URLS = [
+  // freshest copy, straight from the branch (no Pages rebuild needed)
+  `https://raw.githubusercontent.com/${GH_USER}/Mickael_Brousse/main/data/projects.json`,
+  'data/projects.json',
 ];
-
 const TYPE_ORDER = ['web', 'data', 'app', 'design', 'lab'];
 // DS ProjectCard thumbnail cycle: blue, olive, ink, sky
 const THUMBS = ['blue', 'olive', 'ink', 'sky'];
@@ -571,57 +529,26 @@ const esc = (v) => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt
 const pick = (v) => (v && typeof v === 'object') ? (v[currentLang] || v.en) : v;
 const t = (key) => (I18N[currentLang] || I18N.en)[key] || I18N.en[key] || key;
 
-function abbrFromName(name) {
-  const words = name.replace(/[-_.]+/g, ' ').trim().split(/\s+/);
-  return (words.length > 1 ? words[0][0] + words[1][0] : name.slice(0, 2)).toUpperCase();
+async function getJSON(url) {
+  const res = await fetch(url, { cache: 'no-cache' });
+  if (!res.ok) throw new Error(`${url}: ${res.status}`);
+  return res.json();
 }
-function titleFromName(name) {
-  return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-}
-
-function fromRepo(repo) {
-  const c = CATALOG[repo.name] || {};
-  return {
-    name: repo.name,
-    order: c.order ?? 100,
-    abbr: c.abbr || abbrFromName(repo.name),
-    title: c.title || titleFromName(repo.name),
-    type: c.type || 'lab',
-    year: new Date(repo.created_at).getFullYear(),
-    pushed: repo.pushed_at,
-    tags: c.tags || (repo.language ? [repo.language] : []),
-    desc: c.desc || repo.description || '',
-    code: repo.html_url,
-    live: repo.has_pages ? (repo.homepage || `https://${GH_USER}.github.io/${repo.name}/`) : (repo.homepage || null),
-    private: false,
-  };
-}
-
-// Used when the GitHub API is unreachable or rate-limited (60 req/h per IP)
-function fallbackPublic() {
-  return Object.entries(CATALOG).map(([name, c]) => ({
-    ...c, name, year: null, pushed: null,
-    code: `https://github.com/${GH_USER}/${name}`,
-    live: `https://${GH_USER}.github.io/${name}/`,
-    private: false,
-  }));
+async function firstJSON(urls) {
+  for (const u of urls) {
+    try { return await getJSON(u); } catch {}
+  }
+  return null;
 }
 
 async function loadProjects() {
-  let pub;
-  try {
-    const res = await fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed`, {
-      headers: { Accept: 'application/vnd.github+json' },
-    });
-    if (!res.ok) throw new Error(res.status);
-    const repos = await res.json();
-    pub = repos.filter(r => !r.fork && !r.archived && !HIDDEN.has(r.name)).map(fromRepo);
-  } catch {
-    pub = fallbackPublic();
-  }
-  const priv = PRIVATE_PROJECTS.map(p => ({ ...p, code: null, live: null, private: true }));
-  projects = [...pub, ...priv].sort((a, b) =>
-    (a.order - b.order) || String(b.pushed || '').localeCompare(String(a.pushed || '')));
+  const bust = `?v=${Date.now()}`;
+  const [catalog, snapshot, live] = await Promise.all([
+    getJSON(`data/catalog.json${bust}`).catch(() => ({ hidden: [], projects: {} })),
+    firstJSON(SNAPSHOT_URLS.map(u => u + bust)),
+    getJSON(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed`).catch(() => null),
+  ]);
+  projects = mergeProjects({ catalog, snapshot, live });
   renderProjects();
 }
 
@@ -638,26 +565,39 @@ function renderProjectFilters() {
   }).join('');
 }
 
+function projectVisual(p, i) {
+  const badge = p.private ? `<span class="project-badge">${esc(t('projects.private'))}</span>` : '';
+  if (p.image) {
+    const alt = t('projects.shot_alt').replace('{title}', pick(p.title));
+    return `
+      <div class="project-thumb project-thumb--shot">
+        <img src="${esc(p.image)}" alt="${esc(alt)}" width="960" height="600" loading="lazy" decoding="async" />
+        ${badge}
+      </div>`;
+  }
+  const tone = THUMBS[i % THUMBS.length];
+  return `
+    <div class="project-thumb project-thumb--${tone}" aria-hidden="true">
+      <span class="project-abbr">${esc(p.abbr)}</span>
+      ${badge}
+    </div>`;
+}
+
 function projectCard(p, i) {
-  const thumb = THUMBS[i % THUMBS.length];
   const meta = [t(`projects.type_${p.type}`), p.year].filter(Boolean).join(' · ');
   const links = p.private
     ? `<span class="project-private-note">${esc(t('projects.private_note'))}</span>`
     : [
-        p.live && p.name !== 'Mickael_Brousse'
-          ? `<a class="btn btn-tonal btn-sm" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
+        p.live ? `<a class="btn btn-tonal btn-sm" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
         `<a class="btn btn-text btn-sm" href="${esc(p.code)}" target="_blank" rel="noopener">${esc(t('projects.view_code'))} <span aria-hidden="true">↗</span></a>`,
       ].join('');
   return `
     <article class="project-card${p.private ? ' is-private' : ''}">
-      <div class="project-thumb project-thumb--${thumb}" aria-hidden="true">
-        <span class="project-abbr">${esc(p.abbr)}</span>
-        ${p.private ? `<span class="project-badge">${esc(t('projects.private'))}</span>` : ''}
-      </div>
+      ${projectVisual(p, i)}
       <div class="project-body">
         <span class="project-meta">${esc(meta)}</span>
         <h3 class="project-title">${esc(pick(p.title))}</h3>
-        <p class="project-desc">${esc(pick(p.desc))}</p>
+        <p class="project-desc">${esc(pick(p.summary))}</p>
         <div class="project-tags">${p.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>
         <div class="project-links">${links}</div>
       </div>
