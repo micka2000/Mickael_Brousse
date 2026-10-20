@@ -8,6 +8,15 @@ const prefersReducedMotion = () => PRM.matches;
    ============================================================ */
 const I18N = {
   en: {
+    'nav.projects': 'Projects',
+    'projects.tag': '04 / Projects', 'projects.title': 'Projects',
+    'projects.intro': 'Everything I build on the side, pulled live from my GitHub.',
+    'projects.filter_label': 'Filter projects', 'projects.all': 'All',
+    'projects.view_code': 'Code', 'projects.view_live': 'Live site',
+    'projects.private': 'Private', 'projects.private_note': 'Private repository · code not public',
+    'projects.updated': 'Updated', 'projects.all_github': 'All repositories on GitHub ↗',
+    'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & AI',
+    'projects.type_design': 'Design', 'projects.type_lab': 'Lab',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profile', 'nav.experience': 'Experience', 'nav.skills': 'Skills',
     'nav.education': 'Education', 'nav.contact': 'Contact', 'nav.available': 'Available',
@@ -55,12 +64,12 @@ const I18N = {
     'skills.soft_strategy': 'Strategic Thinking', 'skills.soft_stake': 'Stakeholder Management',
     'skills.soft_adequa': 'ADEQUA Method', 'skills.soft_collab': 'Cross-functional Collaboration',
     'skills.soft_problem': 'Problem Solving', 'skills.soft_gam': 'Gamification',
-    'edu.tag': '04 / Education', 'edu.title': 'Education',
+    'edu.tag': '05 / Education', 'edu.title': 'Education',
     'edu.master_t': 'Master — Strategic Management & Digital Transformation',
     'edu.master_d': 'Specialization in digital strategy, innovation management, and organizational transformation in the digital era.',
     'edu.lic_t': 'Double Bachelor — Economics and Management',
     'edu.lic_d': 'Dual training in economics and organizational management, with a quantitative and analytical approach.',
-    'contact.tag': '05 / Contact', 'contact.title': "Let's Work Together",
+    'contact.tag': '06 / Contact', 'contact.title': "Let's Work Together",
     'contact.intro': "Available for opportunities in Canada and internationally.<br />Let's talk about your next data project.",
     'contact.eyebrow': 'Get in touch',
     'contact.headline': 'Let\'s talk<span class="ch-accent">?</span>',
@@ -84,6 +93,15 @@ const I18N = {
     'contact.err_message': 'Please write a short message (at least 10 characters).',
   },
   fr: {
+    'nav.projects': 'Projets',
+    'projects.tag': '04 / Projets', 'projects.title': 'Projets',
+    'projects.intro': 'Tout ce que je construis à côté, en direct depuis mon GitHub.',
+    'projects.filter_label': 'Filtrer les projets', 'projects.all': 'Tout',
+    'projects.view_code': 'Code', 'projects.view_live': 'Voir le site',
+    'projects.private': 'Privé', 'projects.private_note': 'Dépôt privé · code non public',
+    'projects.updated': 'Mis à jour', 'projects.all_github': 'Tous les dépôts sur GitHub ↗',
+    'projects.type_web': 'Web', 'projects.type_data': 'Data & Finance', 'projects.type_app': 'Apps & IA',
+    'projects.type_design': 'Design', 'projects.type_lab': 'Labo',
     'meta.title': 'Mickaël Brousse — Data Governance Analyst',
     'nav.about': 'Profil', 'nav.experience': 'Expérience', 'nav.skills': 'Compétences',
     'nav.education': 'Formation', 'nav.contact': 'Contact', 'nav.available': 'Disponible',
@@ -131,12 +149,12 @@ const I18N = {
     'skills.soft_strategy': 'Pensée Stratégique', 'skills.soft_stake': 'Gestion des Parties Prenantes',
     'skills.soft_adequa': 'Méthode ADEQUA', 'skills.soft_collab': 'Collaboration Transversale',
     'skills.soft_problem': 'Résolution de Problèmes', 'skills.soft_gam': 'Gamification',
-    'edu.tag': '04 / Formation', 'edu.title': 'Éducation',
+    'edu.tag': '05 / Formation', 'edu.title': 'Éducation',
     'edu.master_t': 'Master — Strategic Management & Digital Transformation',
     'edu.master_d': "Spécialisation en stratégie numérique, management de l'innovation et transformation des organisations à l'ère digitale.",
     'edu.lic_t': 'Double Licence — Économie et Management',
     'edu.lic_d': 'Double formation en sciences économiques et management des organisations, avec une approche quantitative et analytique.',
-    'contact.tag': '05 / Contact', 'contact.title': 'Travaillons Ensemble',
+    'contact.tag': '06 / Contact', 'contact.title': 'Travaillons Ensemble',
     'contact.intro': "Disponible pour des opportunités au Canada et à l'international.<br />Parlons de votre prochain projet data.",
     'contact.eyebrow': 'Contact',
     'contact.headline': 'On parle<span class="ch-accent">?</span>',
@@ -503,3 +521,187 @@ inView('.soft-skills', ({ target }) => {
     { delay: stagger(0.05), duration: 0.4, ease: 'easeOut' }
   );
 }, { amount: 0.3 });
+
+/* ============================================================
+   PROJECTS — catalog of GitHub repositories
+   Public repos are fetched live from the GitHub API, so a new
+   public repo shows up on its own. CATALOG adds curated copy on
+   top; PRIVATE_PROJECTS lists private repos shown without code
+   links. Repos in HIDDEN never show.
+   ============================================================ */
+const GH_USER = 'micka2000';
+const HIDDEN = new Set(['micka2000.github.io']);
+
+const CATALOG = {
+  'Mickael_Brousse': {
+    order: 1, abbr: 'MB', title: 'Portfolio', type: 'web', tags: ['HTML', 'CSS', 'JS'],
+    desc: { en: 'This site: a bilingual portfolio built on my own design system.',
+            fr: 'Ce site : un portfolio bilingue construit sur mon propre design system.' },
+  },
+  'kenzahotelconsulting': {
+    order: 2, abbr: 'MK', title: 'Maison MK', type: 'web', tags: ['JavaScript', 'Branding'],
+    desc: { en: 'Showcase site for Kenza Hotel Consulting: audit and advisory for independent hotels.',
+            fr: 'Site vitrine de Kenza Hotel Consulting : audit et conseil pour hôtels indépendants.' },
+  },
+  'shiller-pe-simulator': {
+    order: 3, abbr: 'PE', title: 'Shiller PE Simulator', type: 'data', tags: ['Finance', 'CSS', 'JS'],
+    desc: { en: 'Interactive simulator built around the Shiller PE (CAPE) ratio.',
+            fr: 'Simulateur interactif autour du ratio Shiller PE (CAPE).' },
+  },
+  'Pr-sentation-shiller-PE': {
+    order: 4, abbr: 'SP', title: { en: 'Shiller PE · Presentation', fr: 'Shiller PE · Présentation' },
+    type: 'data', tags: ['Finance', 'Slides'],
+    desc: { en: 'Presentation explaining the Shiller PE ratio.',
+            fr: 'Présentation sur le ratio Shiller PE.' },
+  },
+  'fun': {
+    order: 9, abbr: '→', title: 'Fun', type: 'lab', tags: ['HTML'],
+    desc: { en: 'Playground for small experiments.', fr: 'Bac à sable pour petites expériences.' },
+  },
+};
+
+const PRIVATE_PROJECTS = [
+  {
+    name: 'life-dashboard', order: 5, abbr: 'LD', title: 'Life Dashboard', type: 'app', year: 2026,
+    tags: ['TypeScript'],
+    desc: { en: 'Personal tracker: habits, measurements and portfolio on a single screen.',
+            fr: 'Tracker perso : habitudes, mesures et portefeuille sur un seul écran.' },
+  },
+  {
+    name: 'cv-optimizer-v2', order: 6, abbr: 'CV', title: 'CV Optimizer', type: 'app', year: 2026,
+    tags: ['JavaScript', 'AI', 'V2'],
+    desc: { en: 'AI-powered CV optimizer with a job-search pipeline.',
+            fr: 'Optimiseur de CV par IA avec pipeline de recherche d\'emploi.' },
+  },
+  {
+    name: 'design-system-mickael-brousse', order: 7, abbr: 'DS', title: 'Design System', type: 'design', year: 2026,
+    tags: ['CSS', 'Material 3', 'Tokens'],
+    desc: { en: 'Personal design system: Material 3 web components rethemed with the Blue/Olive/Sky palette.',
+            fr: 'Design system personnel : composants Material 3 rethémés avec la palette Bleu/Olive/Ciel.' },
+  },
+];
+
+const TYPE_ORDER = ['web', 'data', 'app', 'design', 'lab'];
+// DS ProjectCard thumbnail cycle: blue, olive, ink, sky
+const THUMBS = ['blue', 'olive', 'ink', 'sky'];
+
+let projects = [];
+let projectFilter = 'all';
+
+const esc = (v) => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const pick = (v) => (v && typeof v === 'object') ? (v[currentLang] || v.en) : v;
+const t = (key) => (I18N[currentLang] || I18N.en)[key] || I18N.en[key] || key;
+
+function abbrFromName(name) {
+  const words = name.replace(/[-_.]+/g, ' ').trim().split(/\s+/);
+  return (words.length > 1 ? words[0][0] + words[1][0] : name.slice(0, 2)).toUpperCase();
+}
+function titleFromName(name) {
+  return name.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function fromRepo(repo) {
+  const c = CATALOG[repo.name] || {};
+  return {
+    name: repo.name,
+    order: c.order ?? 100,
+    abbr: c.abbr || abbrFromName(repo.name),
+    title: c.title || titleFromName(repo.name),
+    type: c.type || 'lab',
+    year: new Date(repo.created_at).getFullYear(),
+    pushed: repo.pushed_at,
+    tags: c.tags || (repo.language ? [repo.language] : []),
+    desc: c.desc || repo.description || '',
+    code: repo.html_url,
+    live: repo.has_pages ? (repo.homepage || `https://${GH_USER}.github.io/${repo.name}/`) : (repo.homepage || null),
+    private: false,
+  };
+}
+
+// Used when the GitHub API is unreachable or rate-limited (60 req/h per IP)
+function fallbackPublic() {
+  return Object.entries(CATALOG).map(([name, c]) => ({
+    ...c, name, year: null, pushed: null,
+    code: `https://github.com/${GH_USER}/${name}`,
+    live: `https://${GH_USER}.github.io/${name}/`,
+    private: false,
+  }));
+}
+
+async function loadProjects() {
+  let pub;
+  try {
+    const res = await fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=pushed`, {
+      headers: { Accept: 'application/vnd.github+json' },
+    });
+    if (!res.ok) throw new Error(res.status);
+    const repos = await res.json();
+    pub = repos.filter(r => !r.fork && !r.archived && !HIDDEN.has(r.name)).map(fromRepo);
+  } catch {
+    pub = fallbackPublic();
+  }
+  const priv = PRIVATE_PROJECTS.map(p => ({ ...p, code: null, live: null, private: true }));
+  projects = [...pub, ...priv].sort((a, b) =>
+    (a.order - b.order) || String(b.pushed || '').localeCompare(String(a.pushed || '')));
+  renderProjects();
+}
+
+function renderProjectFilters() {
+  const bar = document.querySelector('.project-filters');
+  if (!bar) return;
+  const types = TYPE_ORDER.filter(ty => projects.some(p => p.type === ty));
+  if (!types.includes(projectFilter)) projectFilter = 'all';
+  bar.innerHTML = ['all', ...types].map(ty => {
+    const label = ty === 'all' ? t('projects.all') : t(`projects.type_${ty}`);
+    const count = ty === 'all' ? projects.length : projects.filter(p => p.type === ty).length;
+    const on = ty === projectFilter;
+    return `<button type="button" class="project-filter${on ? ' is-active' : ''}" data-filter="${ty}" aria-pressed="${on}">${esc(label)}<span class="project-filter-count">${count}</span></button>`;
+  }).join('');
+}
+
+function projectCard(p, i) {
+  const thumb = THUMBS[i % THUMBS.length];
+  const meta = [t(`projects.type_${p.type}`), p.year].filter(Boolean).join(' · ');
+  const links = p.private
+    ? `<span class="project-private-note">${esc(t('projects.private_note'))}</span>`
+    : [
+        p.live && p.name !== 'Mickael_Brousse'
+          ? `<a class="project-link project-link--primary" href="${esc(p.live)}" target="_blank" rel="noopener">${esc(t('projects.view_live'))} <span aria-hidden="true">↗</span></a>` : '',
+        `<a class="project-link" href="${esc(p.code)}" target="_blank" rel="noopener">${esc(t('projects.view_code'))} <span aria-hidden="true">↗</span></a>`,
+      ].join('');
+  return `
+    <article class="project-card${p.private ? ' is-private' : ''}">
+      <div class="project-thumb project-thumb--${thumb}" aria-hidden="true">
+        <span class="project-abbr">${esc(p.abbr)}</span>
+        ${p.private ? `<span class="project-badge">${esc(t('projects.private'))}</span>` : ''}
+      </div>
+      <div class="project-body">
+        <span class="project-meta">${esc(meta)}</span>
+        <h3 class="project-title">${esc(pick(p.title))}</h3>
+        <p class="project-desc">${esc(pick(p.desc))}</p>
+        <div class="project-tags">${p.tags.map(tag => `<span>${esc(tag)}</span>`).join('')}</div>
+        <div class="project-links">${links}</div>
+      </div>
+    </article>`;
+}
+
+function renderProjects() {
+  const grid = document.getElementById('projectGrid');
+  if (!grid || !projects.length) return;
+  renderProjectFilters();
+  const list = projectFilter === 'all' ? projects : projects.filter(p => p.type === projectFilter);
+  grid.innerHTML = list.map(projectCard).join('');
+  if (!prefersReducedMotion()) {
+    animate(grid.querySelectorAll('.project-card'),
+      { opacity: [0, 1], y: [16, 0] },
+      { delay: stagger(0.05), duration: 0.45, ease: expo });
+  }
+}
+
+document.addEventListener('click', e => {
+  const btn = e.target.closest('.project-filter');
+  if (btn) { projectFilter = btn.dataset.filter; renderProjects(); return; }
+  if (e.target.closest('.lang-opt')) renderProjects();
+});
+
+loadProjects();

@@ -1,8 +1,8 @@
 # Mickaël Brousse — Design System
 
 The portfolio follows the "Mickaël Brousse Design System" generated via Claude
-Design (paper background, blue/olive/sky brand, Bricolage Grotesque + DM Sans).
-Source of truth: `:root` in `styles.css`. This file documents the *why* so the
+Design (paper background, blue/olive/sky brand, Bricolage Grotesque + Roboto).
+Source of truth: `tokens/*.css` (synced from the Claude Design project; `styles.css` only adds aliases). This file documents the *why* so the
 system stays coherent over time.
 
 ## North star
@@ -10,7 +10,7 @@ system stays coherent over time.
 A senior data-governance professional's portfolio that reads as **considered, not
 templated**. The default failure mode for portfolios is "AI-generated SaaS
 landing page." This system fights that by leaning on:
-- One serious display typeface (Bricolage Grotesque), one clean body (DM Sans),
+- One serious display typeface (Bricolage Grotesque), one clean body (Roboto),
   one mono accent (JetBrains Mono — used sparingly for labels/eyebrows).
 - A paper background instead of pure white — warmer, less sterile.
 - Three brand colors (blue, olive, sky) used with restraint: blue is the only
@@ -42,7 +42,7 @@ semantic mappings change.
 | Family | Weights | Use |
 |---|---|---|
 | Bricolage Grotesque | 400, 600, 700, 800 | Display: `h1`–`h3`, hero name, contact-card-value |
-| DM Sans | 300, 400, 500, 600 | Body, paragraphs, list items, form fields |
+| Roboto (variable, local) | 400, 500, 600 | Body, paragraphs, list items, form fields |
 | JetBrains Mono | 400, 500, 600 | Eyebrows, labels, skill levels, contact-card-label, monospace addresses |
 
 Hero name uses Bricolage Grotesque 800. Body sits at 16px / line-height 1.65.
