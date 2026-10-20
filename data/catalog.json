@@ -105,7 +105,8 @@
       "summary": {
         "en": "Personal tracker for habits, measurements and investment portfolio on a single screen, identical on PC and iPhone. Self-hosted Next.js app, reachable privately over Tailscale.",
         "fr": "Tracker perso : habitudes, mesures et portefeuille sur un seul écran, identique sur PC et iPhone. App Next.js auto-hébergée, accessible en privé via Tailscale."
-      }
+      },
+      "page": "projects/life-dashboard/"
     },
     "cv-optimizer-v2": {
       "year": 2026,
@@ -123,7 +124,8 @@
       "summary": {
         "en": "Upload a CV, find matching jobs, get a tailored PDF in one click. Ranks Adzuna listings by ATS keyword match, distance and recency, then rewrites and proofreads the CV with Claude.",
         "fr": "Dépôt d'un CV, recherche des offres correspondantes et PDF adapté en un clic. Les offres Adzuna sont classées par mots-clés ATS, distance et fraîcheur, puis le CV est réécrit et relu avec Claude."
-      }
+      },
+      "page": "projects/cv-optimizer-v2/"
     },
     "design-system-mickael-brousse": {
       "year": 2026,

@@ -1,0 +1,154 @@
+{
+  "slug": "cv-optimizer-v2",
+  "title": "CV Optimizer",
+  "type": {
+    "en": "App",
+    "fr": "App"
+  },
+  "year": 2026,
+  "private": true,
+  "tags": [
+    "Node.js",
+    "Claude API",
+    "Adzuna",
+    "Puppeteer"
+  ],
+  "tagline": {
+    "en": "Finds matching job offers and tailors the CV to each one, ready to send as a PDF.",
+    "fr": "Trouve les offres qui correspondent au profil et adapte le CV à chacune, prêt à envoyer en PDF."
+  },
+  "hero": {
+    "image": "assets/projects/cv-optimizer/overview.webp",
+    "alt": {
+      "en": "CV Optimizer: job posting on the left, the profile on the right",
+      "fr": "CV Optimizer : l’offre à gauche, le profil à droite"
+    }
+  },
+  "og": "assets/projects/cv-optimizer/og.jpg",
+  "why": {
+    "en": "I built it to optimise my CV for ATS in my job search.",
+    "fr": "Pour optimiser l’ATS dans mes recherches d’emploi."
+  },
+  "what": [
+    {
+      "en": "<strong>Job search from the CV</strong>: Claude derives search queries from the profile, Adzuna returns real listings.",
+      "fr": "<strong>Recherche d’offres depuis le CV</strong> : Claude déduit les requêtes du profil, Adzuna renvoie de vraies annonces."
+    },
+    {
+      "en": "<strong>Ranking</strong> by ATS keyword match, distance from home, salary and recency, with matching and missing keywords on each offer.",
+      "fr": "<strong>Classement</strong> par correspondance ATS, distance du domicile, salaire et fraîcheur, avec les mots-clés présents et manquants pour chaque offre."
+    },
+    {
+      "en": "<strong>Tailored CV</strong>: Claude rewrites the CV for the chosen offer, then a proofreading pass checks it.",
+      "fr": "<strong>CV sur mesure</strong> : Claude réécrit le CV pour l’offre choisie, puis une passe de relecture le vérifie."
+    },
+    {
+      "en": "<strong>ATS score that is checked, not claimed</strong>: the rendered CV is scored against the posting with a fixed, weighted formula, instead of letting the model grade itself.",
+      "fr": "<strong>Score ATS vérifié, pas déclaré</strong> : le CV produit est noté face à l’offre avec une formule pondérée fixe, au lieu de laisser le modèle s’auto-évaluer."
+    },
+    {
+      "en": "<strong>One-page PDF</strong> rendered in a headless browser, ready to send.",
+      "fr": "<strong>PDF d’une page</strong> rendu dans un navigateur sans interface, prêt à envoyer."
+    }
+  ],
+  "flow": [
+    {
+      "title": {
+        "en": "CV",
+        "fr": "CV"
+      },
+      "text": {
+        "en": "The profile to start from",
+        "fr": "Le profil de départ"
+      }
+    },
+    {
+      "title": {
+        "en": "Offers",
+        "fr": "Offres"
+      },
+      "text": {
+        "en": "Queries from the CV, listings from Adzuna",
+        "fr": "Requêtes tirées du CV, annonces Adzuna"
+      }
+    },
+    {
+      "title": {
+        "en": "Ranking",
+        "fr": "Classement"
+      },
+      "text": {
+        "en": "ATS match, distance, salary, recency",
+        "fr": "Correspondance ATS, distance, salaire, fraîcheur"
+      }
+    },
+    {
+      "title": {
+        "en": "Tailored PDF",
+        "fr": "PDF sur mesure"
+      },
+      "text": {
+        "en": "Rewritten, proofread, one page",
+        "fr": "Réécrit, relu, une page"
+      }
+    }
+  ],
+  "evolution": {
+    "v1": {
+      "points": [
+        {
+          "en": "Very minimalist.",
+          "fr": "Très minimaliste."
+        },
+        {
+          "en": "Very few results.",
+          "fr": "Très peu de résultats."
+        }
+      ]
+    },
+    "v2": {
+      "points": [
+        {
+          "en": "Increased my success.",
+          "fr": "A augmenté le succès."
+        },
+        {
+          "en": "Real offers ranked by ATS match, distance and recency.",
+          "fr": "De vraies offres classées par correspondance ATS, distance et fraîcheur."
+        },
+        {
+          "en": "A tailored PDF for the offer I pick.",
+          "fr": "Un PDF sur mesure pour l’offre choisie."
+        }
+      ]
+    }
+  },
+  "gallery": [
+    {
+      "image": "assets/projects/cv-optimizer/jobs.webp",
+      "caption": {
+        "en": "Ranked offers: composite score, breakdown, matching and missing keywords",
+        "fr": "Offres classées : score composite, détail, mots-clés présents et manquants"
+      }
+    },
+    {
+      "image": "assets/projects/cv-optimizer/cv.webp",
+      "caption": {
+        "en": "The tailored CV, one page",
+        "fr": "Le CV adapté, sur une page"
+      }
+    },
+    {
+      "image": "assets/projects/cv-optimizer/dark.webp",
+      "caption": {
+        "en": "Dark theme",
+        "fr": "Thème sombre"
+      }
+    }
+  ],
+  "demoData": true,
+  "status": {
+    "en": "I used it for a long time to apply twice as fast.",
+    "fr": "Je l’ai utilisé pendant longtemps pour postuler 2 fois plus vite."
+  }
+}

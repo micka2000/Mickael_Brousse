@@ -1,0 +1,143 @@
+{
+  "slug": "life-dashboard",
+  "title": "Life Dashboard",
+  "type": {
+    "en": "App",
+    "fr": "App"
+  },
+  "year": 2026,
+  "private": true,
+  "tags": [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Tailscale",
+    "Vitest"
+  ],
+  "tagline": {
+    "en": "A personal tracker: habits, measurements and portfolio on one screen, the same on PC and iPhone.",
+    "fr": "Un tracker perso : habitudes, mesures et portefeuille sur un seul écran, le même sur PC et sur iPhone."
+  },
+  "hero": {
+    "image": "assets/projects/life-dashboard/overview.webp",
+    "alt": {
+      "en": "Life Dashboard home screen: portfolio, weight, habits, to-do, sleep, sport and reading tiles",
+      "fr": "Écran d’accueil de Life Dashboard : tuiles portefeuille, poids, habitudes, to do, sommeil, sport et lecture"
+    }
+  },
+  "og": "assets/projects/life-dashboard/og.jpg",
+  "why": {
+    "en": "I wanted to see if I could build an app I would use every day, and test my vibe coding skills.",
+    "fr": "Je voulais voir si je pouvais créer une app que je puisse utiliser au quotidien, et tester mes capacités à vibe coder."
+  },
+  "what": [
+    {
+      "en": "<strong>One screen of tiles</strong>: portfolio, weight, habits, to-do, sleep, sport, reading and body measurements. Each tile opens its own detail sheet.",
+      "fr": "<strong>Un seul écran de tuiles</strong> : portefeuille, poids, habitudes, to do, sommeil, sport, lecture et mensurations. Chaque tuile ouvre sa fiche détaillée."
+    },
+    {
+      "en": "<strong>Seven daily habits</strong>; the streak holds as long as at least 5 of 7 are done each day.",
+      "fr": "<strong>Sept habitudes quotidiennes</strong> : la série tient tant qu’au moins 5 sur 7 sont faites chaque jour."
+    },
+    {
+      "en": "<strong>Weight with a target date</strong>, a 1-month to all-time chart, and a <strong>weekly review</strong> computed from the logs.",
+      "fr": "<strong>Poids avec une date objectif</strong>, une courbe d’un mois à tout l’historique, et un <strong>bilan de la semaine</strong> calculé à partir des journaux."
+    },
+    {
+      "en": "<strong>Read-only portfolio</strong>: positions are derived from transactions, and amounts can be hidden with one tap.",
+      "fr": "<strong>Portefeuille en lecture seule</strong> : les positions se déduisent des transactions, et les montants se masquent d’un geste."
+    },
+    {
+      "en": "<strong>Self-hosted</strong>: it runs on my PC and is reachable from my iPhone over a private Tailscale network, installed as an app. It never sends a notification.",
+      "fr": "<strong>Auto-hébergé</strong> : l’app tourne sur mon PC et s’ouvre sur mon iPhone par un réseau privé Tailscale, installée comme une application. Elle n’envoie jamais de notification."
+    }
+  ],
+  "flow": [
+    {
+      "title": {
+        "en": "Quick entry",
+        "fr": "Saisie rapide"
+      },
+      "text": {
+        "en": "A tap on a tile, a keypad for numbers",
+        "fr": "Un geste sur une tuile, un pavé pour les chiffres"
+      }
+    },
+    {
+      "title": {
+        "en": "Append-only logs",
+        "fr": "Journaux en ajout seul"
+      },
+      "text": {
+        "en": "One line per entry, kept outside the repository",
+        "fr": "Une ligne par saisie, hors du dépôt"
+      }
+    },
+    {
+      "title": {
+        "en": "Next.js",
+        "fr": "Next.js"
+      },
+      "text": {
+        "en": "Computes streaks, averages and the weekly review",
+        "fr": "Calcule séries, moyennes et bilan de la semaine"
+      }
+    },
+    {
+      "title": {
+        "en": "PC and iPhone",
+        "fr": "PC et iPhone"
+      },
+      "text": {
+        "en": "The same screen, privately over Tailscale",
+        "fr": "Le même écran, en privé via Tailscale"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "image": "assets/projects/life-dashboard/habits.webp",
+      "caption": {
+        "en": "Habits: streak, completion rate over time and today’s checklist",
+        "fr": "Habitudes : série, taux de réussite dans le temps et cases du jour"
+      }
+    },
+    {
+      "image": "assets/projects/life-dashboard/weight.webp",
+      "caption": {
+        "en": "Weight: curve against the target",
+        "fr": "Poids : courbe face à l’objectif"
+      }
+    },
+    {
+      "image": "assets/projects/life-dashboard/weekly.webp",
+      "caption": {
+        "en": "Weekly review across habits, weight, sleep, sport and reading",
+        "fr": "Bilan de la semaine : habitudes, poids, sommeil, sport et lecture"
+      }
+    },
+    {
+      "image": "assets/projects/life-dashboard/todo.webp",
+      "caption": {
+        "en": "To-do as a three-column board",
+        "fr": "To do en tableau à trois colonnes"
+      }
+    },
+    {
+      "image": "assets/projects/life-dashboard/dark.webp",
+      "caption": {
+        "en": "Dark theme",
+        "fr": "Thème sombre"
+      }
+    }
+  ],
+  "demoData": true,
+  "highlight": {
+    "en": "It fits my own needs.",
+    "fr": "Le fait qu’elle soit adaptée à mes besoins perso."
+  },
+  "status": {
+    "en": "Not in daily use yet: still too beta.",
+    "fr": "Pas encore utilisée au quotidien : trop bêta."
+  }
+}
