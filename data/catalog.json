@@ -89,7 +89,9 @@
       "summary": {
         "en": "Staff scheduling for a multi-site restaurant: weekly planning per site and shift, a personal schedule for each employee, and an hours page that feeds payroll, with PDF and Excel exports.",
         "fr": "Planning du personnel d’un restaurant multi-sites : planning hebdomadaire par site et par service, planning personnel pour chaque employé et page des heures qui alimente la paie, avec exports PDF et Excel."
-      }
+      },
+      "image": "assets/projects/pizza-planning.webp",
+      "page": "projects/pizza-planning/"
     },
     "life-dashboard": {
       "year": 2026,

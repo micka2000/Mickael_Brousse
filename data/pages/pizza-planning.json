@@ -1,0 +1,120 @@
+{
+  "slug": "pizza-planning",
+  "title": "Pizza Planning",
+  "type": {
+    "en": "App",
+    "fr": "App"
+  },
+  "year": 2026,
+  "private": true,
+  "tags": [
+    "Next.js",
+    "Prisma",
+    "SQLite",
+    "NextAuth"
+  ],
+  "tagline": {
+    "en": "Staff scheduling for a multi-site restaurant: the weekly plan, each employee's schedule and the monthly hours for payroll.",
+    "fr": "Le planning du personnel d’un restaurant multi-sites : la semaine par site, le planning de chaque employé et les heures du mois pour la paie."
+  },
+  "hero": {
+    "image": "assets/projects/pizza-planning/planning.webp",
+    "alt": {
+      "en": "Weekly planning: one grid per site, employees by day, morning and evening",
+      "fr": "Planning de la semaine : une grille par site, employés par jour, matin et soir"
+    }
+  },
+  "og": "assets/projects/pizza-planning/og.jpg",
+  "why": {
+    "en": "My father owns pizzerias and does his schedules by hand, and I saw a chance to make his day-to-day easier.",
+    "fr": "Mon père possède des pizzerias et réalise ses plannings à la main, et j’ai vu l’opportunité de lui faciliter le quotidien."
+  },
+  "what": [
+    {
+      "en": "<strong>One grid per site and per week</strong>: employees in rows, each day split into morning and evening.",
+      "fr": "<strong>Une grille par site et par semaine</strong> : les employés en lignes, chaque jour coupé en matin et soir."
+    },
+    {
+      "en": "<strong>A cross means a full service</strong> at the site's opening hours; typed hours replace them for a shorter shift. One rule computes the hours everywhere.",
+      "fr": "<strong>Une croix vaut un service complet</strong> aux horaires d’ouverture du site ; des horaires saisis les remplacent pour un service plus court. Une seule règle calcule les heures partout."
+    },
+    {
+      "en": "<strong>Monthly hours per employee</strong>, ready to enter in the payroll software, with Excel and CSV exports.",
+      "fr": "<strong>Les heures du mois par employé</strong>, prêtes à reporter dans le logiciel de paie, avec exports Excel et CSV."
+    },
+    {
+      "en": "<strong>Two ways in</strong>: the manager signs in with Google; the team enters a shared six-digit code, then picks a first name to see its own schedule.",
+      "fr": "<strong>Deux portes d’entrée</strong> : le gérant se connecte avec Google ; l’équipe tape un code partagé à six chiffres, puis choisit son prénom pour voir son propre planning."
+    },
+    {
+      "en": "<strong>PDF and Excel exports</strong> of the weekly planning, to print or send.",
+      "fr": "<strong>Exports PDF et Excel</strong> du planning de la semaine, à imprimer ou à envoyer."
+    }
+  ],
+  "flow": [
+    {
+      "title": {
+        "en": "The manager plans",
+        "fr": "Le gérant planifie"
+      },
+      "text": {
+        "en": "Crosses or hours, site by site",
+        "fr": "Croix ou horaires, site par site"
+      }
+    },
+    {
+      "title": {
+        "en": "One hours rule",
+        "fr": "Une règle d’heures"
+      },
+      "text": {
+        "en": "Opening hours or typed hours",
+        "fr": "Horaires d’ouverture ou saisis"
+      }
+    },
+    {
+      "title": {
+        "en": "The team checks",
+        "fr": "L’équipe consulte"
+      },
+      "text": {
+        "en": "Team code, then own schedule",
+        "fr": "Code d’équipe, puis son planning"
+      }
+    },
+    {
+      "title": {
+        "en": "Payroll",
+        "fr": "La paie"
+      },
+      "text": {
+        "en": "Monthly hours, Excel or CSV",
+        "fr": "Heures du mois, Excel ou CSV"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "image": "assets/projects/pizza-planning/employee.webp",
+      "caption": {
+        "en": "An employee's own week, after the team code",
+        "fr": "La semaine d’une employée, après le code d’équipe"
+      }
+    },
+    {
+      "image": "assets/projects/pizza-planning/hours.webp",
+      "caption": {
+        "en": "Monthly hours per employee, for payroll",
+        "fr": "Les heures du mois par employé, pour la paie"
+      }
+    },
+    {
+      "image": "assets/projects/pizza-planning/team.webp",
+      "caption": {
+        "en": "The team and its access code",
+        "fr": "L’équipe et son code d’accès"
+      }
+    }
+  ],
+  "demoData": true
+}
