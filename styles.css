@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=22');
-@import url('tokens/colors.css?v=22');
-@import url('tokens/typography.css?v=22');
-@import url('tokens/spacing.css?v=22');
+@import url('tokens/fonts.css?v=23');
+@import url('tokens/colors.css?v=23');
+@import url('tokens/typography.css?v=23');
+@import url('tokens/spacing.css?v=23');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -43,7 +43,13 @@ body {
 
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, h4 { text-wrap: balance; }
-p, li { text-wrap: pretty; }
+p, li {
+  text-wrap: pretty;
+  text-align: justify;
+  hyphens: auto;
+}
+/* Labels and large quotes stay ragged: justified, a few words leave holes */
+.about-cards p, .pp-quote p, .pp-cta p { text-align: left; }
 strong { color: var(--fg-1); font-weight: 600; }
 ul { list-style: none; }
 

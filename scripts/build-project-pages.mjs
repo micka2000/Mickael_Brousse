@@ -9,7 +9,7 @@ import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 
 const root = new URL('..', import.meta.url);
 const SITE = 'https://micka2000.github.io/Mickael_Brousse/';
-const V = 21; // asset version, keep in step with index.html
+const V = 23; // asset version, keep in step with index.html
 
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 // bilingual text; `rich` keeps the authored inline HTML (strong, code)
