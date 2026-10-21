@@ -5,10 +5,10 @@
    portfolio aliases on top, then the page styles.
    ============================================================ */
 
-@import url('tokens/fonts.css?v=21');
-@import url('tokens/colors.css?v=21');
-@import url('tokens/typography.css?v=21');
-@import url('tokens/spacing.css?v=21');
+@import url('tokens/fonts.css?v=22');
+@import url('tokens/colors.css?v=22');
+@import url('tokens/typography.css?v=22');
+@import url('tokens/spacing.css?v=22');
 
 /* Portfolio aliases — older names kept so section styles stay untouched */
 :root,
@@ -970,7 +970,20 @@ button, input, textarea, select { font: inherit; color: inherit; }
   font-size: var(--text-sm);
   line-height: 1.55;
   color: var(--fg-2);
+  /* Five lines at most; a longer summary scrolls inside the card */
+  max-height: calc(1.55em * 5);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-blue) transparent;
+  padding-right: 4px;
 }
+/* Fade the last line while there is more to read */
+.project-desc.is-scroll:not(.at-end) {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 1.55em), transparent);
+          mask-image: linear-gradient(to bottom, #000 calc(100% - 1.55em), transparent);
+}
+.project-desc:focus-visible { outline: 2px solid var(--color-blue); outline-offset: 2px; border-radius: 2px; }
 
 /* Screenshot visual — top of the live page, slight zoom on hover */
 .project-thumb--shot {

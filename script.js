@@ -1,6 +1,6 @@
 import { animate, inView, stagger } from "https://esm.sh/framer-motion@11"
-import { mergeProjects } from './projects-data.js?v=21';
-import { validate, sendContact } from './contact-send.js?v=21';
+import { mergeProjects } from './projects-data.js?v=22';
+import { validate, sendContact } from './contact-send.js?v=22';
 
 const PRM = window.matchMedia('(prefers-reduced-motion: reduce)');
 const prefersReducedMotion = () => PRM.matches;
@@ -439,6 +439,15 @@ function renderProjects() {
   renderProjectFilters();
   const list = projectFilter === 'all' ? projects : projects.filter(p => p.type === projectFilter);
   grid.innerHTML = list.map(projectCard).join('');
+  // A summary that overflows is a scroll region: reachable by keyboard too
+  grid.querySelectorAll('.project-desc').forEach(d => {
+    if (d.scrollHeight <= d.clientHeight) return;
+    d.tabIndex = 0;
+    d.classList.add('is-scroll');
+    d.addEventListener('scroll', () => {
+      d.classList.toggle('at-end', d.scrollTop + d.clientHeight >= d.scrollHeight - 2);
+    }, { passive: true });
+  });
   if (!prefersReducedMotion()) {
     animate(grid.querySelectorAll('.project-card'),
       { opacity: [0, 1], y: [16, 0] },
