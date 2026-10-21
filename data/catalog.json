@@ -38,8 +38,25 @@
         "fr": "Site vitrine de Kenza Hotel Consulting : audit et conseil « vision Michelin » pour hôtels indépendants. Site statique bilingue en déploiement continu, back-end Node.js + SQLite en cours."
       }
     },
-    "shiller-pe-simulator": {
+    "vigie-dette-france": {
       "order": 3,
+      "abbr": "VD",
+      "title": "Vigie Dette France",
+      "type": "data",
+      "image": "assets/projects/vigie-dette-france.webp",
+      "tags": [
+        "Python",
+        "JavaScript",
+        "GitHub Actions",
+        "Data viz"
+      ],
+      "summary": {
+        "en": "Dashboard of the five signals that show the health of French public debt: OAT-Bund spread, auction cover, non-resident share, agency ratings and the TARGET2 balance. Each has its history and risk thresholds drawn from it, combined into a score out of 100. A GitHub Action collects the data every morning. In French and English, light or dark theme.",
+        "fr": "Tableau de bord des cinq signaux de santé de la dette publique française : spread OAT-Bund, couverture des adjudications, part des non-résidents, notes des agences et solde TARGET2. Chacun a son historique et des seuils de risque tirés de celui-ci, réunis dans un indice sur 100. Une GitHub Action collecte les données chaque matin. En français et en anglais, en thème clair ou sombre."
+      }
+    },
+    "shiller-pe-simulator": {
+      "order": 4,
       "abbr": "PE",
       "title": "Shiller PE Simulator",
       "type": "data",
@@ -56,7 +73,7 @@
       }
     },
     "Pr-sentation-shiller-PE": {
-      "order": 4,
+      "order": 5,
       "abbr": "SP",
       "title": {
         "en": "Shiller PE · Presentation",
@@ -75,7 +92,7 @@
     },
     "pizza-planning": {
       "year": 2026,
-      "order": 5,
+      "order": 6,
       "private": true,
       "abbr": "PP",
       "title": "Pizza Planning",
@@ -95,7 +112,7 @@
     },
     "life-dashboard": {
       "year": 2026,
-      "order": 6,
+      "order": 7,
       "private": true,
       "abbr": "LD",
       "title": "Life Dashboard",
@@ -114,7 +131,7 @@
     },
     "cv-optimizer-v2": {
       "year": 2026,
-      "order": 7,
+      "order": 8,
       "private": true,
       "abbr": "CV",
       "title": "CV Optimizer",
@@ -134,7 +151,7 @@
     },
     "design-system-mickael-brousse": {
       "year": 2026,
-      "order": 8,
+      "order": 9,
       "private": true,
       "abbr": "DS",
       "title": "Design System",
